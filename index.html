@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SoleStyle — Premium Footwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -14,27 +17,214 @@
         <i class="fas fa-shoe-prints"></i> SoleStyle
       </a>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+      <div class="nav-search">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search shoes, brands..." class="search-input">
+      </div>
 
-      <div class="nav-actions">
-        <button class="icon-btn" aria-label="Search">
-          <i class="fas fa-search"></i>
-        </button>
-        <button class="icon-btn cart-btn" aria-label="Cart">
-          <i class="fas fa-shopping-bag"></i>
-          <span class="cart-badge">3</span>
-        </button>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="icon-btn cart-btn" aria-label="Cart">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge">3</span>
+          </button>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
+
+  <section class="hero" style="background-image: url('pexels-atiss260-1782110107-33597709.jpg');">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge">New Collection</span>
+      <h1>Step Into<br>Premium Comfort</h1>
+      <p>Discover handcrafted footwear that blends timeless style with all-day ease. Your perfect fit starts here.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary">Shop Now</a>
+        <a href="#" class="btn-secondary">Explore</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="brands">
+    <p>Trusted by footwear lovers worldwide</p>
+    <div class="brand-logos">
+      <span>NIKE</span>
+      <span>ADIDAS</span>
+      <span>PUMA</span>
+      <span>NEW BALANCE</span>
+      <span>CONVERSE</span>
+    </div>
+  </section>
+
+  <section class="categories">
+    <div class="section-header">
+      <h2>Shop by Category</h2>
+      <p>Find exactly what you need</p>
+    </div>
+    <div class="category-grid">
+      <a href="#" class="category-card">
+        <div class="category-icon"><i class="fas fa-running"></i></div>
+        <h3>Sneakers</h3>
+        <span>68 styles</span>
+      </a>
+      <a href="#" class="category-card">
+        <div class="category-icon"><i class="fas fa-shoe-prints"></i></div>
+        <h3>Loafers</h3>
+        <span>42 styles</span>
+      </a>
+      <a href="#" class="category-card">
+        <div class="category-icon"><i class="fas fa-boot"></i></div>
+        <h3>Boots</h3>
+        <span>35 styles</span>
+      </a>
+      <a href="#" class="category-card">
+        <div class="category-icon"><i class="fas fa-socks"></i></div>
+        <h3>Sandals</h3>
+        <span>27 styles</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="featured">
+    <div class="section-header">
+      <h2>Trending Now</h2>
+      <p>Our most popular picks this season</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-image">
+          <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
+          <span class="product-tag">Best Seller</span>
+        </div>
+        <div class="product-info">
+          <h3>Air Max Pulse</h3>
+          <p>Nike</p>
+          <span class="product-price">$189.99</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image">
+          <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
+          <span class="product-tag">New</span>
+        </div>
+        <div class="product-info">
+          <h3>Ultraboost Light</h3>
+          <p>Adidas</p>
+          <span class="product-price">$219.99</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image">
+          <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
+          <span class="product-tag">Sale</span>
+        </div>
+        <div class="product-info">
+          <h3>Chelsea Boot 2.0</h3>
+          <p>Timberland</p>
+          <span class="product-price">$149.99</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image">
+          <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
+        </div>
+        <div class="product-info">
+          <h3>Classic Leather</h3>
+          <p>Clarks</p>
+          <span class="product-price">$129.99</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner">
+    <div class="banner-content">
+      <h2>Free Shipping on Orders Over $100</h2>
+      <p>Plus free returns within 30 days of delivery.</p>
+      <a href="#" class="btn-primary">Start Shopping</a>
+    </div>
+  </section>
+
+  <section class="testimonial">
+    <div class="testimonial-content">
+      <i class="fas fa-quote-left"></i>
+      <blockquote>
+        "SoleStyle completely changed how I shop for shoes. The quality is unmatched, and the fit is always perfect. My go-to for every season."
+      </blockquote>
+      <div class="testimonial-author">
+        <div class="author-avatar"><i class="fas fa-user"></i></div>
+        <div>
+          <strong>Alex Rivera</strong>
+          <span>Verified Buyer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="newsletter-content">
+      <h2>Stay in the Loop</h2>
+      <p>Be the first to know about new drops, exclusive offers, and style tips.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">
+          <i class="fas fa-shoe-prints"></i> SoleStyle
+        </a>
+        <p>Premium footwear crafted for those who never stop moving. Style meets comfort since 2020.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="#">Men's Shoes</a>
+          <a href="#">Women's Shoes</a>
+          <a href="#">New Arrivals</a>
+          <a href="#">Sale</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Contact Us</a>
+          <a href="#">Shipping Info</a>
+          <a href="#">Returns & Exchanges</a>
+          <a href="#">Size Guide</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">Careers</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SoleStyle. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script>
     const hamburger = document.getElementById('hamburger');
@@ -43,6 +233,11 @@
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('open');
       hamburger.classList.toggle('active');
+    });
+
+    document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thanks for subscribing!');
     });
   </script>
 </body>
