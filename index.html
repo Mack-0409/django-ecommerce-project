@@ -14,54 +14,75 @@
   <section class="hero-sneaker">
     <div class="hero-sneaker-container">
 
-      <!-- Top navigation row -->
-      <div class="hero-top-bar">
-        <div class="hero-nav">
-          <a href="#" class="hero-nav-item active">Home</a>
-          <a href="#" class="hero-nav-item">About</a>
-          <a href="#" class="hero-nav-item">Drops</a>
-          <a href="#" class="hero-nav-item">Fresh In</a>
-        </div>
-        <div class="hero-icons">
-          <button class="hero-icon-btn" aria-label="Search">
-            <i class="fas fa-search"></i>
-          </button>
-          <button class="hero-icon-btn" aria-label="Favorites">
-            <i class="far fa-heart"></i>
-          </button>
-        </div>
+      <!-- Centered glassmorphism nav -->
+      <nav class="hero-nav">
+        <a href="#" class="hero-nav-item active">Home</a>
+        <a href="#" class="hero-nav-item">About</a>
+        <a href="#" class="hero-nav-item">Drops</a>
+        <a href="#" class="hero-nav-item">Fresh In <span class="badge-new">NEW</span></a>
+      </nav>
+
+      <!-- Top right utility icons -->
+      <div class="hero-top-right">
+        <button class="hero-icon-btn" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="hero-icon-btn" aria-label="Cart">
+          <i class="fas fa-shopping-cart"></i>
+        </button>
       </div>
 
-      <!-- Main hero content -->
+      <!-- Left side logo -->
+      <div class="hero-logo-icon">
+        <span class="logo-sole">SOLE</span>
+        <span class="logo-style">STYLE</span>
+      </div>
+
+      <!-- Main content area -->
       <div class="hero-main">
-        <div class="hero-text">
-          <!-- Style selector pills -->
+        <div class="hero-text-left">
+          <h1 class="hero-title">REIMAGINED</h1>
+          <h2 class="hero-subtitle">COMFORT</h2>
+          <p class="hero-desc">Comfort Evolved<br>Style Perfected.</p>
+        </div>
+        <div class="hero-image-center">
+          <img src="home2.jpg" alt="Premium Sneaker" class="hero-shoe-img">
+        </div>
+        <div class="hero-right-content">
+          <p class="hero-desc-text">Built For Every Mood, Every Outfit,<br>And Every Move To Lace Up<br>And Show Vibe.</p>
           <div class="hero-style-pills">
             <span class="pill pill-white">Comfort</span>
             <span class="pill pill-yellow">Style</span>
             <span class="pill pill-white">Trendy</span>
           </div>
-          <h1 class="hero-title">REMAGINED</h1>
-          <h2 class="hero-subtitle">COMFORT</h2>
-          <p class="hero-desc">Comfort Evolved<br>Style Perfected</p>
-        </div>
-        <div class="hero-visual">
-          <div class="flash-drop">Flash Drop <strong>25%</strong></div>
-          <img src="pexels-introspectivedsgn-7445820.jpg" alt="Premium Sneaker" class="hero-shoe-img">
-
+          <div class="flash-drop">
+            <span class="flash-drop-label">Our All New Arrival</span>
+            <span class="flash-drop-value">Flash Drop <strong>25%</strong></span>
+          </div>
         </div>
       </div>
 
-      <!-- Bottom bar -->
-      <div class="hero-bottom-bar">
-        <div class="hero-logo-block">
-          <span class="hero-logo-text">SOLE</span>
-          <span class="hero-logo-text accent">STYLE</span>
+      <!-- Social proof -->
+      <div class="hero-social-proof">
+        <div class="proof-item">
+          <i class="far fa-heart"></i>
+          <div class="proof-numbers">
+            <span class="proof-count">1,524</span>
+            <span class="proof-label">From 1200+</span>
+          </div>
         </div>
-        <a href="#" class="hero-explore-btn">
-          <span>Explore</span>
-          <i class="fas fa-arrow-right"></i>
-        </a>
+        <div class="proof-avatars">
+          <div class="avatar" style="background: #b8a99a;"></div>
+          <div class="avatar" style="background: #9a8c7f;"></div>
+          <div class="avatar" style="background: #7d6f63;"></div>
+          <span class="proof-users">70</span>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator">
+        <span class="scroll-text">SCROLL TO EXPLORE</span>
+        <span class="scroll-arrow">↓</span>
       </div>
 
     </div>

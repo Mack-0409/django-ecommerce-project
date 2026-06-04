@@ -9,7 +9,7 @@ body {
   background: #ffffff;
 }
 
-/* ===== SNEAKER HERO ===== */
+/* ===== PREMIUM SNEAKER HERO ===== */
 .hero-sneaker {
   width: 100%;
   min-height: 100vh;
@@ -21,37 +21,32 @@ body {
 .hero-sneaker-container {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0D0D0D 0%, #4A4A4A 100%);
-  padding: 28px 36px 24px;
+  background: linear-gradient(90deg, #111111 0%, #8d8782 50%, #111111 100%);
   position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* Top bar */
-.hero-top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.hero-icons {
-  display: flex;
-  gap: 12px;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
+/* ===== NAVIGATION ===== */
 .hero-nav {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
   padding: 6px;
+  width: 500px;
+  height: 60px;
+  z-index: 10;
+  justify-content: center;
 }
 
 .hero-nav-item {
@@ -59,11 +54,12 @@ body {
   font-size: 0.85rem;
   font-weight: 600;
   color: #fff;
-  padding: 8px 20px;
-  border-radius: 999px;
+  padding: 10px 24px;
+  border-radius: 30px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
 }
 
 .hero-nav-item.active {
@@ -75,11 +71,34 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
+.badge-new {
+  display: inline-block;
+  background: #F4E425;
+  color: #000;
+  border-radius: 999px;
+  font-size: 10px;
+  padding: 2px 6px;
+  margin-left: 4px;
+  font-weight: 700;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+/* ===== TOP RIGHT ICONS ===== */
+.hero-top-right {
+  position: absolute;
+  top: 45px;
+  right: 40px;
+  display: flex;
+  gap: 14px;
+  z-index: 10;
+}
+
 .hero-icon-btn {
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   background: transparent;
   color: #fff;
   font-size: 1rem;
@@ -95,22 +114,136 @@ body {
   border-color: rgba(255, 255, 255, 0.6);
 }
 
-/* Style pills */
+/* ===== LEFT LOGO ===== */
+.hero-logo-icon {
+  position: absolute;
+  top: 36px;
+  left: 40px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.logo-sole {
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.logo-style {
+  font-size: 12px;
+  font-weight: 600;
+  color: #F4E425;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* ===== MAIN CONTENT - ABSOLUTE POSITIONING ===== */
+.hero-main {
+  flex: 1;
+  position: relative;
+  z-index: 5;
+}
+
+/* Left text block — lower-left per spec */
+.hero-text-left {
+  position: absolute;
+  left: clamp(40px, 5vw, 80px);
+  bottom: clamp(100px, 12vh, 170px);
+  max-width: 500px;
+  z-index: 5;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 5.5vw, 80px);
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  margin: 0;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.6rem, 4vw, 56px);
+  font-weight: 300;
+  color: #F4E425;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 1px;
+  margin: 8px 0 0 0;
+}
+
+.hero-desc {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+/* Center image — dead center, oversized */
+.hero-image-center {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-shoe-img {
+  width: min(1200px, 95vw);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+}
+
+/* Right content block — upper-right per spec */
+.hero-right-content {
+  position: absolute;
+  right: clamp(40px, 6vw, 120px);
+  top: clamp(140px, 18vh, 250px);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.hero-desc-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: right;
+}
+
 .hero-style-pills {
   display: flex;
   gap: 10px;
-  margin-top: 28px;
 }
 
 .pill {
-  padding: 10px 22px;
+  height: 38px;
+  padding: 0 18px;
   border-radius: 999px;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   cursor: default;
-  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .pill-white {
@@ -119,148 +252,120 @@ body {
 }
 
 .pill-yellow {
-  background: #E6D21A;
+  background: #F4E425;
   color: #000;
-}
-
-/* Main content */
-.hero-main {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  margin-top: 10px;
-  position: relative;
-}
-
-.hero-text {
-  flex: 0 0 auto;
-  z-index: 2;
-}
-
-.hero-title {
-  font-size: clamp(3rem, 7vw, 90px);
-  font-weight: 900;
-  color: #fff;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: -2px;
-  margin: 0;
-}
-
-.hero-subtitle {
-  font-size: clamp(2rem, 5vw, 72px);
-  font-weight: 700;
-  color: #E6D21A;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: -1px;
-  margin: 8px 0 0 0;
-}
-
-.hero-desc {
-  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
-  color: #fff;
-  line-height: 1.6;
-  margin-top: 20px;
-  max-width: 260px;
-  opacity: 0.85;
-}
-
-/* Visual area */
-.hero-visual {
-  flex: 1;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 400px;
-}
-
-.hero-shoe-img {
-  max-width: 90%;
-  height: auto;
-  object-fit: contain;
-  position: relative;
-  z-index: 1;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
 }
 
 .flash-drop {
-  position: absolute;
-  top: 0;
-  right: 20px;
-  z-index: 3;
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
   text-align: right;
-  line-height: 1.4;
-  letter-spacing: 1px;
 }
 
-.flash-drop strong {
-  font-size: 1.6rem;
-  font-weight: 800;
+.flash-drop-label {
   display: block;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 400;
 }
 
-/* Bottom bar */
-.hero-bottom-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
-  padding-top: 12px;
-}
-
-.hero-logo-block {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-
-.hero-logo-text {
-  font-size: 1.1rem;
-  font-weight: 800;
+.flash-drop-value {
+  display: block;
+  font-size: 42px;
+  font-weight: 700;
   color: #fff;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.12);
-  padding: 4px 10px;
-  border-radius: 4px;
+  line-height: 1.1;
+  margin-top: 4px;
 }
 
-.hero-logo-text.accent {
-  background: rgba(230, 210, 26, 0.15);
-  color: #E6D21A;
+.flash-drop-value strong {
+  color: #F4E425;
 }
 
-.hero-explore-btn {
+/* ===== SOCIAL PROOF ===== */
+.hero-social-proof {
+  position: absolute;
+  bottom: 100px;
+  right: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  z-index: 10;
+}
+
+.proof-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 56px;
-  height: 56px;
+  gap: 12px;
+}
+
+.proof-item .fa-heart {
+  font-size: 32px;
+  color: #fff;
+}
+
+.proof-numbers {
+  display: flex;
+  flex-direction: column;
+}
+
+.proof-count {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.proof-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.proof-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 2px solid #fff;
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.75rem;
+  margin-left: -8px;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.proof-users {
+  font-size: 24px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: background 0.2s, color 0.2s;
+  color: #fff;
+  margin-left: 8px;
 }
 
-.hero-explore-btn i {
-  font-size: 1rem;
+/* ===== SCROLL INDICATOR ===== */
+.scroll-indicator {
+  position: absolute;
+  right: 30px;
+  bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
 }
 
-.hero-explore-btn:hover {
-  background: #fff;
-  color: #000;
+.scroll-text {
+  writing-mode: vertical-rl;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.scroll-arrow {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 
@@ -834,34 +939,148 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+  .hero-nav {
+    width: auto;
+    padding: 6px 12px;
+  }
+
+  .hero-nav-item {
+    padding: 8px 16px;
+    font-size: 0.78rem;
+  }
+
+  .hero-shoe-img {
+    width: min(500px, 50vw);
+  }
+
+  .flash-drop-value {
+    font-size: 32px;
+  }
+
+  .hero-social-proof {
+    right: 40px;
+  }
+
+  .hero-right-content {
+    right: clamp(30px, 4vw, 80px);
+  }
+}
+
 @media (max-width: 1024px) {
-  .hero-sneaker-container {
-    padding: 20px 24px 20px;
-  }
-
+  /* Switch from absolute to flex stacking */
   .hero-main {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-text {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 0 30px;
+    margin-top: 80px;
   }
 
-  .hero-desc {
+  .hero-text-left {
+    position: relative;
+    left: auto;
+    bottom: auto;
     max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-image-center {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    pointer-events: auto;
+  }
+
+  .hero-shoe-img {
+    width: min(400px, 70vw);
+    max-width: 100%;
+  }
+
+  .hero-right-content {
+    position: relative;
+    right: auto;
+    top: auto;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-desc-text {
+    text-align: center;
   }
 
   .hero-style-pills {
     justify-content: center;
   }
 
-  .hero-visual {
-    min-height: 280px;
-    margin-top: 20px;
-    width: 100%;
+  .flash-drop {
+    text-align: center;
+  }
+
+  .hero-nav {
+    width: auto;
+    padding: 6px 10px;
+    height: 50px;
+  }
+
+  .hero-nav-item {
+    padding: 6px 14px;
+    font-size: 0.72rem;
+  }
+
+  .badge-new {
+    font-size: 8px;
+    padding: 1px 4px;
+  }
+
+  .hero-top-right {
+    top: 40px;
+    right: 20px;
+  }
+
+  .hero-icon-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 0.9rem;
+  }
+
+  .hero-logo-icon {
+    top: 90px;
+    left: 20px;
+  }
+
+  .hero-logo-icon i {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-desc {
+    font-size: 18px;
+  }
+
+  .hero-social-proof {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .proof-item {
+    flex-direction: row;
+  }
+
+  .scroll-indicator {
+    display: none;
   }
 
   .category-grid,
@@ -882,87 +1101,103 @@ body {
 }
 
 @media (max-width: 768px) {
-  .hero-sneaker-container {
-    padding: 16px 16px 16px;
-  }
-
-  .hero-top-bar {
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-
   .hero-nav {
-    flex-wrap: wrap;
-    justify-content: center;
+    width: 90%;
+    height: auto;
+    padding: 4px;
+    gap: 2px;
+    top: 16px;
   }
 
   .hero-nav-item {
-    font-size: 0.75rem;
-    padding: 6px 14px;
+    font-size: 0.65rem;
+    padding: 6px 10px;
+  }
+
+  .badge-new {
+    font-size: 7px;
+    padding: 1px 3px;
+  }
+
+  .hero-top-right {
+    top: 80px;
+    right: 12px;
+    gap: 8px;
   }
 
   .hero-icon-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 0.85rem;
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
   }
 
-  .hero-style-pills {
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  .pill {
-    font-size: 0.75rem;
-    padding: 8px 16px;
+  .hero-logo-icon {
+    display: none;
   }
 
   .hero-main {
-    flex-direction: column;
-    text-align: center;
+    padding: 0 16px;
+    gap: 16px;
+    margin-top: 100px;
   }
 
-  .hero-text {
-    align-items: center;
+  .hero-title {
+    font-size: 3rem;
+    letter-spacing: -1px;
+  }
+
+  .hero-subtitle {
+    font-size: 2.2rem;
   }
 
   .hero-desc {
-    max-width: 100%;
-    font-size: 0.85rem;
-  }
-
-  .hero-visual {
-    min-height: 220px;
-    margin-top: 16px;
+    font-size: 16px;
   }
 
   .hero-shoe-img {
+    width: min(280px, 75vw);
     max-width: 100%;
   }
 
-  .flash-drop {
-    font-size: 0.7rem;
-    right: 10px;
+  .hero-desc-text {
+    font-size: 15px;
   }
 
-  .flash-drop strong {
-    font-size: 1.2rem;
+  .pill {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 0.75rem;
   }
 
-  .hero-bottom-bar {
+  .flash-drop-label {
+    font-size: 18px;
+  }
+
+  .flash-drop-value {
+    font-size: 32px;
+  }
+
+  .hero-social-proof {
     flex-direction: column;
     gap: 12px;
-    align-items: center;
+    padding: 20px 16px;
   }
 
-  .hero-logo-text {
-    font-size: 0.9rem;
+  .proof-item .fa-heart {
+    font-size: 32px;
   }
 
-  .hero-explore-btn {
-    width: 48px;
-    height: 48px;
+  .proof-count {
+    font-size: 30px;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .proof-users {
+    font-size: 28px;
   }
 
   .category-grid,
