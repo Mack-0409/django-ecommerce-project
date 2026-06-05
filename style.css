@@ -973,22 +973,23 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 22px;
+  padding: 14px 36px;
   background: #F5E400;
   color: #000;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
   text-decoration: none;
   border-radius: 999px;
-  box-shadow: 0 6px 20px rgba(245, 228, 0, 0.35);
-  transition: transform 0.2s, box-shadow 0.2s;
-  letter-spacing: 0.3px;
+  box-shadow: 0 8px 28px rgba(245, 228, 0, 0.4);
+  transition: transform 0.25s, box-shadow 0.25s;
+  letter-spacing: 0.5px;
   line-height: 1.4;
 }
 
 .lifestyle-btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(245, 228, 0, 0.5);
 }
 
 /* ===== GALLERY ===== */
@@ -1086,13 +1087,20 @@ body {
 }
 
 .upgrade-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px;
+  width: 100%;
+  padding: 0 60px 0 80px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.upgrade-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
 }
 
 .upgrade-title {
@@ -1101,15 +1109,17 @@ body {
   color: #000;
   line-height: 1.08;
   letter-spacing: -1.5px;
-  margin: 0 0 16px;
+  margin: 0;
+  flex-shrink: 0;
 }
 
 .upgrade-desc {
   font-size: 15px;
   color: #8A8A8A;
   line-height: 1.7;
-  margin: 0 0 40px;
-  max-width: 600px;
+  margin: 0;
+  max-width: 500px;
+  text-align: left;
 }
 
 .upgrade-filters {
@@ -1117,6 +1127,9 @@ body {
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  align-self: center;
+  width: 100%;
+  margin-top: 60px;
 }
 
 .pill-filter {
