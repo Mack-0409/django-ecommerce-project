@@ -938,6 +938,212 @@ body {
   font-size: 0.85rem;
 }
 
+/* ===== LIFESTYLE HERO ===== */
+.lifestyle-split {
+  width: 100%;
+  background: #F7F7F7;
+  display: flex;
+}
+
+.lifestyle-text {
+  width: 50%;
+  padding: 60px 60px 60px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lifestyle-title {
+  font-size: clamp(2.5rem, 4vw, 72px);
+  font-weight: 900;
+  color: #000;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin: 0 0 20px;
+}
+
+.lifestyle-desc {
+  font-size: 15px;
+  color: #8A8A8A;
+  line-height: 1.7;
+  margin: 0 0 32px;
+}
+
+.lifestyle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  background: #F5E400;
+  color: #000;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(245, 228, 0, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+
+.lifestyle-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* ===== GALLERY ===== */
+.lifestyle-gallery {
+  width: 50%;
+  display: flex;
+  gap: 12px;
+  padding: 60px 80px 60px 20px;
+}
+
+.gallery-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gallery-col:first-child {
+  flex: 1.2;
+}
+
+.gallery-card {
+  width: 100%;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 120px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-card.large {
+  min-height: 220px;
+}
+
+.gallery-card.card-1 {
+  min-height: 130px;
+  background-color: #e8ddd0;
+}
+
+.gallery-card.card-2 {
+  min-height: 150px;
+  background-color: #d4e4f0;
+}
+
+.gallery-card.card-3 {
+  background-color: #c8b8a8;
+}
+
+.gallery-card.card-4 {
+  min-height: 130px;
+  background-color: #e0e8ee;
+}
+
+.gallery-card.card-5 {
+  min-height: 110px;
+  background-color: #d8d0c8;
+  opacity: 0.85;
+}
+
+/* Social overlay on featured card */
+.gallery-social {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 10px 20px;
+  border-radius: 999px;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.social-item i {
+  font-size: 1rem;
+}
+
+/* ===== STYLE UPGRADE ===== */
+.style-upgrade {
+  width: 100%;
+  background: #F7F7F7;
+  padding: 0 0 80px;
+}
+
+.upgrade-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.upgrade-title {
+  font-size: clamp(2.2rem, 3.5vw, 64px);
+  font-weight: 900;
+  color: #000;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  margin: 0 0 16px;
+}
+
+.upgrade-desc {
+  font-size: 15px;
+  color: #8A8A8A;
+  line-height: 1.7;
+  margin: 0 0 40px;
+  max-width: 600px;
+}
+
+.upgrade-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.pill-filter {
+  padding: 12px 28px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid #DADADA;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.pill-filter:hover {
+  border-color: #F5E400;
+}
+
+.pill-filter.active {
+  background: #F5E400;
+  border-color: #F5E400;
+  color: #000;
+  box-shadow: 0 4px 12px rgba(245, 228, 0, 0.3);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1200px) {
   .hero-nav {
@@ -1083,6 +1289,25 @@ body {
     display: none;
   }
 
+  .lifestyle-split {
+    flex-direction: column;
+  }
+
+  .lifestyle-text {
+    width: 100%;
+    padding: 50px 40px 0;
+    text-align: center;
+  }
+
+  .lifestyle-gallery {
+    width: 100%;
+    padding: 30px 40px 50px;
+  }
+
+  .gallery-col:first-child {
+    flex: 1;
+  }
+
   .category-grid,
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1198,6 +1423,51 @@ body {
 
   .proof-users {
     font-size: 28px;
+  }
+
+  .lifestyle-split {
+    flex-direction: column;
+  }
+
+  .lifestyle-text {
+    width: 100%;
+    padding: 40px 20px 0;
+    text-align: center;
+  }
+
+  .lifestyle-gallery {
+    width: 100%;
+    padding: 24px 20px 40px;
+    flex-direction: column;
+  }
+
+  .gallery-col:first-child {
+    flex: none;
+  }
+
+  .gallery-card {
+    min-height: 160px !important;
+  }
+
+  .gallery-card.large {
+    min-height: 240px !important;
+  }
+
+  .style-upgrade {
+    padding: 0 0 60px;
+  }
+
+  .upgrade-container {
+    padding: 0 20px;
+  }
+
+  .upgrade-filters {
+    gap: 8px;
+  }
+
+  .pill-filter {
+    padding: 10px 20px;
+    font-size: 0.8rem;
   }
 
   .category-grid,
