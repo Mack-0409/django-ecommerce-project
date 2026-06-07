@@ -171,13 +171,14 @@ body {
 }
 
 .hero-subtitle {
-  font-size: clamp(1.6rem, 4vw, 56px);
-  font-weight: 300;
-  color: #F4E425;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
   text-transform: uppercase;
   line-height: 1;
-  letter-spacing: 1px;
-  margin: 8px 0 0 0;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 12px 20px;
 }
 
 .hero-desc {
@@ -372,38 +373,53 @@ body {
 
 /* ===== BRANDS ===== */
 .brands {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 50px 40px 70px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
   text-align: center;
 }
 
-.brands p {
-  color: #aaa;
-  font-size: 0.85rem;
+.brands h2 {
+  color: #000;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 30px;
+  padding: 24px 0 0;
+  margin: 0 0 0;
+  text-align: center;
 }
 
 .brand-logos {
   display: flex;
+  gap: 0;
+  width: 100%;
+}
+
+.brand-logos a {
+  flex: 1;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
-}
-
-.brand-logos span {
-  color: #ccc;
-  font-size: 1.4rem;
+  color: #fff;
+  font-size: 1.8rem;
   font-weight: 800;
-  letter-spacing: 3px;
-  transition: color 0.2s;
+  letter-spacing: 4px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  text-decoration: none;
 }
 
-.brand-logos span:hover {
-  color: #d4a853;
-}
+.brand-logos a:nth-child(1) { background-image: url('nikelogo.jpg'); }
+.brand-logos a:nth-child(2) { background-image: url('home.jpg'); }
+.brand-logos a:nth-child(3) { background-image: url('home2.jpg'); }
+.brand-logos a:nth-child(4) { background-image: url('pexels-mnzoutfits-1598505.jpg'); }
+.brand-logos a:nth-child(5) { background-image: url('testimonials.jpg'); }
 
 /* ===== SECTIONS COMMON ===== */
 .section-header {
@@ -1383,10 +1399,6 @@ body {
     letter-spacing: -1px;
   }
 
-  .hero-subtitle {
-    font-size: 2.2rem;
-  }
-
   .hero-desc {
     font-size: 16px;
   }
@@ -1492,16 +1504,18 @@ body {
     padding: 60px 20px;
   }
 
-  .brands {
-    padding: 30px 20px 50px;
-  }
-
   .brand-logos {
-    gap: 30px;
+    flex-wrap: wrap;
   }
 
-  .brand-logos span {
-    font-size: 1.1rem;
+  .brand-logos a {
+    min-height: 280px;
+    font-size: 1.2rem;
+    flex: 1 1 50%;
+  }
+
+  .brands h2 {
+    font-size: 0.8rem;
   }
 
   .section-header h2 {
@@ -1547,5 +1561,12 @@ body {
 
   .footer-bottom {
     padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logos a {
+    flex: 1 1 100%;
+    min-height: 200px;
   }
 }
