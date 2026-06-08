@@ -88,6 +88,11 @@
     </div>
   </section>
 
+  <div class="star-bg">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+
   <!-- ===== LIFESTYLE HERO SECTION ===== -->
   <section class="lifestyle-split">
     <div class="lifestyle-text">
@@ -213,47 +218,80 @@
       <p>Our most popular picks this season</p>
     </div>
     <div class="product-grid">
-      <div class="product-card">
-        <div class="product-image">
-          <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
-          <span class="product-tag">Best Seller</span>
-        </div>
-        <div class="product-info">
-          <h3>Air Max Pulse</h3>
-          <p>Nike</p>
-          <span class="product-price">$189.99</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
-          <span class="product-tag">New</span>
-        </div>
-        <div class="product-info">
-          <h3>Ultraboost Light</h3>
-          <p>Adidas</p>
-          <span class="product-price">$219.99</span>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="product-image">
+              <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="product-tag">Best Seller</span>
+              <h3>Air Max Pulse</h3>
+              <p class="card-brand">Nike</p>
+              <span class="product-price">$189.99</span>
+              <p class="card-desc">Premium comfort meets street-ready style.</p>
+              <a href="#" class="card-cta">Shop Now</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="product-card">
-        <div class="product-image">
-          <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
-          <span class="product-tag">Sale</span>
-        </div>
-        <div class="product-info">
-          <h3>Chelsea Boot 2.0</h3>
-          <p>Timberland</p>
-          <span class="product-price">$149.99</span>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="product-image">
+              <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="product-tag">New</span>
+              <h3>Ultraboost Light</h3>
+              <p class="card-brand">Adidas</p>
+              <span class="product-price">$219.99</span>
+              <p class="card-desc">Lightweight performance for everyday moves.</p>
+              <a href="#" class="card-cta">Shop Now</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="product-card">
-        <div class="product-image">
-          <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="product-image">
+              <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="product-tag">Sale</span>
+              <h3>Chelsea Boot 2.0</h3>
+              <p class="card-brand">Timberland</p>
+              <span class="product-price">$149.99</span>
+              <p class="card-desc">Rugged durability with a clean silhouette.</p>
+              <a href="#" class="card-cta">Shop Now</a>
+            </div>
+          </div>
         </div>
-        <div class="product-info">
-          <h3>Classic Leather</h3>
-          <p>Clarks</p>
-          <span class="product-price">$129.99</span>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="product-image">
+              <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="product-tag">Trending</span>
+              <h3>Classic Leather</h3>
+              <p class="card-brand">Clarks</p>
+              <span class="product-price">$129.99</span>
+              <p class="card-desc">Timeless leather craftsmanship, built to last.</p>
+              <a href="#" class="card-cta">Shop Now</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -336,6 +374,8 @@
       <p>&copy; 2026 SoleStyle. All rights reserved.</p>
     </div>
   </footer>
+
+  </div>
 
   <script>
     document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
