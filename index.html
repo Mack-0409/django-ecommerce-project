@@ -3,385 +3,450 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SoleStyle — Premium Footwear</title>
+  <title>NOIR — Premium Footwear</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <section class="hero-sneaker">
-    <div class="hero-sneaker-container">
 
-      <!-- Centered glassmorphism nav -->
-      <nav class="hero-nav">
-        <a href="#" class="hero-nav-item active">Home</a>
-        <a href="#" class="hero-nav-item">About</a>
-        <a href="#" class="hero-nav-item">Drops</a>
-        <a href="#" class="hero-nav-item">Fresh In <span class="badge-new">NEW</span></a>
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#" class="logo">NO<span>IR</span></a>
+      <nav class="nav" id="nav">
+        <a href="#categories">Categories</a>
+        <a href="#featured">New Drops</a>
+        <a href="#features">Why Noir</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#stories">Stories</a>
       </nav>
-
-      <!-- Top right utility icons -->
-      <div class="hero-top-right">
-        <button class="hero-icon-btn" aria-label="Search">
-          <i class="fas fa-search"></i>
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
         </button>
-        <button class="hero-icon-btn" aria-label="Cart">
-          <i class="fas fa-shopping-cart"></i>
+        <button class="icon-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          <span class="cart-count">3</span>
+        </button>
+        <div class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <span class="hero-badge">2026 Collection</span>
+      <h1 class="hero-title">
+        <span class="title-line">Define Your</span>
+        <span class="title-line accent">Edge</span>
+        <span class="title-underline" id="titleUnderline"></span>
+      </h1>
+      <p class="hero-desc">Where precision engineering meets raw attitude. Forged in midnight, built to dominate.</p>
+      <div class="hero-cta">
+        <a href="#featured" class="btn-primary">Explore Collection</a>
+        <a href="#stories" class="btn-secondary">Watch Film</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value" data-target="15">0</span>
+          <span class="stat-label">Years Heritage</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" data-target="200">0</span>
+          <span class="stat-label">Global Stores</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" data-target="50">0</span>
+          <span class="stat-label">Awards</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="shoe-container" id="shoeContainer">
+        <div class="shoe-shine"></div>
+        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80" alt="Premium sneaker" class="shoe-image" id="shoeImage" draggable="false">
+        <div class="shoe-glow" id="shoeGlow"></div>
+        <div class="hero-badge-card">
+          <span class="badge-icon">🔥</span>
+          <div>
+            <div class="badge-title">Limited Edition</div>
+            <div class="badge-sub">Only 500 pairs</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-indicators">
+        <span class="indicator active"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span>New Arrivals</span><span class="sep">✦</span>
+      <span>Free Shipping Over $150</span><span class="sep">✦</span>
+      <span>Limited Drops</span><span class="sep">✦</span>
+      <span>Premium Quality</span><span class="sep">✦</span>
+      <span>30-Day Returns</span><span class="sep">✦</span>
+      <span>New Arrivals</span><span class="sep">✦</span>
+      <span>Free Shipping Over $150</span><span class="sep">✦</span>
+      <span>Limited Drops</span><span class="sep">✦</span>
+      <span>Premium Quality</span><span class="sep">✦</span>
+      <span>30-Day Returns</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="categories" id="categories">
+    <div class="categories-header">
+      <div>
+        <p class="section-eyebrow">Categories</p>
+        <h2 class="section-label">Shop by Category</h2>
+      </div>
+      <div class="categories-nav">
+        <button class="scroll-arrow left" id="scrollLeft" aria-label="Scroll left">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="scroll-arrow right" id="scrollRight" aria-label="Scroll right">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
       </div>
-
-      <!-- Left side logo -->
-      <div class="hero-logo-icon">
-        <span class="logo-sole">SOLE</span>
-        <span class="logo-style">STYLE</span>
-      </div>
-
-      <!-- Main content area -->
-      <div class="hero-main">
-        <div class="hero-text-left">
-          <h1 class="hero-title">REIMAGINED</h1>
-          <h2 class="hero-subtitle">COMFORT</h2>
-          <p class="hero-desc">Comfort Evolved<br>Style Perfected.</p>
-        </div>
-        <div class="hero-image-center">
-          <img src="home2.jpg" alt="Premium Sneaker" class="hero-shoe-img">
-        </div>
-        <div class="hero-right-content">
-          <p class="hero-desc-text">Built For Every Mood, Every Outfit,<br>And Every Move To Lace Up<br>And Show Vibe.</p>
-          <div class="hero-style-pills">
-            <span class="pill pill-white">Comfort</span>
-            <span class="pill pill-yellow">Style</span>
-            <span class="pill pill-white">Trendy</span>
-          </div>
-          <div class="flash-drop">
-            <span class="flash-drop-label">Our All New Arrival</span>
-            <span class="flash-drop-value">Flash Drop <strong>25%</strong></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Social proof -->
-      <div class="hero-social-proof">
-        <div class="proof-item">
-          <i class="far fa-heart"></i>
-          <div class="proof-numbers">
-            <span class="proof-count">1,524</span>
-            <span class="proof-label">From 1200+</span>
-          </div>
-        </div>
-        <div class="proof-avatars">
-          <div class="avatar" style="background: #b8a99a;"></div>
-          <div class="avatar" style="background: #9a8c7f;"></div>
-          <div class="avatar" style="background: #7d6f63;"></div>
-          <span class="proof-users">70</span>
-        </div>
-      </div>
-
-      <!-- Scroll indicator -->
-      <div class="scroll-indicator">
-        <span class="scroll-text">SCROLL TO EXPLORE</span>
-        <span class="scroll-arrow">↓</span>
-      </div>
-
     </div>
-  </section>
-
-  <div class="star-bg">
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
-
-  <!-- ===== LIFESTYLE HERO SECTION ===== -->
-  <section class="lifestyle-split">
-    <div class="lifestyle-text">
-      <h1 class="lifestyle-title">Not Just Shoes<br>A Lifestyle</h1>
-      <p class="lifestyle-desc">Every Pair Is Designed To Match Your<br>Grind, Your Goals, And Your Style Comfort.</p>
-      <div> <a href="#" class="lifestyle-btn">Live The Style</a></div>
-    </div>
-    <div class="lifestyle-gallery">
-      <div class="gallery-col">
-        <div class="gallery-card card-1" style="background-image: url('pexels-introspectivedsgn-4273288.jpg');"></div>
-        <div class="gallery-card card-3 large" style="background-image: url('home.jpg');">
-          <div class="gallery-social">
-            <div class="social-item">
-              <i class="far fa-heart"></i>
-              <span>1,524</span>
-            </div>
-            <div class="social-item">
-              <i class="far fa-comment"></i>
-              <span>70</span>
-            </div>
-          </div>
+    <div class="categories-strip" id="categoryStrip">
+      <div class="category-card">
+        <div class="category-img-wrap">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80" alt="Running" loading="lazy">
         </div>
-        <div class="gallery-card card-5" style="background-image: url('pexels-introspectivedsgn-7543641.jpg');"></div>
+        <span class="category-name">Running</span>
       </div>
-      <div class="gallery-col">
-        <div class="gallery-card card-2" style="background-image: url('pexels-introspectivedsgn-7445820.jpg');"></div>
-        <div class="gallery-card card-4" style="background-image: url('pexels-mnzoutfits-1598505.jpg');"></div>
+      <div class="category-card">
+        <div class="category-img-wrap">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=300&q=80" alt="Training" loading="lazy">
+        </div>
+        <span class="category-name">Training</span>
+      </div>
+      <div class="category-card">
+        <div class="category-img-wrap">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&q=80" alt="Lifestyle" loading="lazy">
+        </div>
+        <span class="category-name">Lifestyle</span>
+      </div>
+      <div class="category-card">
+        <div class="category-img-wrap">
+          <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=300&q=80" alt="Basketball" loading="lazy">
+        </div>
+        <span class="category-name">Basketball</span>
+      </div>
+      <div class="category-card">
+        <div class="category-img-wrap">
+          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=300&q=80" alt="Casual" loading="lazy">
+        </div>
+        <span class="category-name">Casual</span>
+      </div>
+      <div class="category-card">
+        <div class="category-img-wrap">
+          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=300&q=80" alt="Sneakers" loading="lazy">
+        </div>
+        <span class="category-name">Sneakers</span>
+      </div>
+      <div class="category-card">
+        <div class="category-img-wrap">
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=300&q=80" alt="Formal" loading="lazy">
+        </div>
+        <span class="category-name">Formal</span>
       </div>
     </div>
   </section>
 
-  <!-- ===== STYLE UPGRADE SECTION ===== -->
-  <section class="style-upgrade">
-    <div class="upgrade-container">
-      <div class="upgrade-row">
-        <h2 class="upgrade-title">Your Everyday<br>Style Upgrade</h2>
-        <p class="upgrade-desc">Level Up Your Daily Look With Shoes That<br>Blend Comfort, Attitude, And Effortless Style.<br>Designed For Every Move From School Runs<br>To Weekend Plans.</p>
+  <!-- ===== FEATURED PRODUCTS ===== -->
+  <section class="featured" id="featured">
+    <div class="featured-header">
+      <div>
+        <p class="section-eyebrow">New Drops</p>
+        <h2 class="section-label">Featured Drops</h2>
       </div>
-      <div class="upgrade-filters">
-        <button class="pill-filter active">All</button>
-        <button class="pill-filter">Fresh Fits</button>
-        <button class="pill-filter">Heavy Heat</button>
-        <button class="pill-filter">Go Flow</button>
-        <button class="pill-filter">Slide Zone</button>
-        <button class="pill-filter">Core Edit</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="brands">
-    <h2>Trusted by footwear lovers worldwide</h2>
-    <div class="brand-logos">
-      <a href="#">NIKE</a>
-      <a href="#">ADIDAS</a>
-      <a href="#">PUMA</a>
-      <a href="#">NEW BALANCE</a>
-      <a href="#">CONVERSE</a>
-    </div>
-  </section>
-
-  <section class="categories">
-    <div class="section-header">
-      <h2>Shop by Category</h2>
-      <p>Find exactly what you need</p>
-    </div>
-    <div class="category-grid">
-      <a href="#" class="category-card" style="background-image: url('home2.jpg');">
-        <div class="category-overlay"></div>
-        <div class="category-content">
-          <div class="category-icon"><i class="fas fa-running"></i></div>
-          <h3>Sneakers</h3>
-          <span>68 styles</span>
-        </div>
-      </a>
-      <a href="#" class="category-card" style="background-image: url('pexels-introspectivedsgn-4273288.jpg');">
-        <div class="category-overlay"></div>
-        <div class="category-content">
-          <div class="category-icon"><i class="fas fa-shoe-prints"></i></div>
-          <h3>Loafers</h3>
-          <span>42 styles</span>
-        </div>
-      </a>
-      <a href="#" class="category-card" style="background-image: url('pexels-mnzoutfits-1598505.jpg');">
-        <div class="category-overlay"></div>
-        <div class="category-content">
-          <div class="category-icon"><i class="fas fa-boot"></i></div>
-          <h3>Boots</h3>
-          <span>35 styles</span>
-        </div>
-      </a>
-      <a href="#" class="category-card" style="background-image: url('pexels-introspectivedsgn-7445820.jpg');">
-        <div class="category-overlay"></div>
-        <div class="category-content">
-          <div class="category-icon"><i class="fas fa-socks"></i></div>
-          <h3>Sandals</h3>
-          <span>27 styles</span>
-        </div>
-      </a>
-    </div>
-    <div class="category-details">
-      <div class="category-detail-item">
-        <span class="detail-number">170+</span>
-        <span class="detail-label">Styles Available</span>
-      </div>
-      <div class="category-detail-item">
-        <span class="detail-number">Free</span>
-        <span class="detail-label">Shipping & Returns</span>
-      </div>
-      <div class="category-detail-item">
-        <span class="detail-number">24/7</span>
-        <span class="detail-label">Customer Support</span>
-      </div>
-      <div class="category-detail-item">
-        <span class="detail-number">100%</span>
-        <span class="detail-label">Authentic Guaranteed</span>
+      <div class="filter-tabs">
+        <button class="filter-tab active">All</button>
+        <button class="filter-tab">Running</button>
+        <button class="filter-tab">Lifestyle</button>
+        <button class="filter-tab">Basketball</button>
+        <button class="filter-tab">Sale</button>
       </div>
     </div>
-  </section>
-
-  <section class="featured">
-    <div class="section-header">
-      <h2>Trending Now</h2>
-      <p>Our most popular picks this season</p>
-    </div>
-    <div class="product-grid">
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="product-image">
-              <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
-            </div>
-          </div>
-          <div class="card-back">
-            <div class="card-back-content">
-              <span class="product-tag">Best Seller</span>
-              <h3>Air Max Pulse</h3>
-              <p class="card-brand">Nike</p>
-              <span class="product-price">$189.99</span>
-              <p class="card-desc">Premium comfort meets street-ready style.</p>
-              <a href="#" class="card-cta">Shop Now</a>
-            </div>
+    <div class="masonry-grid" id="masonryGrid">
+      <div class="product-card tall">
+        <div class="product-badge badge-new">Just Dropped</div>
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&q=80" alt="Phantom X" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Phantom X</h3>
+          <span class="product-category">Performance</span>
+          <div class="product-footer">
+            <span class="product-price">$289</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
           </div>
         </div>
       </div>
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="product-image">
-              <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
-            </div>
-          </div>
-          <div class="card-back">
-            <div class="card-back-content">
-              <span class="product-tag">New</span>
-              <h3>Ultraboost Light</h3>
-              <p class="card-brand">Adidas</p>
-              <span class="product-price">$219.99</span>
-              <p class="card-desc">Lightweight performance for everyday moves.</p>
-              <a href="#" class="card-cta">Shop Now</a>
-            </div>
+      <div class="product-card">
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="Apex Runner" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Apex Runner</h3>
+          <span class="product-category">Running</span>
+          <div class="product-footer">
+            <span class="product-price">$219</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
           </div>
         </div>
       </div>
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="product-image">
-              <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
-            </div>
-          </div>
-          <div class="card-back">
-            <div class="card-back-content">
-              <span class="product-tag">Sale</span>
-              <h3>Chelsea Boot 2.0</h3>
-              <p class="card-brand">Timberland</p>
-              <span class="product-price">$149.99</span>
-              <p class="card-desc">Rugged durability with a clean silhouette.</p>
-              <a href="#" class="card-cta">Shop Now</a>
-            </div>
+      <div class="product-card">
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&q=80" alt="Urban Edge" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Urban Edge</h3>
+          <span class="product-category">Lifestyle</span>
+          <div class="product-footer">
+            <span class="product-price">$179</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
           </div>
         </div>
       </div>
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="product-image">
-              <div class="product-image-placeholder"><i class="fas fa-shoe-prints"></i></div>
-            </div>
+      <div class="product-card wide">
+        <div class="product-badge badge-limited">Limited</div>
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="Nightfall" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Nightfall</h3>
+          <span class="product-category">Premium</span>
+          <div class="product-footer">
+            <span class="product-price"><span class="old">$399</span> $349</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
           </div>
-          <div class="card-back">
-            <div class="card-back-content">
-              <span class="product-tag">Trending</span>
-              <h3>Classic Leather</h3>
-              <p class="card-brand">Clarks</p>
-              <span class="product-price">$129.99</span>
-              <p class="card-desc">Timeless leather craftsmanship, built to last.</p>
-              <a href="#" class="card-cta">Shop Now</a>
-            </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400&q=80" alt="Court King" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Court King</h3>
+          <span class="product-category">Basketball</span>
+          <div class="product-footer">
+            <span class="product-price">$249</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card tall">
+        <div class="product-badge badge-seller">Bestseller</div>
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=400&q=80" alt="Void" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Void</h3>
+          <span class="product-category">Lifestyle</span>
+          <div class="product-footer">
+            <span class="product-price">$199</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&q=80" alt="Monarch" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Monarch</h3>
+          <span class="product-category">Formal</span>
+          <div class="product-footer">
+            <span class="product-price">$299</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="banner">
-    <div class="banner-content">
-      <h2>Free Shipping on Orders Over $100</h2>
-      <p>Plus free returns within 30 days of delivery.</p>
-      <a href="#" class="btn-primary">Start Shopping</a>
+  <!-- ===== PROMO BANNER ===== -->
+  <div class="promo-banner reveal">
+    <div>
+      <p class="promo-tag">Limited Time</p>
+      <h2 class="promo-headline">Up to 40% Off<br>Signature Series</h2>
+      <p class="promo-sub">Premium craftsmanship meets unbeatable value. Grab your pair before they're gone.</p>
+      <button class="btn-primary" style="margin-top:20px" onclick="showToast('🎉','Promo applied!')">Claim Offer</button>
     </div>
-  </section>
+    <div class="promo-emoji">🏆</div>
+  </div>
 
-  <section class="testimonial">
-    <div class="testimonial-content">
-      <i class="fas fa-quote-left"></i>
-      <blockquote>
-        "SoleStyle completely changed how I shop for shoes. The quality is unmatched, and the fit is always perfect. My go-to for every season."
-      </blockquote>
-      <div class="testimonial-author">
-        <div class="author-avatar"><i class="fas fa-user"></i></div>
-        <div>
-          <strong>Alex Rivera</strong>
-          <span>Verified Buyer</span>
-        </div>
+  <!-- ===== BRANDS ===== -->
+  <div class="brands-section reveal">
+    <p class="brands-label">Trusted by leading athletes worldwide</p>
+    <div class="brands-row">
+      <span class="brand-name">VELOCITY</span>
+      <span class="brand-name">AXIS</span>
+      <span class="brand-name">PRIME</span>
+      <span class="brand-name">NOVA</span>
+      <span class="brand-name">FORGE</span>
+      <span class="brand-name">APEX</span>
+    </div>
+  </div>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features" id="features">
+    <div class="features-header">
+      <p class="section-eyebrow">Why Noir</p>
+      <h2 class="section-label">Built Different</h2>
+      <p class="section-sub" style="color:var(--muted);max-width:480px;line-height:1.7;margin-top:0.5rem">Every pair engineered with cutting-edge technology and uncompromising craftsmanship.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🪶</div>
+        <div class="feature-title">Featherweight Build</div>
+        <div class="feature-desc">Our proprietary foam compound cuts weight by 35% without sacrificing durability or support.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💨</div>
+        <div class="feature-title">Air-Flow Mesh</div>
+        <div class="feature-desc">Breathable woven upper keeps your feet cool even during the most intense sessions.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-title">Shock-Shield Sole</div>
+        <div class="feature-desc">Multi-density outsole absorbs 40% more impact, reducing strain on joints and muscles.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">♻️</div>
+        <div class="feature-title">Eco-Conscious</div>
+        <div class="feature-desc">Made from 70% recycled materials. Performance you can feel good about.</div>
       </div>
     </div>
   </section>
 
-  <section class="newsletter">
-    <div class="newsletter-content">
-      <h2>Stay in the Loop</h2>
-      <p>Be the first to know about new drops, exclusive offers, and style tips.</p>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
-      </form>
+  <!-- ===== TESTIMONIALS ===== -->
+  <div class="testimonials" id="reviews">
+    <div class="testimonials-inner">
+      <p class="section-eyebrow">Testimonials</p>
+      <h2 class="section-label">What Our Customers Say</h2>
+      <p class="section-sub" style="color:var(--muted);max-width:480px;line-height:1.7;margin-top:0.5rem">Real stories from real athletes and everyday movers.</p>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Most comfortable sneakers I've ever owned. Went from zero to marathon training in these — no break-in period needed."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">🏃</div>
+            <div>
+              <div class="reviewer-name">Marcus Chen</div>
+              <div class="reviewer-loc">Marathon Runner</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"The grip on the Court Kings is unreal. Made my lateral cuts sharper and my vertical feel bouncier. Game changer."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">🏀</div>
+            <div>
+              <div class="reviewer-name">Jayla Rivers</div>
+              <div class="reviewer-loc">College Athlete</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars">★★★★☆</div>
+          <p class="review-text">"Style meets function. I get compliments everywhere I go, and my feet have never been happier during 12-hour shifts."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">💼</div>
+            <div>
+              <div class="reviewer-name">Samira Okafor</div>
+              <div class="reviewer-loc">Registered Nurse</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
 
+  <!-- ===== NEWSLETTER ===== -->
+  <div class="newsletter reveal">
+    <p class="section-eyebrow">Stay in the Loop</p>
+    <h2 class="section-label">Join the Noir Crew</h2>
+    <p class="section-sub">Be first to know about exclusive drops, early access, and members-only pricing.</p>
+    <form class="email-form" onsubmit="event.preventDefault();showToast('✉️','You\'re signed up!');this.reset()">
+      <input class="email-input" type="email" placeholder="Enter your email" required>
+      <button class="btn-primary" type="submit">Subscribe</button>
+    </form>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="#" class="footer-logo">
-          <i class="fas fa-shoe-prints"></i> SoleStyle
-        </a>
-        <p>Premium footwear crafted for those who never stop moving. Style meets comfort since 2020.</p>
-        <div class="footer-social">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
+    <div class="footer-inner">
+      <div class="footer-brand-block">
+        <a href="#" class="logo">NO<span>IR</span></a>
+        <p class="footer-tagline">Forged in midnight. Built to dominate.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
           <h4>Shop</h4>
-          <a href="#">Men's Shoes</a>
-          <a href="#">Women's Shoes</a>
           <a href="#">New Arrivals</a>
+          <a href="#">Men</a>
+          <a href="#">Women</a>
           <a href="#">Sale</a>
         </div>
         <div class="footer-col">
-          <h4>Support</h4>
-          <a href="#">Contact Us</a>
-          <a href="#">Shipping Info</a>
-          <a href="#">Returns & Exchanges</a>
-          <a href="#">Size Guide</a>
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Stores</a>
+          <a href="#">Press</a>
         </div>
         <div class="footer-col">
-          <h4>Company</h4>
-          <a href="#">About Us</a>
-          <a href="#">Careers</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <h4>Support</h4>
+          <a href="#">Contact</a>
+          <a href="#">Shipping</a>
+          <a href="#">Returns</a>
+          <a href="#">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 NOIR. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Twitter">X</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="YouTube">YT</a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 SoleStyle. All rights reserved.</p>
-    </div>
   </footer>
 
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast">
+    <span class="toast-icon" id="toastIcon">🚀</span>
+    <span id="toastMsg">Hello</span>
   </div>
 
-  <script>
-    document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thanks for subscribing!');
-    });
-  </script>
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">⬆</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
