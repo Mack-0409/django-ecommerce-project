@@ -12,12 +12,12 @@
       <form class="auth-form" id="signinForm" method="POST">
         {% csrf_token %}
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Enter your email" required name="email">
+          <label for="username">User Name</label>
+          <input type="text" id="email" placeholder="Enter Username" required name="username">
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Enter your password" required name="pasw">
+          <input type="password" id="password" placeholder="Enter your password" required name="password">
         </div>
 
         <div class="form-row">
