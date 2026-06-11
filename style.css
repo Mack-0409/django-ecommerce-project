@@ -762,7 +762,7 @@ button {
 
 .featured-header {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 2.5rem;
   padding: 0 2rem;
@@ -837,6 +837,11 @@ button {
   grid-row: span 2;
 }
 
+.masonry-grid .product-card.tall .product-img-wrap {
+  flex: 1;
+  aspect-ratio: auto;
+}
+
 /* Product card */
 .product-card {
   position: relative;
@@ -845,6 +850,8 @@ button {
   background: var(--card);
   cursor: pointer;
   transition: transform 0.4s var(--ease-out), box-shadow 0.4s;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-card:hover {
