@@ -43,6 +43,29 @@ def register(request):
             return redirect('login_')
     return render(request, 'register.html')
 
+
+def forgot_pasw(request):
+    if request.method == 'POST':
+        if 'username' in request.POST:
+            username = request.POST['username']
+            try:
+                user = User.objects.get(username = username)
+                request.session['fpuser'] = user.username
+                return render(request, 'forgot_pasw.html', {'new':True})
+            except:
+                return render(request, 'forgot_pasw.html', {'error': True})
+
+        if 'pasw' in request.POST:
+            username = request.session.get('fpuser')
+            user = User.objects.get(username = username)
+            new_pasw = request.POST['pasw']
+            user.set_password(new_pasw)
+            user.save()
+        return redirect(login_)
+
+    return render(request, 'forgot_pasw.html' )
+
+
 '''
 login 
 signup

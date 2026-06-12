@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <main class="auth-page">
+    <div class="auth-card">
+      <div class="auth-header">
+        <a href="{% url 'home' %}" class="logo">NO<span>IR</span></a>
+        <h1 class="auth-title">Reset Password</h1>
+        <p class="auth-subtitle">Enter your username and new password</p>
+      </div>
+
+      <form class="auth-form" id="forgotForm" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter your username" required name="username">
+        </div>
+        <div class="form-group">
+          <label for="newPassword">New Password</label>
+          <input type="password" id="newPassword" placeholder="Enter new password" required name="pasw">
+        </div>
+
+        <button type="submit" class="auth-btn">Reset Password</button>
+      </form>
+
+      <p class="auth-footer">
+        Remember your password? <a href="{% url 'login_' %}">Sign In</a>
+      </p>
+    </div>
+  </main>
+{% endblock %}
