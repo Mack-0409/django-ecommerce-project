@@ -71,9 +71,4 @@ def update(request):
 
 '''
 profile data show user imcluding images
-update profile 
-navbar css
-login css
-forgot password
-register css
 '''
