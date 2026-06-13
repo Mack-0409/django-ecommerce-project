@@ -1,5 +1,56 @@
 {% extends 'main.html' %}
 
 {% block content %}
-    
+{% load static %}
+
+    <link rel="stylesheet" href="{% static 'CSS/home.css' %}">
+    <section class="hero" id="hero">
+    <div class="hero-content">
+      <span class="hero-badge">2026 Collection</span> 
+      <h1 class="hero-title">
+        <span class="title-line">Define Your</span>
+        <span class="title-line accent">Edge</span>
+        <span class="title-underline" id="titleUnderline"></span>
+      </h1>
+      <p class="hero-desc">Where precision engineering meets raw attitude. Forged in midnight, built to dominate.</p>
+      <div class="hero-cta">
+        <a href="#featured" class="btn-primary">Explore Collection</a>
+        <a href="#stories" class="btn-secondary">Watch Film</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value" data-target="15">0</span>
+          <span class="stat-label">Years Heritage</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" data-target="200">0</span>
+          <span class="stat-label">Global Stores</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" data-target="50">0</span>
+          <span class="stat-label">Awards</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="shoe-container" id="shoeContainer">
+        <div class="shoe-shine"></div>
+        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80" alt="Premium sneaker" class="shoe-image" id="shoeImage" draggable="false">
+        <div class="shoe-glow" id="shoeGlow"></div>
+        <div class="hero-badge-card">
+          <span class="badge-icon">🔥</span>
+          <div>
+            <div class="badge-title">Limited Edition</div>
+            <div class="badge-sub">Only 500 pairs</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-indicators">
+        <span class="indicator active"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+      </div>
+    </div>
+  </section>
 {% endblock %}

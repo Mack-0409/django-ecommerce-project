@@ -1,6 +1,8 @@
 {% extends 'main.html' %}
 
 {% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/forgot_pasw.css' %}">
     <main class="auth-page">
     <div class="auth-card">
       <div class="auth-header">
@@ -11,15 +13,23 @@
 
       <form class="auth-form" id="forgotForm" method="POST">
         {% csrf_token %}
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" id="username" placeholder="Enter your username" required name="username">
-        </div>
-        <div class="form-group">
-          <label for="newPassword">New Password</label>
-          <input type="password" id="newPassword" placeholder="Enter new password" required name="pasw">
-        </div>
 
+        {% if error %}
+          <h3 style="color: red;">Invalid UserName</h3>
+        {% endif %}
+
+        {% if new %}
+          <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <input type="password" id="newPassword" placeholder="Enter new password" required name="pasw">
+          </div>
+        {% else %}
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username" required name="username">
+          </div>
+        {% endif %}
+      
         <button type="submit" class="auth-btn">Reset Password</button>
       </form>
 

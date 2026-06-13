@@ -1,0 +1,288 @@
+/* ============================================
+   1.  ROOT VARIABLES & GLOBAL RESET
+   ============================================ */
+:root {
+  --bg:         #0D0F1A;
+  --card:       #161928;
+  --card2:      #1E2135;
+  --text:       #F5F0E8;
+  --muted:      rgba(245, 240, 232, 0.55);
+  --accent:     #FF4D4D;
+  --gold:       #C9A96E;
+  --border:     rgba(255, 255, 255, 0.07);
+  --ff-display: 'Bebas Neue', sans-serif;
+  --ff-body:    'DM Sans', sans-serif;
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ff-body);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--card2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Text selection */
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.2rem 2rem;
+  transition: background 0.4s var(--ease-smooth);
+}
+
+.header.scrolled {
+  background: rgba(13, 15, 26, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-family: var(--ff-display);
+  font-size: 2rem;
+  letter-spacing: 0.15em;
+  color: var(--text);
+  transition: color 0.3s;
+}
+
+.logo:hover {
+  color: var(--accent);
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+/* Navigation links */
+.nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s var(--ease-out);
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* Header action buttons */
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* From Uiverse.io by Lucaasbre */
+.input-group {
+  display: flex;
+  position: relative;
+  width: 200px;
+  margin-left: -20px;
+}
+
+.input-text {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+  border-radius: 0 !important;
+  outline: 0;
+  font-size: 16px;
+  color: var(--text);
+  padding: 6px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.input-text::placeholder {
+  color: transparent;
+}
+
+.input-text:placeholder-shown ~ .input-text-label {
+  font-size: 16px;
+  cursor: text;
+  top: 6px;
+}
+
+.input-text-label {
+  position: absolute;
+  display: block;
+  transition: 0.2s;
+  font-size: 16px;
+  color: var(--muted);
+  pointer-events: none;
+  top: 6px;
+}
+
+.input-text:focus {
+  padding-bottom: 4px;
+  border-width: 2px;
+  border-image: linear-gradient(to right, var(--accent), #9f1026);
+  border-image-slice: 1;
+}
+
+.input-text:focus ~ .input-text-label {
+  color: var(--accent);
+}
+
+.input-text:not(:placeholder-shown) ~ .input-text-label,
+.input-text:focus ~ .input-text-label {
+  position: absolute;
+  display: block;
+  transition: 0.2s;
+  font-size: 12px;
+  font-weight: 700;
+  top: -16px;
+}
+
+.input-text:required,
+.input-text:invalid {
+  box-shadow: none;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition: background 0.3s, color 0.3s;
+  color: var(--muted);
+  position: relative;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+/* Cart count badge */
+.cart-count {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: 600;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger menu icon (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  transition: 0.3s;
+  display: block;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}

@@ -1,6 +1,8 @@
 {% extends 'main.html' %}
 
 {% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/login_.css' %}">
     <main class="auth-page">
     <div class="auth-card">
       <div class="auth-header">
@@ -11,6 +13,11 @@
 
       <form class="auth-form" id="signinForm" method="POST">
         {% csrf_token %}
+
+        {% if error %}
+          <h3 style="color: red;">{{error}}</h3>
+        {% endif %}
+        
         <div class="form-group">
           <label for="username">User Name</label>
           <input type="text" id="email" placeholder="Enter Username" required name="username">

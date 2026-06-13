@@ -66,10 +66,14 @@ def forgot_pasw(request):
     return render(request, 'forgot_pasw.html' )
 
 
+def update(request):
+    return render(request, 'update.html')
+
 '''
-login 
-signup
+profile data show user imcluding images
+update profile 
+navbar css
+login css
 forgot password
-profile data show user
-reset password
+register css
 '''
