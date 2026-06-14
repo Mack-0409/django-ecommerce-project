@@ -1,66 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Profile — NOIR</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+{% extends 'main.html' %}
+{% load static %}
 
-  <!-- ===== HEADER ===== -->
-  <header class="header" id="header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">NO<span>IR</span></a>
-      <nav class="nav" id="nav">
-        <a href="index.html#categories">Categories</a>
-        <a href="index.html#featured">New Drops</a>
-        <a href="index.html#features">Why Noir</a>
-        <a href="index.html#reviews">Reviews</a>
-        <a href="index.html#stories">Stories</a>
-      </nav>
-      <div class="header-actions">
-        <button class="icon-btn" aria-label="Account">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </button>
-        <button class="icon-btn" aria-label="Cart">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-        </button>
-        <div class="hamburger" id="hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/profile.css' %}">
+
+<section class="profile-page">
+  <div class="profile-card">
+    <div class="profile-avatar">
+      {{ request.user.first_name|first|default:request.user.username|first }}
     </div>
-  </header>
+    <h1 class="profile-username">@{{ request.user.username }}</h1>
+    <p class="profile-joined">Member since {{ request.user.date_joined|date:"F Y"|default:"N/A" }}</p>
 
-  <!-- ===== PROFILE SECTION ===== -->
-  <section class="profile-section" style="padding:120px 24px 60px;max-width:600px;margin:0 auto">
-    <p class="section-eyebrow">Account</p>
-    <h2 class="section-label">My Profile</h2>
-    <form class="profile-form" style="margin-top:2rem;display:flex;flex-direction:column;gap:1.25rem">
-      <div>
-        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--muted);margin-bottom:0.35rem;letter-spacing:0.5px;text-transform:uppercase">Full Name</label>
-        <input type="text" value="John Doe" style="width:100%;padding:12px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem;outline:none;transition:border-color 0.3s">
-      </div>
-      <div>
-        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--muted);margin-bottom:0.35rem;letter-spacing:0.5px;text-transform:uppercase">Email</label>
-        <input type="email" value="john@example.com" style="width:100%;padding:12px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem;outline:none;transition:border-color 0.3s">
-      </div>
-      <div>
-        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--muted);margin-bottom:0.35rem;letter-spacing:0.5px;text-transform:uppercase">Phone</label>
-        <input type="tel" value="+1 (555) 123-4567" style="width:100%;padding:12px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem;outline:none;transition:border-color 0.3s">
-      </div>
-      <div>
-        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--muted);margin-bottom:0.35rem;letter-spacing:0.5px;text-transform:uppercase">Address</label>
-        <textarea rows="3" style="width:100%;padding:12px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem;outline:none;transition:border-color 0.3s;resize:vertical;font-family:inherit">123 Main Street, New York, NY 10001</textarea>
-      </div>
-      <button type="submit" class="btn-primary" style="width:100%;margin-top:0.5rem">Save Changes</button>
-    </form>
-  </section>
+    <div class="profile-field">
+      <label>Full Name</label>
+      <div class="value">{{ request.user.first_name }} {{ request.user.last_name }}</div>
+    </div>
 
-  <script src="script.js"></script>
-</body>
-</html>
+    <div class="profile-field">
+      <label>Email</label>
+      <div class="value">{{ request.user.email }}</div>
+    </div>
+
+    <div class="profile-actions">
+      <a href="{% url 'update' %}" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+        Edit Profile
+      </a>
+      <a href="{% url 'logout_' %}" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Logout
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

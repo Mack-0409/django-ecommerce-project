@@ -1,14 +1,28 @@
 {% extends 'main.html' %}
 
 {% block content %}
-    <h1>Profile Page</h1>
-    <center>
-        verfy : {{request.user.is_authenticated}} <br><br>
-        User : {{request.user}} <br><br>
-        First Name : {{request.user.first_name}} <br><br>
-        Last Name : {{request.user.last_name}} <br><br>
-        Email : {{request.user.email}} <br><br>
-        username : {{request.user.username}} <br><br>
-        <a href="{% url 'update' %}">Update profile</a> <a href="{% url 'logout_' %}">Logout</a>
-    </center>
+    <section class="profile-section" style="padding:120px 24px 60px;max-width:600px;margin:0 auto">
+    <p class="section-eyebrow">Account</p>
+    <h2 class="section-label">My Profile</h2>
+    <form class="profile-form" style="margin-top:2rem;display:flex;flex-direction:column;gap:1.25rem">
+      <div>
+        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--muted);margin-bottom:0.35rem;letter-spacing:0.5px;text-transform:uppercase">Full Name</label>
+        <input type="text" value="{{request.user.first_name}} {{request.user.last_name}}" style="width:100%;padding:12px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem;outline:none;transition:border-color 0.3s">
+      </div>
+      <div>
+        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--muted);margin-bottom:0.35rem;letter-spacing:0.5px;text-transform:uppercase">Email</label>
+        <input type="email" value="{{request.user.email}}" style="width:100%;padding:12px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem;outline:none;transition:border-color 0.3s">
+      </div>
+      <div>
+        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--muted);margin-bottom:0.35rem;letter-spacing:0.5px;text-transform:uppercase">UserName</label>
+        <input type="text" value="{{request.user.username}}" style="width:100%;padding:12px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem;outline:none;transition:border-color 0.3s">
+      </div>
+      <div>
+        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--muted);margin-bottom:0.35rem;letter-spacing:0.5px;text-transform:uppercase">Address</label>
+        <textarea rows="3" style="width:100%;padding:12px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:0.95rem;outline:none;transition:border-color 0.3s;resize:vertical;font-family:inherit">123 Main Street, New York, NY 10001</textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;margin-top:0.5rem"><a href="{% url 'update' %}">Update profile</a></button>
+      <button type="submit" class="btn-primary" style="width:100%;margin-top:0.5rem"><a href="{% url 'logout_' %}">Logout</a></button>
+    </form>
+  </section>
 {% endblock %}
