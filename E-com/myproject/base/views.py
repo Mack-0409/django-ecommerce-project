@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
-
-# Create your views here.
+from .models import Profile
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render(request, 'home.html')
 
+@login_required(login_url='login_')
 def profile(request):
-    return render(request, 'profile.html')
+    profile, created = Profile.objects.get_or_create(user=request.user)
+    return render(request, 'profile.html', {'profile': profile})
