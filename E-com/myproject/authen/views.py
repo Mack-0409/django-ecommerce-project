@@ -68,7 +68,19 @@ def forgot_pasw(request):
 
 
 def update(request):
-    return render(request, 'update.html')
+    user = User.objects.get(username = request.user)
+    if request.method == 'POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        username = request.POST['username']
+        email = request.POST['email']
+        user.first_name = first_name
+        user.last_name - last_name
+        user.username = username
+        user.email = email
+        user.save()
+        return redirect('profile')
+    return render(request, 'update.html', {'data':user})
 
 '''
 profile data show user imcluding images
