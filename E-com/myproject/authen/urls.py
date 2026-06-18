@@ -7,4 +7,5 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('forgot_pasw/', forgot_pasw, name='forgot_pasw'),
     path('update/', update, name='update'),
+    path('legal/', legal, name='legal')
 ]

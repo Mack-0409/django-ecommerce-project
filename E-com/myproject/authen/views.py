@@ -82,6 +82,10 @@ def update(request):
         return redirect('profile')
     return render(request, 'update.html', {'data':user})
 
+
+def legal(request):
+    return render(request, 'legal.html')
 '''
 profile data show user imcluding images
 '''
+
