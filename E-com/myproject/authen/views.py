@@ -75,7 +75,7 @@ def update(request):
         username = request.POST['username']
         email = request.POST['email']
         user.first_name = first_name
-        user.last_name - last_name
+        user.last_name = last_name
         user.username = username
         user.email = email
         user.save()

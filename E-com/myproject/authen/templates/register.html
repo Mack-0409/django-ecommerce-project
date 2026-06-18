@@ -22,7 +22,7 @@
         <p class="auth-subtitle">Join the Noir community</p>
       </div>
 
-      <form class="auth-form" id="signupForm">
+      <form class="auth-form" id="signupForm" method="POST">
       {% csrf_token %}
 
       {% if error %}

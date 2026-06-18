@@ -11,7 +11,8 @@
         <p class="auth-subtitle">Edit your personal details</p>
       </div>
 
-      <form class="auth-form" id="updateProfileForm">
+      <form class="auth-form" id="updateProfileForm" method="POST">
+        {% csrf_token %}
         <div class="form-group" style="align-items:center">
           <div class="profile-img-wrap">
             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80" alt="Profile" id="profilePreview">
