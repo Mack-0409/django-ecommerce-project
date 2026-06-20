@@ -74,6 +74,9 @@ button {
   color: #fff;
 }
 
+/* ============================================
+   2.  HEADER / NAVIGATION
+   ============================================ */
 .header {
   position: fixed;
   top: 0;
@@ -158,74 +161,6 @@ button {
   align-items: center;
 }
 
-/* From Uiverse.io by Lucaasbre */
-.input-group {
-  display: flex;
-  position: relative;
-  width: 200px;
-  margin-left: -20px;
-}
-
-.input-text {
-  font-family: inherit;
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid rgba(255,255,255,0.2);
-  border-radius: 0 !important;
-  outline: 0;
-  font-size: 16px;
-  color: var(--text);
-  padding: 6px 0;
-  background: transparent;
-  transition: border-color 0.2s;
-}
-
-.input-text::placeholder {
-  color: transparent;
-}
-
-.input-text:placeholder-shown ~ .input-text-label {
-  font-size: 16px;
-  cursor: text;
-  top: 6px;
-}
-
-.input-text-label {
-  position: absolute;
-  display: block;
-  transition: 0.2s;
-  font-size: 16px;
-  color: var(--muted);
-  pointer-events: none;
-  top: 6px;
-}
-
-.input-text:focus {
-  padding-bottom: 4px;
-  border-width: 2px;
-  border-image: linear-gradient(to right, var(--accent), #9f1026);
-  border-image-slice: 1;
-}
-
-.input-text:focus ~ .input-text-label {
-  color: var(--accent);
-}
-
-.input-text:not(:placeholder-shown) ~ .input-text-label,
-.input-text:focus ~ .input-text-label {
-  position: absolute;
-  display: block;
-  transition: 0.2s;
-  font-size: 12px;
-  font-weight: 700;
-  top: -16px;
-}
-
-.input-text:required,
-.input-text:invalid {
-  box-shadow: none;
-}
-
 .icon-btn {
   width: 40px;
   height: 40px;
@@ -286,4 +221,3 @@ button {
 .hamburger.active span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
-
