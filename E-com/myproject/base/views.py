@@ -13,3 +13,6 @@ def profile(request):
 
 def newsletter(request):
     return render(request, 'newsletter.html' )
+
+def categories(request):
+    return render(request, 'categories.html')
