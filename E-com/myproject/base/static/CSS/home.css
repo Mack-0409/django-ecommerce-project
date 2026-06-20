@@ -307,3 +307,41 @@
   transform: scale(1.3);
   box-shadow: 0 0 12px rgba(255, 77, 77, 0.35);
 }
+
+
+/* ============================================
+   4.  MARQUEE / TICKER STRIP
+   ============================================ */
+.marquee-strip {
+  background: var(--accent);
+  padding: 12px 0;
+  overflow: hidden;
+}
+
+.marquee-inner {
+  display: flex;
+  gap: 48px;
+  white-space: nowrap;
+  animation: marquee 22s linear infinite;
+}
+
+.marquee-inner span {
+  font-family: var(--ff-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.marquee-inner .sep {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

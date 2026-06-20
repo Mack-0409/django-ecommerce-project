@@ -9,3 +9,7 @@ def home(request):
 def profile(request):
     profile, created = Profile.objects.get_or_create(user=request.user)
     return render(request, 'profile.html', {'profile': profile})
+
+
+def newsletter(request):
+    return render(request, 'newsletter.html' )
