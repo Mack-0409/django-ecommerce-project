@@ -1,8 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOIR — Premium Footwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#" class="logo">NO<span>IR</span></a>
+      <nav class="nav" id="nav">
+        <a href="#">Home</a>
+        <a href="#featured">New Drops</a>
+        <a href="#signup">Signup</a>
+        <a href="#signin">Signin</a>
+        <a href="#profile">Profile</a>
+        <a href="#logout">Logout</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          <span class="cart-count">3</span>
+        </button>
+        <div class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== BRANDS NAV ===== -->
+  <nav class="brands-nav" id="brandsNav">
+    <a href="#">Nike</a>
+    <a href="#">Puma</a>
+    <a href="#">Adidas</a>
+    <a href="#">Reebok</a>
+    <a href="#">Polo</a>
+    <a href="#">Bacca Bucci</a>
+    <a href="#">New Balance</a>
+    <a href="#">Converse</a>
+    <a href="#">Vans</a>
+    <a href="#">Under Armour</a>
+    <a href="#">Fila</a>
+    <a href="#">Skechers</a>
+    <a href="#">Timberland</a>
+    <a href="#">Gucci</a>
+    <a href="#">Zara</a>
+    <a href="#">H&M</a>
+    <a href="#">Levi's</a>
+    <a href="#">Tommy Hilfiger</a>
+    <a href="#">Calvin Klein</a>
+    <a href="#">Supreme</a>
+    <a href="#">Off-White</a>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <span class="hero-badge">2026 Collection</span>
+      <h1 class="hero-title">
+        <span class="title-line">Define Your</span>
+        <span class="title-line accent">Edge</span>
+        <span class="title-underline" id="titleUnderline"></span>
+      </h1>
+      <p class="hero-desc">Where precision engineering meets raw attitude. Forged in midnight, built to dominate.</p>
+      <div class="hero-cta">
+        <a href="#featured" class="btn-primary">Explore Collection</a>
+        <a href="#reviews" class="btn-secondary">Watch Film</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value" data-target="15">0</span>
+          <span class="stat-label">Years Heritage</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" data-target="200">0</span>
+          <span class="stat-label">Global Stores</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" data-target="50">0</span>
+          <span class="stat-label">Awards</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="shoe-container" id="shoeContainer">
+        <div class="shoe-shine"></div>
+        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80" alt="Premium sneaker" class="shoe-image" id="shoeImage" draggable="false">
+        <div class="shoe-glow" id="shoeGlow"></div>
+        <div class="hero-badge-card">
+          <span class="badge-icon">🔥</span>
+          <div>
+            <div class="badge-title">Limited Edition</div>
+            <div class="badge-sub">Only 500 pairs</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-indicators">
+        <span class="indicator active"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+        <span class="indicator"></span>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== MARQUEE ===== -->
   <div class="marquee-strip">
     <div class="marquee-inner">
@@ -20,139 +131,7 @@
   </div>
 
   <!-- ===== CATEGORIES ===== -->
-  <section class="categories" id="categories">
-    <div class="categories-header">
-      <div>
-        <p class="section-eyebrow">Categories</p>
-        <h2 class="section-label">Shop by Category</h2>
-        <p class="section-sub" style="color:var(--muted);max-width:400px;line-height:1.7;margin-top:0.5rem">From track to street, find your perfect fit.</p>
-      </div>
-      <div class="categories-nav">
-        <button class="scroll-arrow left" id="scrollLeft" aria-label="Scroll left">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="scroll-arrow right" id="scrollRight" aria-label="Scroll right">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="categories-strip" id="categoryStrip">
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80" alt="Running" loading="lazy">
-        </div>
-        <span class="category-name">Running</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=300&q=80" alt="Training" loading="lazy">
-        </div>
-        <span class="category-name">Training</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&q=80" alt="Lifestyle" loading="lazy">
-        </div>
-        <span class="category-name">Lifestyle</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=300&q=80" alt="Basketball" loading="lazy">
-        </div>
-        <span class="category-name">Basketball</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=300&q=80" alt="Casual" loading="lazy">
-        </div>
-        <span class="category-name">Casual</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=300&q=80" alt="Sneakers" loading="lazy">
-        </div>
-        <span class="category-name">Sneakers</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=300&q=80" alt="Formal" loading="lazy">
-        </div>
-        <span class="category-name">Formal</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=300&q=80" alt="Trail" loading="lazy">
-        </div>
-        <span class="category-name">Trail</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=300&q=80" alt="Walking" loading="lazy">
-        </div>
-        <span class="category-name">Walking</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1562183241-b937e95585b6?w=300&q=80" alt="Tennis" loading="lazy">
-        </div>
-        <span class="category-name">Tennis</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80" alt="Running" loading="lazy">
-        </div>
-        <span class="category-name">Running</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=300&q=80" alt="Training" loading="lazy">
-        </div>
-        <span class="category-name">Training</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&q=80" alt="Lifestyle" loading="lazy">
-        </div>
-        <span class="category-name">Lifestyle</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=300&q=80" alt="Basketball" loading="lazy">
-        </div>
-        <span class="category-name">Basketball</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=300&q=80" alt="Casual" loading="lazy">
-        </div>
-        <span class="category-name">Casual</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=300&q=80" alt="Sneakers" loading="lazy">
-        </div>
-        <span class="category-name">Sneakers</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=300&q=80" alt="Formal" loading="lazy">
-        </div>
-        <span class="category-name">Formal</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=300&q=80" alt="Trail" loading="lazy">
-        </div>
-        <span class="category-name">Trail</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=300&q=80" alt="Walking" loading="lazy">
-        </div>
-        <span class="category-name">Walking</span>
-      </div>
-    </div>
-  </section>
+
 
   <!-- ===== FEATURED PRODUCTS ===== -->
   <section class="featured" id="featured">

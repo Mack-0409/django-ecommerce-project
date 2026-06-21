@@ -118,60 +118,7 @@ shoeContainer.addEventListener('touchmove', (e) => {
 shoeContainer.addEventListener('touchend', resetTilt);
 
 /* ============================================
-   6.  CATEGORY — HORIZONTAL SCROLL
-   ============================================ */
-const categoryStrip = document.getElementById('categoryStrip');
-const scrollLeftBtn = document.getElementById('scrollLeft');
-const scrollRightBtn = document.getElementById('scrollRight');
-
-function scrollStrip(direction) {
-  categoryStrip.scrollBy({ left: direction * 350, behavior: 'smooth' });
-}
-
-scrollLeftBtn.addEventListener('click', () => scrollStrip(-1));
-scrollRightBtn.addEventListener('click', () => scrollStrip(1));
-
-/* Scroll via mouse wheel */
-categoryStrip.addEventListener('wheel', (e) => {
-  if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-    e.preventDefault();
-    categoryStrip.scrollBy({ left: e.deltaY, behavior: 'auto' });
-  }
-}, { passive: false });
-
-/* Drag-to-scroll */
-let isDragging = false;
-let startX = 0;
-let scrollStart = 0;
-
-categoryStrip.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  startX = e.pageX - categoryStrip.offsetLeft;
-  scrollStart = categoryStrip.scrollLeft;
-  categoryStrip.style.cursor = 'grabbing';
-});
-
-categoryStrip.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
-  e.preventDefault();
-  const x = e.pageX - categoryStrip.offsetLeft;
-  categoryStrip.scrollLeft = scrollStart - (x - startX) * 1.5;
-});
-
-categoryStrip.addEventListener('mouseup', () => {
-  isDragging = false;
-  categoryStrip.style.cursor = 'grab';
-});
-
-categoryStrip.addEventListener('mouseleave', () => {
-  isDragging = false;
-  categoryStrip.style.cursor = 'grab';
-});
-
-categoryStrip.style.cursor = 'grab';
-
-/* ============================================
-   7.  SCROLL REVEAL — INTERSECTION OBSERVER
+   6.  SCROLL REVEAL — INTERSECTION OBSERVER
    ============================================ */
 const revealEls = document.querySelectorAll('.reveal');
 
@@ -187,7 +134,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 revealEls.forEach(el => revealObserver.observe(el));
 
 /* ============================================
-   8.  FILTER TABS — ACTIVE STATE
+   7.  FILTER TABS — ACTIVE STATE
    ============================================ */
 document.querySelectorAll('.filter-tab').forEach(tab => {
   tab.addEventListener('click', () => {
@@ -197,7 +144,7 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
 });
 
 /* ============================================
-   9.  HAMBURGER MENU — MOBILE TOGGLE
+   8.  HAMBURGER MENU — MOBILE TOGGLE
    ============================================ */
 document.getElementById('hamburger').addEventListener('click', function () {
   this.classList.toggle('active');
@@ -219,7 +166,7 @@ document.getElementById('hamburger').addEventListener('click', function () {
 });
 
 /* ============================================
-   10. HERO PARALLAX — SCROLL
+   9.  HERO PARALLAX — SCROLL
    ============================================ */
 const heroVisual = document.getElementById('heroVisual');
 
@@ -232,7 +179,7 @@ window.addEventListener('scroll', () => {
 });
 
 /* ============================================
-   11. CONSOLE BRANDING
+   10. CONSOLE BRANDING
    ============================================ */
 console.log(
   '%c NOIR %c Premium Footwear ',
