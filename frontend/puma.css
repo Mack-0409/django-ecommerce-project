@@ -1,0 +1,223 @@
+:root {
+  --puma-bg: #0B0B0B;
+  --puma-card: #1A1A1A;
+  --puma-card2: #252525;
+  --puma-text: #F5F5F5;
+  --puma-muted: rgba(245, 245, 245, 0.55);
+  --puma-accent: #E60020;
+  --puma-gold: #D4AF37;
+  --puma-border: rgba(255, 255, 255, 0.07);
+  --ff-display: 'Bebas Neue', sans-serif;
+  --ff-body: 'DM Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--puma-bg);
+  color: var(--puma-text);
+  font-family: var(--ff-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--puma-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--puma-card2);
+  border-radius: 3px;
+}
+
+::selection {
+  background: var(--puma-accent);
+  color: #fff;
+}
+
+.puma-products {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-head h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  letter-spacing: 0.04em;
+}
+
+.section-head h2 span {
+  color: var(--puma-accent);
+}
+
+.section-head p {
+  color: var(--puma-muted);
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.puma-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.puma-card {
+  background: var(--puma-card);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--puma-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.puma-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+
+.card-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  background: var(--puma-accent);
+  color: #fff;
+}
+
+.badge-new {
+  background: var(--puma-accent);
+}
+
+.badge-limited {
+  background: #7C3AED;
+}
+
+.badge-sale {
+  background: var(--puma-gold);
+  color: #0B0B0B;
+}
+
+.card-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--puma-card2);
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.puma-card:hover .card-img img {
+  transform: scale(1.08);
+}
+
+.card-body {
+  padding: 1.2rem;
+}
+
+.card-body h3 {
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+
+.card-cat {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--puma-muted);
+  font-weight: 500;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--puma-muted);
+  line-height: 1.6;
+  margin: 0.6rem 0 1rem;
+}
+
+.card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--puma-border);
+}
+
+.card-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--puma-gold);
+}
+
+.old-price {
+  font-size: 0.85rem;
+  color: var(--puma-muted);
+  text-decoration: line-through;
+  margin-right: 6px;
+  font-weight: 400;
+}
+
+.card-btn {
+  padding: 0.6rem 1.5rem;
+  background: var(--puma-card2);
+  color: var(--puma-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--puma-border);
+  border-radius: 6px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.card-btn:hover {
+  background: var(--puma-accent);
+  border-color: var(--puma-accent);
+}
+
+@media (max-width: 768px) {
+  .puma-grid {
+    grid-template-columns: 1fr;
+  }
+}
