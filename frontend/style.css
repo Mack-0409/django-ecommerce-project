@@ -1599,3 +1599,79 @@ button {
     justify-content: center;
   }
 }
+
+/* SEARCH FIELD IN INDEX.HTML */
+
+/* From Uiverse.io by xbeat_5120 */
+.uiverse-pixel-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  font-family: 'DM Sans', sans-serif;
+  color: #fff;
+  font-size: 1em;
+  width: 18em;
+}
+
+.uiverse-pixel-label {
+  text-shadow: 1px 1px #000;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.uiverse-pixel-input {
+  appearance: none;
+  border: none;
+  padding: 0.6em;
+  font-size: 1em;
+  font-family: 'DM Sans', sans-serif;
+  color: #fff;
+  background: #FF4D4D;
+  image-rendering: pixelated;
+  box-shadow:
+    0 0 0 0.15em #000,
+    0 0 0 0.3em #fff,
+    0 0 0 0.45em #000,
+    0 0.3em 0 0 #FF4D4D,
+    0 0.3em 0 0.15em #000;
+  outline: none;
+  transition: all 0.15s steps(1);
+  text-shadow: 1px 1px #000;
+}
+
+.uiverse-pixel-input::placeholder {
+  color: #fff;
+  opacity: 0.6;
+}
+
+.uiverse-pixel-input:focus {
+  background: #FF4D4D;
+  box-shadow:
+    0 0 0 0.15em #000,
+    0 0 0 0.3em #fff,
+    0 0 0 0.45em #000,
+    0 0.2em 0 0 #00cc66,
+    0 0.2em 0 0.15em #000;
+}
+
+.uiverse-pixel-input:hover {
+  animation: uiverse-glitch-input 0.3s steps(2) infinite;
+}
+
+@keyframes uiverse-glitch-input {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-1px, 1px);
+  }
+  50% {
+    transform: translate(1px, -1px);
+  }
+  75% {
+    transform: translate(-1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
