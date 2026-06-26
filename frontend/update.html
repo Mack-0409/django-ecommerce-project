@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Profile — NOIR</title>
+  <title>Update Profile — NOIR</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="update.css">
 </head>
 <body>
 
@@ -20,7 +20,7 @@
         <a href="index.html#featured">New Drops</a>
         <a href="signup.html">Sign Up</a>
         <a href="signin.html">Sign In</a>
-        <a href="#profile">Profile</a>
+        <a href="profile.html">Profile</a>
         <a href="index.html#logout">Logout</a>
       </nav>
       <div class="header-actions">
@@ -48,43 +48,50 @@
     </div>
   </header>
 
-  <!-- ===== PROFILE PAGE ===== -->
-  <section class="profile-page">
+  <!-- ===== UPDATE PAGE ===== -->
+  <section class="update-page">
 
-    <div class="profile-head">
-      <div class="profile-avatar">JD</div>
-      <div class="profile-head-info">
-        <h1>John Doe</h1>
-        <p class="profile-email">john.doe@example.com</p>
-        <p class="profile-join">Member since January 2026</p>
+    <div class="update-head">
+      <div class="update-avatar">JD</div>
+      <div class="update-head-info">
+        <h1>Edit Profile</h1>
+        <p class="update-sub">Update your personal details below.</p>
       </div>
     </div>
 
-    <div class="profile-grid">
-      <div class="profile-card">
-        <div class="profile-card-label">First Name</div>
-        <div class="profile-card-value">John</div>
-      </div>
-      <div class="profile-card">
-        <div class="profile-card-label">Last Name</div>
-        <div class="profile-card-value">Doe</div>
-      </div>
-      <div class="profile-card">
-        <div class="profile-card-label">Username</div>
-        <div class="profile-card-value">johndoe</div>
-      </div>
-      <div class="profile-card">
-        <div class="profile-card-label">Email</div>
-        <div class="profile-card-value">john.doe@example.com</div>
-      </div>
-    </div>
+    <form class="update-form" id="updateForm" novalidate>
 
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="first_name" value="John" required>
+          <span class="error-text">Required</span>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="last_name" value="Doe" required>
+          <span class="error-text">Required</span>
+        </div>
+      </div>
 
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" value="johndoe" required>
+        <span class="error-text">Required</span>
+      </div>
 
-    <div style="text-align:center;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-      <a href="update.html" class="update-btn">Update Profile</a>
-      <button class="logout-btn">Logout</button>
-    </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="john.doe@example.com" required>
+        <span class="error-text">Valid email required</span>
+      </div>
+
+      <div class="update-actions">
+        <button type="submit" class="btn-primary">Save Changes</button>
+        <a href="profile.html" class="btn-cancel">Cancel</a>
+      </div>
+    </form>
+
   </section>
 
   <script>
@@ -105,6 +112,12 @@
         nav.style.borderBottom = '1px solid rgba(255, 255, 255, 0.07)';
         nav.style.gap = '20px';
       }
+    });
+
+    document.getElementById('updateForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Simulate save — redirect back to profile
+      window.location.href = 'profile.html';
     });
   </script>
 

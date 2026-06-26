@@ -260,13 +260,13 @@ button {
   100% { transform: translate(0); }
 }
 
-.profile-page {
-  max-width: 1000px;
+.update-page {
+  max-width: 640px;
   margin: 0 auto;
   padding: 8rem 2rem 5rem;
 }
 
-.profile-head {
+.update-head {
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -275,195 +275,135 @@ button {
   border-bottom: 1px solid var(--border);
 }
 
-.profile-avatar {
-  width: 90px;
-  height: 90px;
+.update-avatar {
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--accent), #7C3AED);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--ff-display);
-  font-size: 2.4rem;
+  font-size: 2rem;
   color: #fff;
   flex-shrink: 0;
 }
 
-.profile-head-info h1 {
+.update-head-info h1 {
   font-family: var(--ff-display);
   font-size: 2.4rem;
   letter-spacing: 0.04em;
 }
 
-.profile-head-info .profile-email {
+.update-sub {
   color: var(--muted);
   font-size: 0.9rem;
   margin-top: 0.2rem;
 }
 
-.profile-head-info .profile-join {
-  font-size: 0.78rem;
-  color: var(--muted);
-  margin-top: 0.3rem;
+.update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.profile-grid {
+.form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.profile-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: border-color 0.2s;
-}
-
-.profile-card:hover {
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-.profile-card.full {
-  grid-column: span 2;
-}
-
-.profile-card-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  margin-bottom: 0.4rem;
-}
-
-.profile-card-value {
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.profile-section-title {
-  font-family: var(--ff-display);
-  font-size: 1.6rem;
-  letter-spacing: 0.04em;
-  margin-bottom: 1.2rem;
-}
-
-.recent-orders {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.order-row {
-  display: grid;
-  grid-template-columns: 80px 2fr 1fr 1fr auto;
   gap: 1rem;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.9rem;
 }
 
-.order-row:last-child {
-  border-bottom: none;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
-.order-row-header {
-  color: var(--muted);
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.order-img {
-  width: 60px;
-  height: 60px;
-  border-radius: 6px;
-  overflow: hidden;
-  background: var(--card2);
-}
-
-.order-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.order-name {
-  font-weight: 500;
-}
-
-.order-status {
+.form-group label {
   font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.3rem 0.8rem;
-  border-radius: 100px;
-  display: inline-block;
+  letter-spacing: 0.1em;
+  color: var(--muted);
 }
 
-.status-delivered {
-  background: rgba(76, 175, 80, 0.15);
-  color: #4CAF50;
+.form-group input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.status-shipped {
-  background: rgba(33, 150, 243, 0.15);
-  color: #2196F3;
+.form-group input:focus {
+  border-color: rgba(255, 77, 77, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.1);
 }
 
-.status-processing {
-  background: rgba(255, 193, 7, 0.15);
-  color: #FFC107;
+.form-group input::placeholder {
+  color: var(--muted);
+  font-size: 0.85rem;
 }
 
-.order-price {
-  color: var(--gold);
-  font-weight: 600;
+.form-group .input-error {
+  border-color: var(--accent);
 }
 
-.update-btn {
-  padding: 0.9rem 3rem;
+.error-text {
+  font-size: 0.75rem;
+  color: var(--accent);
+  display: none;
+}
+
+.form-group .input-error ~ .error-text {
+  display: block;
+}
+
+.update-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 1rem;
   background: var(--accent);
-  border: 1px solid var(--accent);
   color: #fff;
   font-family: var(--ff-display);
-  font-size: 1.1rem;
-  letter-spacing: 0.1em;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
   border-radius: 6px;
+  text-align: center;
   transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
   cursor: pointer;
-  display: inline-block;
 }
 
-.update-btn:hover {
+.btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(255, 77, 77, 0.3);
 }
 
-.logout-btn {
-  padding: 0.9rem 3rem;
+.btn-cancel {
+  padding: 1rem 2rem;
   background: transparent;
-  border: 1px solid rgba(255, 77, 77, 0.4);
-  color: var(--accent);
-  font-family: var(--ff-display);
-  font-size: 1.1rem;
-  letter-spacing: 0.1em;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
   border-radius: 6px;
-  transition: background 0.3s, transform 0.3s;
-  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s, color 0.2s;
 }
 
-.logout-btn:hover {
-  background: var(--accent);
-  color: #fff;
-  transform: translateY(-2px);
+.btn-cancel:hover {
+  border-color: var(--muted);
+  color: var(--text);
 }
 
 @media (max-width: 768px) {
@@ -483,34 +423,24 @@ button {
     display: none;
   }
 
-  .profile-page {
+  .update-page {
     padding: 6rem 1.2rem 3rem;
   }
 
-  .profile-head {
+  .update-head {
     flex-direction: column;
     text-align: center;
   }
 
-  .profile-grid {
+  .form-row {
     grid-template-columns: 1fr;
   }
 
-  .profile-card.full {
-    grid-column: span 1;
+  .update-actions {
+    flex-direction: column;
   }
 
-  .order-row {
-    grid-template-columns: 60px 1fr;
-    font-size: 0.82rem;
-  }
-
-  .order-row-header {
-    display: none;
-  }
-
-  .order-row .order-status,
-  .order-row .order-price {
-    grid-column: span 2;
+  .btn-cancel {
+    width: 100%;
   }
 }
