@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — NOIR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+  <div class="signup-wrapper">
+    <!-- Visual Panel -->
+    <div class="signup-visual">
+      <div class="signup-brand">NO<span>IR</span></div>
+      <p class="signup-tagline">Forged in midnight. Built to dominate.</p>
+      <img class="signup-visual-img"
+           src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80"
+           alt="Premium footwear">
+    </div>
+
+    <!-- Form Panel -->
+    <div class="signup-panel">
+      <div class="signup-form-container">
+        <div class="logo">NO<span>IR</span></div>
+        <h1 class="form-heading">Create Account</h1>
+        <p class="form-sub">Join the Noir crew for exclusive drops and early access.</p>
+
+        <form class="signup-form" id="signupForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" placeholder="John" required>
+              <span class="error-text">Required</span>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" placeholder="Doe" required>
+              <span class="error-text">Required</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="johndoe" required>
+            <span class="error-text">Required</span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="john@example.com" required>
+            <span class="error-text">Valid email required</span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" placeholder="••••••••" required minlength="8">
+              <span class="error-text">Min 8 characters</span>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" placeholder="••••••••" required>
+              <span class="error-text">Passwords must match</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary">Create Account</button>
+        </form>
+
+        <p class="form-footer">
+          Already have an account? <a href="index.html">Sign In</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const pw = document.getElementById('password');
+      const cpw = document.getElementById('confirmPassword');
+      if (pw.value !== cpw.value) {
+        cpw.classList.add('input-error');
+        return;
+      }
+      cpw.classList.remove('input-error');
+    });
+
+
+  </script>
+
+</body>
+</html>
