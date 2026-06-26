@@ -1,12 +1,85 @@
-{% extends 'main.html' %}
-
-{% block content %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOIR — Premium Footwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'CSS/home.css' %}">
+</head>
+<body>
 
-    <link rel="stylesheet" href="{% static 'CSS/home.css' %}">
-    <section class="hero" id="hero">
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#" class="logo">NO<span>IR</span></a>
+      <nav class="nav" id="nav">
+        <a href="#">Home</a>
+        <a href="#featured">New Drops</a>
+        <a href="#signup">Signup</a>
+        <a href="#signin">Signin</a>
+        <a href="#profile">Profile</a>
+        <a href="#logout">Logout</a>
+      </nav>
+      <div class="header-actions">
+        <!-- From Uiverse.io by xbeat_5120 --> 
+        <div class="uiverse-pixel-input-wrapper">
+          <input
+            placeholder="Enter name..."
+            class="uiverse-pixel-input"
+            id="username"
+            type="text"
+          />
+        </div>
+        <button class="icon-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          <span class="cart-count">3</span>
+        </button>
+        <button class="icon-btn" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Logout">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </button>
+        <div class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== BRANDS NAV ===== -->
+  <nav class="brands-nav" id="brandsNav">
+    <a href="#">Nike</a>
+    <a href="#">Puma</a>
+    <a href="#">Adidas</a>
+    <a href="#">Reebok</a>
+    <a href="#">Polo</a>
+    <a href="#">Bacca Bucci</a>
+    <a href="#">New Balance</a>
+    <a href="#">Converse</a>
+    <a href="#">Vans</a>
+    <a href="#">Under Armour</a>
+    <a href="#">Fila</a>
+    <a href="#">Skechers</a>
+    <a href="#">Timberland</a>
+    <a href="#">Gucci</a>
+    <a href="#">Zara</a>
+    <a href="#">H&M</a>
+    <a href="#">Levi's</a>
+    <a href="#">Tommy Hilfiger</a>
+    <a href="#">Calvin Klein</a>
+    <a href="#">Supreme</a>
+    <a href="#">Off-White</a>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
     <div class="hero-content">
-      <span class="hero-badge">2026 Collection</span> 
+      <span class="hero-badge">2026 Collection</span>
       <h1 class="hero-title">
         <span class="title-line">Define Your</span>
         <span class="title-line accent">Edge</span>
@@ -15,7 +88,7 @@
       <p class="hero-desc">Where precision engineering meets raw attitude. Forged in midnight, built to dominate.</p>
       <div class="hero-cta">
         <a href="#featured" class="btn-primary">Explore Collection</a>
-        <a href="#stories" class="btn-secondary">Watch Film</a>
+        <a href="#reviews" class="btn-secondary">Watch Film</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
@@ -54,142 +127,595 @@
     </div>
   </section>
 
-  <link rel="stylesheet" href="{% static 'CSS/categories.css' %}">
-  <section class="categories" id="categories">
-    <div class="categories-header">
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span>New Arrivals</span><span class="sep">✦</span>
+      <span>Free Shipping Over $150</span><span class="sep">✦</span>
+      <span>Limited Drops</span><span class="sep">✦</span>
+      <span>Premium Quality</span><span class="sep">✦</span>
+      <span>30-Day Returns</span><span class="sep">✦</span>
+      <span>New Arrivals</span><span class="sep">✦</span>
+      <span>Free Shipping Over $150</span><span class="sep">✦</span>
+      <span>Limited Drops</span><span class="sep">✦</span>
+      <span>Premium Quality</span><span class="sep">✦</span>
+      <span>30-Day Returns</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ===== CATEGORIES ===== -->
+
+
+  <!-- ===== FEATURED PRODUCTS ===== -->
+  <section class="featured" id="featured">
+    <div class="featured-header">
       <div>
-        <p class="section-eyebrow">Categories</p>
-        <h2 class="section-label">Shop by Category</h2>
-        <p class="section-sub" style="color:var(--muted);max-width:400px;line-height:1.7;margin-top:0.5rem">From track to street, find your perfect fit.</p>
+        <p class="section-eyebrow">New Drops</p>
+        <h2 class="section-label">Featured Drops</h2>
       </div>
-      <div class="categories-nav">
-        <button class="scroll-arrow left" id="scrollLeft" aria-label="Scroll left">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="scroll-arrow right" id="scrollRight" aria-label="Scroll right">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
+      <div class="filter-tabs">
+        <button class="filter-tab active">All</button>
+        <button class="filter-tab">Running</button>
+        <button class="filter-tab">Lifestyle</button>
+        <button class="filter-tab">Basketball</button>
+        <button class="filter-tab">Sale</button>
       </div>
     </div>
-    <div class="categories-strip" id="categoryStrip">
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80" alt="Running" loading="lazy">
+    <div class="masonry-grid" id="masonryGrid">
+      <div class="product-card tall">
+        <div class="product-badge badge-new">Just Dropped</div>
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&q=80" alt="Phantom X" loading="lazy">
         </div>
-        <span class="category-name">Running</span>
+        <div class="product-info">
+          <h3 class="product-name">Phantom X</h3>
+          <span class="product-category">Performance</span>
+          <div class="product-footer">
+            <span class="product-price">$289</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
+          </div>
+        </div>
       </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=300&q=80" alt="Training" loading="lazy">
+      <div class="product-card">
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="Apex Runner" loading="lazy">
         </div>
-        <span class="category-name">Training</span>
+        <div class="product-info">
+          <h3 class="product-name">Apex Runner</h3>
+          <span class="product-category">Running</span>
+          <div class="product-footer">
+            <span class="product-price">$219</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
+          </div>
+        </div>
       </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&q=80" alt="Lifestyle" loading="lazy">
+      <div class="product-card">
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&q=80" alt="Urban Edge" loading="lazy">
         </div>
-        <span class="category-name">Lifestyle</span>
+        <div class="product-info">
+          <h3 class="product-name">Urban Edge</h3>
+          <span class="product-category">Lifestyle</span>
+          <div class="product-footer">
+            <span class="product-price">$179</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
+          </div>
+        </div>
       </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=300&q=80" alt="Basketball" loading="lazy">
+      <div class="product-card wide">
+        <div class="product-badge badge-limited">Limited</div>
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="Nightfall" loading="lazy">
         </div>
-        <span class="category-name">Basketball</span>
+        <div class="product-info">
+          <h3 class="product-name">Nightfall</h3>
+          <span class="product-category">Premium</span>
+          <div class="product-footer">
+            <span class="product-price"><span class="old">$399</span> $349</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
+          </div>
+        </div>
       </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=300&q=80" alt="Casual" loading="lazy">
+      <div class="product-card">
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400&q=80" alt="Court King" loading="lazy">
         </div>
-        <span class="category-name">Casual</span>
+        <div class="product-info">
+          <h3 class="product-name">Court King</h3>
+          <span class="product-category">Basketball</span>
+          <div class="product-footer">
+            <span class="product-price">$249</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
+          </div>
+        </div>
       </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=300&q=80" alt="Sneakers" loading="lazy">
+      <div class="product-card tall">
+        <div class="product-badge badge-seller">Bestseller</div>
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=400&q=80" alt="Void" loading="lazy">
         </div>
-        <span class="category-name">Sneakers</span>
+        <div class="product-info">
+          <h3 class="product-name">Void</h3>
+          <span class="product-category">Lifestyle</span>
+          <div class="product-footer">
+            <span class="product-price">$199</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
+          </div>
+        </div>
       </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=300&q=80" alt="Formal" loading="lazy">
+      <div class="product-card">
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&q=80" alt="Monarch" loading="lazy">
         </div>
-        <span class="category-name">Formal</span>
+        <div class="product-info">
+          <h3 class="product-name">Monarch</h3>
+          <span class="product-category">Formal</span>
+          <div class="product-footer">
+            <span class="product-price">$299</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
+          </div>
+        </div>
       </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=300&q=80" alt="Trail" loading="lazy">
+      <div class="product-card wide">
+        <div class="product-badge badge-new">New</div>
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1562183241-b937e95585b6?w=400&q=80" alt="Strider" loading="lazy">
         </div>
-        <span class="category-name">Trail</span>
+        <div class="product-info">
+          <h3 class="product-name">Strider</h3>
+          <span class="product-category">Walking</span>
+          <div class="product-footer">
+            <span class="product-price">$159</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
+          </div>
+        </div>
       </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=300&q=80" alt="Walking" loading="lazy">
+      <div class="product-card">
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&q=80" alt="Elevate" loading="lazy">
         </div>
-        <span class="category-name">Walking</span>
+        <div class="product-info">
+          <h3 class="product-name">Elevate</h3>
+          <span class="product-category">Training</span>
+          <div class="product-footer">
+            <span class="product-price">$229</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
+          </div>
+        </div>
       </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1562183241-b937e95585b6?w=300&q=80" alt="Tennis" loading="lazy">
+      <div class="product-card tall">
+        <div class="product-badge badge-limited">Limited</div>
+        <div class="wish-btn" onclick="event.stopPropagation();this.classList.toggle('active')">&#9825;</div>
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=400&q=80" alt="Summit" loading="lazy">
         </div>
-        <span class="category-name">Tennis</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80" alt="Running" loading="lazy">
+        <div class="product-info">
+          <h3 class="product-name">Summit</h3>
+          <span class="product-category">Trail</span>
+          <div class="product-footer">
+            <span class="product-price">$269</span>
+            <button class="add-cart-btn" onclick="event.stopPropagation();showToast('✅','Added to cart')">+</button>
+          </div>
         </div>
-        <span class="category-name">Running</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=300&q=80" alt="Training" loading="lazy">
-        </div>
-        <span class="category-name">Training</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&q=80" alt="Lifestyle" loading="lazy">
-        </div>
-        <span class="category-name">Lifestyle</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=300&q=80" alt="Basketball" loading="lazy">
-        </div>
-        <span class="category-name">Basketball</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=300&q=80" alt="Casual" loading="lazy">
-        </div>
-        <span class="category-name">Casual</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=300&q=80" alt="Sneakers" loading="lazy">
-        </div>
-        <span class="category-name">Sneakers</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=300&q=80" alt="Formal" loading="lazy">
-        </div>
-        <span class="category-name">Formal</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=300&q=80" alt="Trail" loading="lazy">
-        </div>
-        <span class="category-name">Trail</span>
-      </div>
-      <div class="category-card">
-        <div class="category-img-wrap">
-          <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=300&q=80" alt="Walking" loading="lazy">
-        </div>
-        <span class="category-name">Walking</span>
       </div>
     </div>
   </section>
 
-<script src="{% static 'JS/home.js' %}"></script>
-<script src="{% static 'JS/categories.js' %}"></script>
+  <!-- ===== PROMO BANNER ===== -->
+  <div class="promo-banner reveal">
+    <div>
+      <p class="promo-tag">Limited Time</p>
+      <h2 class="promo-headline">Up to 40% Off<br>Signature Series</h2>
+      <p class="promo-sub">Premium craftsmanship meets unbeatable value. Grab your pair before they're gone.</p>
+      <button class="btn-primary" style="margin-top:20px" onclick="showToast('🎉','Promo applied!')">Claim Offer</button>
+    </div>
+    <div class="promo-emoji">🏆</div>
+  </div>
 
-{% endblock %}
+  <!-- ===== BRANDS ===== -->
+  <div class="brands-section reveal">
+    <p class="brands-label">Trusted by leading athletes worldwide</p>
+    <div class="brands-row">
+      <span class="brand-name">VELOCITY</span>
+      <span class="brand-name">AXIS</span>
+      <span class="brand-name">PRIME</span>
+      <span class="brand-name">NOVA</span>
+      <span class="brand-name">FORGE</span>
+      <span class="brand-name">APEX</span>
+    </div>
+  </div>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features" id="features">
+    <div class="features-header">
+      <p class="section-eyebrow">Why Noir</p>
+      <h2 class="section-label">Built Different</h2>
+      <p class="section-sub" style="color:var(--muted);max-width:480px;line-height:1.7;margin-top:0.5rem">Every pair engineered with cutting-edge technology and uncompromising craftsmanship.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🪶</div>
+        <div class="feature-title">Featherweight Build</div>
+        <div class="feature-desc">Our proprietary foam compound cuts weight by 35% without sacrificing durability or support.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💨</div>
+        <div class="feature-title">Air-Flow Mesh</div>
+        <div class="feature-desc">Breathable woven upper keeps your feet cool even during the most intense sessions.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-title">Shock-Shield Sole</div>
+        <div class="feature-desc">Multi-density outsole absorbs 40% more impact, reducing strain on joints and muscles.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">♻️</div>
+        <div class="feature-title">Eco-Conscious</div>
+        <div class="feature-desc">Made from 70% recycled materials. Performance you can feel good about.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <div class="testimonials" id="reviews">
+    <div class="testimonials-inner">
+      <p class="section-eyebrow">Testimonials</p>
+      <h2 class="section-label">What Our Customers Say</h2>
+      <p class="section-sub" style="color:var(--muted);max-width:480px;line-height:1.7;margin-top:0.5rem">Real stories from real athletes and everyday movers.</p>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Most comfortable sneakers I've ever owned. Went from zero to marathon training in these — no break-in period needed."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">🏃</div>
+            <div>
+              <div class="reviewer-name">Marcus Chen</div>
+              <div class="reviewer-loc">Marathon Runner</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"The grip on the Court Kings is unreal. Made my lateral cuts sharper and my vertical feel bouncier. Game changer."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">🏀</div>
+            <div>
+              <div class="reviewer-name">Jayla Rivers</div>
+              <div class="reviewer-loc">College Athlete</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars">★★★★☆</div>
+          <p class="review-text">"Style meets function. I get compliments everywhere I go, and my feet have never been happier during 12-hour shifts."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">💼</div>
+            <div>
+              <div class="reviewer-name">Samira Okafor</div>
+              <div class="reviewer-loc">Registered Nurse</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Bought these for my daily commute and they've held up beautifully. Lightweight, breathable, and look great with everything."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">🚇</div>
+            <div>
+              <div class="reviewer-name">Diego Ramirez</div>
+              <div class="reviewer-loc">Graphic Designer</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"The Arch Support in these is next-level. I've tried a dozen brands — nothing comes close to this comfort."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">🧘</div>
+            <div>
+              <div class="reviewer-name">Priya Kapoor</div>
+              <div class="reviewer-loc">Yoga Instructor</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars">★★★★☆</div>
+          <p class="review-text">"Ordered a pair for my son's basketball tryouts. He says they feel like clouds. Already buying another pair for myself."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">👟</div>
+            <div>
+              <div class="reviewer-name">Linda Hartwell</div>
+              <div class="reviewer-loc">Soccer Mom</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Perfect fit right out of the box. I walk 10+ miles a day as a tour guide and my feet no longer ache at the end of the day."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">🗺️</div>
+            <div>
+              <div class="reviewer-name">Amara Osei</div>
+              <div class="reviewer-loc">Tour Guide</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Been wearing these to the gym for six months. Still look new, still feel like the first wear. Worth every penny."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">🏋️</div>
+            <div>
+              <div class="reviewer-name">Tommy Nguyen</div>
+              <div class="reviewer-loc">Personal Trainer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <div class="newsletter reveal">
+    <p class="section-eyebrow">Stay in the Loop</p>
+    <h2 class="section-label">Join the Noir Crew</h2>
+    <p class="section-sub">Be first to know about exclusive drops, early access, and members-only pricing.</p>
+    <form class="email-form" onsubmit="event.preventDefault();showToast('✉️','You\'re signed up!');this.reset()">
+      <input class="email-input" type="email" placeholder="Enter your email" required>
+      <button class="btn-primary" type="submit">Subscribe</button>
+    </form>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand-block">
+        <a href="#" class="logo">NO<span>IR</span></a>
+        <p class="footer-tagline">Forged in midnight. Built to dominate.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="#">New Arrivals</a>
+          <a href="#">Men</a>
+          <a href="#">Women</a>
+          <a href="#">Sale</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Stores</a>
+          <a href="#">Press</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Contact</a>
+          <a href="#">Shipping</a>
+          <a href="#">Returns</a>
+          <a href="#">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 NOIR. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Twitter">X</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast">
+    <span class="toast-icon" id="toastIcon">🚀</span>
+    <span id="toastMsg">Hello</span>
+  </div>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">⬆</button>
+
+  <script src="script.js">
+    /* ============================================
+   1.  TOAST NOTIFICATION
+   ============================================ */
+function showToast(icon, msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastIcon').textContent = icon;
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._hide);
+  t._hide = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+/* ============================================
+   2.  HEADER SCROLL EFFECT
+   ============================================ */
+const header = document.getElementById('header');
+const backBtn = document.getElementById('backToTop');
+
+function handleScroll() {
+  const s = window.scrollY;
+  header.classList.toggle('scrolled', s > 60);
+  backBtn.classList.toggle('visible', s > 500);
+}
+
+window.addEventListener('scroll', handleScroll);
+handleScroll();
+
+/* Back to top */
+backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ============================================
+   3.  HERO UNDERLINE — SCROLL PROGRESS
+   ============================================ */
+const titleUnderline = document.getElementById('titleUnderline');
+const heroSection = document.getElementById('hero');
+
+function updateUnderline() {
+  const heroRect = heroSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  const progress = Math.max(0, Math.min(1, 1 - (heroRect.bottom / windowHeight)));
+  const width = progress * 280;
+  titleUnderline.style.width = `${Math.min(width, 280)}px`;
+  titleUnderline.style.opacity = Math.min(1, progress * 2);
+}
+
+window.addEventListener('scroll', updateUnderline);
+window.addEventListener('resize', updateUnderline);
+updateUnderline();
+
+/* ============================================
+   4.  COUNTER ANIMATION — HERO STATS
+   ============================================ */
+const statValues = document.querySelectorAll('.stat-value');
+
+function animateCounters() {
+  statValues.forEach(el => {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    const current = parseInt(el.textContent, 10) || 0;
+    if (current >= target) return;
+    const speed = 60;
+    const increment = Math.ceil(target / speed);
+    const next = Math.min(current + increment, target);
+    el.textContent = next;
+    if (next < target) requestAnimationFrame(animateCounters);
+  });
+}
+
+const heroObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounters();
+      heroObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+if (statValues.length) heroObserver.observe(heroSection);
+
+/* ============================================
+   5.  3D SHOE TILT — MOUSE MOVE & TOUCH
+   ============================================ */
+const shoeContainer = document.getElementById('shoeContainer');
+const shoeImage = document.getElementById('shoeImage');
+const shoeGlow = document.getElementById('shoeGlow');
+
+function handleTilt(e) {
+  const rect = shoeContainer.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+  const rotateX = ((y - centerY) / centerY) * -12;
+  const rotateY = ((x - centerX) / centerX) * 12;
+
+  shoeImage.style.transform = `rotate(-8deg) scale(1.1) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  shoeImage.style.transition = 'transform 0.15s ease-out';
+
+  const glowX = ((x - centerX) / centerX) * 20;
+  const glowY = ((y - centerY) / centerY) * 20;
+  shoeGlow.style.transform = `translate(${glowX}px, ${glowY}px)`;
+}
+
+function resetTilt() {
+  shoeImage.style.transform = 'rotate(-8deg) scale(1.1) rotateX(0deg) rotateY(0deg)';
+  shoeImage.style.transition = 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+  shoeGlow.style.transform = 'translate(0, 0)';
+}
+
+shoeContainer.addEventListener('mousemove', handleTilt);
+shoeContainer.addEventListener('mouseleave', resetTilt);
+
+/* Touch support */
+shoeContainer.addEventListener('touchmove', (e) => {
+  const touch = e.touches[0];
+  handleTilt({ clientX: touch.clientX, clientY: touch.clientY });
+}, { passive: true });
+
+shoeContainer.addEventListener('touchend', resetTilt);
+
+/* ============================================
+   6.  SCROLL REVEAL — INTERSECTION OBSERVER
+   ============================================ */
+const revealEls = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => revealObserver.observe(el));
+
+/* ============================================
+   7.  FILTER TABS — ACTIVE STATE
+   ============================================ */
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+
+/* ============================================
+   8.  HAMBURGER MENU — MOBILE TOGGLE
+   ============================================ */
+document.getElementById('hamburger').addEventListener('click', function () {
+  this.classList.toggle('active');
+  const nav = document.querySelector('.nav');
+  if (nav.style.display === 'flex') {
+    nav.style.display = '';
+  } else {
+    nav.style.display = 'flex';
+    nav.style.flexDirection = 'column';
+    nav.style.position = 'absolute';
+    nav.style.top = '100%';
+    nav.style.left = '0';
+    nav.style.right = '0';
+    nav.style.background = 'rgba(13, 15, 26, 0.98)';
+    nav.style.padding = '24px 5%';
+    nav.style.borderBottom = '1px solid rgba(255, 255, 255, 0.07)';
+    nav.style.gap = '20px';
+  }
+});
+
+/* ============================================
+   9.  HERO PARALLAX — SCROLL
+   ============================================ */
+const heroVisual = document.getElementById('heroVisual');
+
+window.addEventListener('scroll', () => {
+  const rect = heroSection.getBoundingClientRect();
+  const progress = 1 - (rect.top / window.innerHeight);
+  if (progress >= 0 && progress <= 1.2) {
+    heroVisual.style.transform = `translateY(${progress * 40}px)`;
+  }
+});
+
+/* ============================================
+   10. CONSOLE BRANDING
+   ============================================ */
+console.log(
+  '%c NOIR %c Premium Footwear ',
+  'background:#FF4D4D;color:#fff;font-size:1.2rem;padding:4px 0 4px 8px;border-radius:4px 0 0 4px;font-weight:700;',
+  'background:#0D0F1A;color:#F5F0E8;font-size:1.2rem;padding:4px 8px 4px 0;border-radius:0 4px 4px 0;font-weight:300;'
+);
+
+  </script>
+</body>
+</html>
