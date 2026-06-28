@@ -1,5 +1,252 @@
 {% extends 'main.html' %}
 
 {% block content %}
-    <h1>Nike Page</h1>
+{% load static %}
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nike — Just Do It</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'CSS/nike.css' %}">
+</head>
+<body>
+
+  <section class="nike-products" id="nike-products">
+    <div class="section-head">
+      <h2>Nike <span>Collection</span></h2>
+      <p>Premium performance footwear engineered for every journey</p>
+    </div>
+
+    <div class="nike-grid">
+      <div class="nike-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="Nike Air Zoom">
+        </div>
+        <div class="card-body">
+          <h3>Nike Air Zoom Pegasus</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">Responsive cushioning with Zoom Air units for a springy, energized ride every mile.</p>
+          <div class="card-foot">
+            <span class="card-price">$219</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="Nike Air Force 1">
+        </div>
+        <div class="card-body">
+          <h3>Nike Air Force 1 '07</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">The iconic silhouette reimagined with premium leather and timeless street-ready style.</p>
+          <div class="card-foot">
+            <span class="card-price">$159</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400&q=80" alt="Nike Air Jordan">
+        </div>
+        <div class="card-body">
+          <h3>Air Jordan 1 Retro High</h3>
+          <span class="card-cat">Basketball</span>
+          <p class="card-desc">Legendary silhouette with premium materials and iconic Wings branding on the ankle.</p>
+          <div class="card-foot">
+            <span class="card-price">$289</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=400&q=80" alt="Nike Revolution">
+        </div>
+        <div class="card-body">
+          <h3>Nike Revolution 6</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">Soft foam cushioning and a lightweight knit upper for a smooth, comfortable run.</p>
+          <div class="card-foot">
+            <span class="card-price">$109</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&q=80" alt="Nike Dunk Low">
+        </div>
+        <div class="card-body">
+          <h3>Nike Dunk Low Retro</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Classic hoops-inspired design with padded collar and durable rubber outsole.</p>
+          <div class="card-foot">
+            <span class="card-price">$179</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-badge badge-sale">-30%</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=400&q=80" alt="Nike Trail">
+        </div>
+        <div class="card-body">
+          <h3>Nike Pegasus Trail 4</h3>
+          <span class="card-cat">Trail Running</span>
+          <p class="card-desc">Traction and protection for off-road adventures with responsive React foam.</p>
+          <div class="card-foot">
+            <span class="card-price"><span class="old-price">$189</span> $132</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&q=80" alt="Nike Air Max">
+        </div>
+        <div class="card-body">
+          <h3>Nike Air Max 270</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Big air unit delivers all-day comfort with a bold, futuristic silhouette that turns heads.</p>
+          <div class="card-foot">
+            <span class="card-price">$199</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&q=80" alt="Nike Metcon">
+        </div>
+        <div class="card-body">
+          <h3>Nike Metcon 9</h3>
+          <span class="card-cat">Training</span>
+          <p class="card-desc">Built for heavy lifts and high-intensity workouts with durable, stable construction.</p>
+          <div class="card-foot">
+            <span class="card-price">$179</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400&q=80" alt="Nike ZoomX">
+        </div>
+        <div class="card-body">
+          <h3>Nike ZoomX Vaporfly</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">Race-day carbon fibre plate and ZoomX foam for maximum energy return and speed.</p>
+          <div class="card-foot">
+            <span class="card-price">$329</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1562183241-b937e95585b6?w=400&q=80" alt="Nike Blazer">
+        </div>
+        <div class="card-body">
+          <h3>Nike Blazer Mid '77</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Classic retro silhouette with a suede upper and vintage-inspired details.</p>
+          <div class="card-foot">
+            <span class="card-price">$139</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-badge badge-sale">-25%</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&q=80" alt="Nike Wildhorse">
+        </div>
+        <div class="card-body">
+          <h3>Nike Wildhorse 8</h3>
+          <span class="card-cat">Trail Running</span>
+          <p class="card-desc">Rugged trail shoe with aggressive traction and rock plate protection.</p>
+          <div class="card-foot">
+            <span class="card-price"><span class="old-price">$179</span> $134</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=400&q=80" alt="Nike Invincible">
+        </div>
+        <div class="card-body">
+          <h3>Nike Invincible 3</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">Maximum cushioning with ZoomX foam for a soft, bouncy run every time.</p>
+          <div class="card-foot">
+            <span class="card-price">$239</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&q=80" alt="Nike Court Vision">
+        </div>
+        <div class="card-body">
+          <h3>Nike Court Vision Low</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Clean court-inspired style with a durable leather upper and classic cupsole.</p>
+          <div class="card-foot">
+            <span class="card-price">$119</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nike-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&q=80" alt="Nike LeBron">
+        </div>
+        <div class="card-body">
+          <h3>Nike LeBron 21</h3>
+          <span class="card-cat">Basketball</span>
+          <p class="card-desc">Engineered for explosive play with responsive Zoom Air and a supportive upper.</p>
+          <div class="card-foot">
+            <span class="card-price">$259</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
 {% endblock %}
