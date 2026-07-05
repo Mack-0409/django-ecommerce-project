@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def nike(request):
     return render(request, 'nike.html')
+
+def bacca(request):
+    return render(request, 'bacca.html')

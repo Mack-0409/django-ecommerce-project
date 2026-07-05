@@ -3,4 +3,5 @@ from .views import *
 
 urlpatterns = [
     path('nike/', nike, name='nike'),
+    path('bacca/', bacca, name='bacca'),
 ]
