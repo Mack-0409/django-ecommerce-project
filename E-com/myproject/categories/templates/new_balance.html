@@ -1,0 +1,252 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Balance — Endurance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'CSS/newbalance.css' %}">
+</head>
+<body>
+
+  <section class="nb-products" id="nb-products">
+    <div class="section-head">
+      <h2>New Balance <span>Collection</span></h2>
+      <p>Premium craftsmanship engineered for performance and comfort</p>
+    </div>
+
+    <div class="nb-grid">
+      <div class="nb-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="New Balance 990v6">
+        </div>
+        <div class="card-body">
+          <h3>New Balance 990v6</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">The iconic Made-in-USA silhouette with FuelCell foam for all-day comfort and style.</p>
+          <div class="card-foot">
+            <span class="card-price">$219</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="New Balance 1080v13">
+        </div>
+        <div class="card-body">
+          <h3>New Balance 1080v13</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">Plush Fresh Foam X midsole delivers a luxurious, cloud-like run every mile.</p>
+          <div class="card-foot">
+            <span class="card-price">$179</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400&q=80" alt="New Balance 2002R">
+        </div>
+        <div class="card-body">
+          <h3>New Balance 2002R</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Throwback runner with premium pigskin suede and ABZORB cushioning underfoot.</p>
+          <div class="card-foot">
+            <span class="card-price">$159</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=400&q=80" alt="New Balance Fresh Foam X">
+        </div>
+        <div class="card-body">
+          <h3>Fresh Foam X Hierro</h3>
+          <span class="card-cat">Trail</span>
+          <p class="card-desc">Trail-tough with Vibram outsole and Fresh Foam X cushioning for rugged terrain.</p>
+          <div class="card-foot">
+            <span class="card-price">$169</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&q=80" alt="New Balance 574">
+        </div>
+        <div class="card-body">
+          <h3>New Balance 574 Core</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">A timeless classic with suede and mesh upper and ENCAP midsole cushioning.</p>
+          <div class="card-foot">
+            <span class="card-price">$119</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-badge badge-sale">-30%</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=400&q=80" alt="New Balance FuelCell Supercomp">
+        </div>
+        <div class="card-body">
+          <h3>FuelCell Supercomp</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">Race-day carbon plate trainer with FuelCell foam for explosive energy return.</p>
+          <div class="card-foot">
+            <span class="card-price"><span class="old-price">$249</span> $174</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400&q=80" alt="New Balance 9060">
+        </div>
+        <div class="card-body">
+          <h3>New Balance 9060</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Bold Y2K-inspired design with a chunky ABZORB sole and premium mesh upper.</p>
+          <div class="card-foot">
+            <span class="card-price">$189</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1562183241-b937e95585b6?w=400&q=80" alt="New Balance 860v13">
+        </div>
+        <div class="card-body">
+          <h3>New Balance 860v13</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">Stability shoe with Fresh Foam X and medial post for a smooth, supported stride.</p>
+          <div class="card-foot">
+            <span class="card-price">$159</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&q=80" alt="New Balance 550">
+        </div>
+        <div class="card-body">
+          <h3>New Balance 550</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Vintage basketball-inspired silhouette with a leather upper and perforated detailing.</p>
+          <div class="card-foot">
+            <span class="card-price">$139</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&q=80" alt="New Balance Minimus">
+        </div>
+        <div class="card-body">
+          <h3>New Balance Minimus</h3>
+          <span class="card-cat">Training</span>
+          <p class="card-desc">Barefoot-inspired trainer with Vibram outsole and zero-drop platform for natural movement.</p>
+          <div class="card-foot">
+            <span class="card-price">$129</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-badge badge-sale">-25%</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&q=80" alt="New Balance Hierro">
+        </div>
+        <div class="card-body">
+          <h3>New Balance Hierro v8</h3>
+          <span class="card-cat">Trail</span>
+          <p class="card-desc">Waterproof trail runner with Fresh Foam X and aggressive Vibram traction.</p>
+          <div class="card-foot">
+            <span class="card-price"><span class="old-price">$179</span> $134</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=400&q=80" alt="New Balance 880v14">
+        </div>
+        <div class="card-body">
+          <h3>New Balance 880v14</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">Versatile everyday trainer with Fresh Foam X cushioning and a breathable knit upper.</p>
+          <div class="card-foot">
+            <span class="card-price">$149</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="New Balance 327">
+        </div>
+        <div class="card-body">
+          <h3>New Balance 327</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Retro runner with a oversized N logo, lugged outsole, and lightweight construction.</p>
+          <div class="card-foot">
+            <span class="card-price">$129</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&q=80" alt="New Balance 992">
+        </div>
+        <div class="card-body">
+          <h3>New Balance 992</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Made-in-USA classic with pigskin suede, ABZORB heel, and premium craftsmanship.</p>
+          <div class="card-foot">
+            <span class="card-price">$259</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
+{% endblock %}

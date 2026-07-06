@@ -1,0 +1,252 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adidas — Impossible Is Nothing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'CSS/adidas.css' %}">
+</head>
+<body>
+
+  <section class="adi-products" id="adi-products">
+    <div class="section-head">
+      <h2>Adidas <span>Collection</span></h2>
+      <p>Iconic sportswear built for athletes, creators, and everyday legends</p>
+    </div>
+
+    <div class="adi-grid">
+      <div class="adi-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&q=80" alt="Adidas Ultraboost">
+        </div>
+        <div class="card-body">
+          <h3>Adidas Ultraboost Light</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">The lightest Ultraboost yet with BOOST technology for endless energy return.</p>
+          <div class="card-foot">
+            <span class="card-price">$239</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=400&q=80" alt="Adidas Samba">
+        </div>
+        <div class="card-body">
+          <h3>Adidas Samba OG</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">The timeless indoor classic with a gum sole and full-grain leather upper.</p>
+          <div class="card-foot">
+            <span class="card-price">$149</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&q=80" alt="Adidas Yeezy">
+        </div>
+        <div class="card-body">
+          <h3>Adidas Yeezy 350 V2</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Drops from the moon — Primeknit upper with a sock-like fit and BOOST sole.</p>
+          <div class="card-foot">
+            <span class="card-price">$349</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="Adidas Adizero">
+        </div>
+        <div class="card-body">
+          <h3>Adidas Adizero Boston 12</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">Lightweight speed training shoe with EnergyRods and Lightstrike Pro foam.</p>
+          <div class="card-foot">
+            <span class="card-price">$179</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="Adidas Gazelle">
+        </div>
+        <div class="card-body">
+          <h3>Adidas Gazelle Bold</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Vintage terrace style reimagined with a chunky sole and soft suede upper.</p>
+          <div class="card-foot">
+            <span class="card-price">$139</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-badge badge-sale">-30%</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1597045566677-8cf032ed8434?w=400&q=80" alt="Adidas NMD">
+        </div>
+        <div class="card-body">
+          <h3>Adidas NMD_R1 V3</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Urban runner with a knit upper, EVA plug detailing, and a sleek sock cuff.</p>
+          <div class="card-foot">
+            <span class="card-price"><span class="old-price">$199</span> $139</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&q=80" alt="Adidas Forum">
+        </div>
+        <div class="card-body">
+          <h3>Adidas Forum Low</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Bold 80s basketball heritage with a removable strap and iconic X-detail.</p>
+          <div class="card-foot">
+            <span class="card-price">$129</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&q=80" alt="Adidas Dropset">
+        </div>
+        <div class="card-body">
+          <h3>Adidas Dropset 3</h3>
+          <span class="card-cat">Training</span>
+          <p class="card-desc">Stable platform for heavy lifts with a reinforced medial side and mesh upper.</p>
+          <div class="card-foot">
+            <span class="card-price">$159</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400&q=80" alt="Adidas Predator">
+        </div>
+        <div class="card-body">
+          <h3>Adidas Predator Edge</h3>
+          <span class="card-cat">Football</span>
+          <p class="card-desc">Strike with precision — Hybridtouch upper with rubber DemonSkin strikes.</p>
+          <div class="card-foot">
+            <span class="card-price">$299</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1562183241-b937e95585b6?w=400&q=80" alt="Adidas SL72">
+        </div>
+        <div class="card-body">
+          <h3>Adidas SL 72 RS</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">1972 running silhouette reissued with a nylon upper and suede overlays.</p>
+          <div class="card-foot">
+            <span class="card-price">$119</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-badge badge-sale">-25%</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=400&q=80" alt="Adidas Terrex">
+        </div>
+        <div class="card-body">
+          <h3>Adidas Terrex Free Hiker</h3>
+          <span class="card-cat">Trail Running</span>
+          <p class="card-desc">BOOST midsole meets a sock-like Primeknit upper for trail-to-town versatility.</p>
+          <div class="card-foot">
+            <span class="card-price"><span class="old-price">$259</span> $194</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=400&q=80" alt="Adidas Supernova">
+        </div>
+        <div class="card-body">
+          <h3>Adidas Supernova Rise</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">Plush daily trainer with Dreamstrike+ foam and a supportive heel fit.</p>
+          <div class="card-foot">
+            <span class="card-price">$169</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&q=80" alt="Adidas Handball Spezial">
+        </div>
+        <div class="card-body">
+          <h3>Adidas Handball Spezial</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Indoor court legend reborn with a supple suede upper and gum outsole.</p>
+          <div class="card-foot">
+            <span class="card-price">$139</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adi-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&q=80" alt="Adidas Harden">
+        </div>
+        <div class="card-body">
+          <h3>Adidas Harden Vol. 8</h3>
+          <span class="card-cat">Basketball</span>
+          <p class="card-desc">James Harden's signature shoe with a futuristic fit and Jet BOOST midsole.</p>
+          <div class="card-foot">
+            <span class="card-price">$219</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
+{% endblock %}

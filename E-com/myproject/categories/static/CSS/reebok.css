@@ -1,0 +1,178 @@
+:root {
+  --reeb-bg: #111118;
+  --reeb-card: #1C1C26;
+  --reeb-card2: #28283A;
+  --reeb-text: #F0F0F5;
+  --reeb-muted: rgba(240, 240, 245, 0.55);
+  --reeb-accent: #005CFF;
+  --reeb-gold: #FF6B35;
+  --reeb-border: rgba(255, 255, 255, 0.07);
+  --ff-display: 'Bebas Neue', sans-serif;
+  --ff-body: 'DM Sans', sans-serif;
+}
+
+.reeb-products {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-head h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  letter-spacing: 0.04em;
+}
+
+.section-head h2 span {
+  color: var(--reeb-accent);
+}
+
+.section-head p {
+  color: var(--reeb-muted);
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.reeb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.reeb-card {
+  background: var(--reeb-card);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--reeb-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.reeb-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+
+.card-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  background: var(--reeb-accent);
+  color: #fff;
+}
+
+.badge-new {
+  background: var(--reeb-accent);
+}
+
+.badge-limited {
+  background: #7C3AED;
+}
+
+.badge-sale {
+  background: var(--reeb-gold);
+  color: #111118;
+}
+
+.card-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--reeb-card2);
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reeb-card:hover .card-img img {
+  transform: scale(1.08);
+}
+
+.card-body {
+  padding: 1.2rem;
+}
+
+.card-body h3 {
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+
+.card-cat {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--reeb-muted);
+  font-weight: 500;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--reeb-muted);
+  line-height: 1.6;
+  margin: 0.6rem 0 1rem;
+}
+
+.card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--reeb-border);
+}
+
+.card-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--reeb-gold);
+}
+
+.old-price {
+  font-size: 0.85rem;
+  color: var(--reeb-muted);
+  text-decoration: line-through;
+  margin-right: 6px;
+  font-weight: 400;
+}
+
+.card-btn {
+  padding: 0.6rem 1.5rem;
+  background: var(--reeb-card2);
+  color: var(--reeb-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--reeb-border);
+  border-radius: 6px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.card-btn:hover {
+  background: var(--reeb-accent);
+  border-color: var(--reeb-accent);
+}
+
+@media (max-width: 768px) {
+  .reeb-grid {
+    grid-template-columns: 1fr;
+  }
+}

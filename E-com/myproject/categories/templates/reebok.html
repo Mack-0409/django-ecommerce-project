@@ -1,0 +1,252 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reebok — Be More Human</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'CSS/reebok.css' %}">
+</head>
+<body>
+
+  <section class="reeb-products" id="reeb-products">
+    <div class="section-head">
+      <h2>Reebok <span>Collection</span></h2>
+      <p>Fitness, lifestyle, and performance gear built to push beyond limits</p>
+    </div>
+
+    <div class="reeb-grid">
+      <div class="reeb-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1597045566677-8cf032ed8434?w=400&q=80" alt="Reebok Club C">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Club C 85</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">The original court sneaker with a clean leather upper and terry lining.</p>
+          <div class="card-foot">
+            <span class="card-price">$109</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=400&q=80" alt="Reebok Nano">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Nano X4</h3>
+          <span class="card-cat">Training</span>
+          <p class="card-desc">Cross-training icon with Flexweave upper and a stable Lift and Run chassis.</p>
+          <div class="card-foot">
+            <span class="card-price">$179</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&q=80" alt="Reebok Classic Leather">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Classic Leather</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Timeless simplicity — soft garment leather with a padded foam sockliner.</p>
+          <div class="card-foot">
+            <span class="card-price">$99</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="Reebok Floatride">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Floatride Energy 6</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">Lightweight Floatride foam delivers responsive cushioning mile after mile.</p>
+          <div class="card-foot">
+            <span class="card-price">$159</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="Reebok Zig Kinetica">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Zig Kinetica 3</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Bold zig-zag sole with Floatride foam for a futuristic look and feel.</p>
+          <div class="card-foot">
+            <span class="card-price">$159</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-badge badge-sale">-30%</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&q=80" alt="Reebok Premier Road">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Premier Road Plus</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Chunky runner silhouette with a mesh and leather build and EVA midsole.</p>
+          <div class="card-foot">
+            <span class="card-price"><span class="old-price">$149</span> $104</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&q=80" alt="Reebok Pump">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Pump Omni Zone II</h3>
+          <span class="card-cat">Basketball</span>
+          <p class="card-desc">The iconic Pump returns — custom fit with a inflated collar and EVA midsole.</p>
+          <div class="card-foot">
+            <span class="card-price">$239</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&q=80" alt="Reebok Legacy Lifter">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Legacy Lifter III</h3>
+          <span class="card-cat">Training</span>
+          <p class="card-desc">Weightlifting shoe with a raised heel and TPU foreplate for max stability.</p>
+          <div class="card-foot">
+            <span class="card-price">$249</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400&q=80" alt="Reebok Run 700">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Run 700</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Retro chunky runner with ripstop mesh and reflective heel details.</p>
+          <div class="card-foot">
+            <span class="card-price">$129</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1562183241-b937e95585b6?w=400&q=80" alt="Reebok Answer">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Answer DMX</h3>
+          <span class="card-cat">Basketball</span>
+          <p class="card-desc">Iverson's legacy — DMX air technology and a premium leather upper.</p>
+          <div class="card-foot">
+            <span class="card-price">$189</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-badge badge-sale">-25%</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=400&q=80" alt="Reebok Trailgrip">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Trailgrip GTX</h3>
+          <span class="card-cat">Trail Running</span>
+          <p class="card-desc">GORE-TEX waterproof membrane with aggressive lugs for rugged terrain.</p>
+          <div class="card-foot">
+            <span class="card-price"><span class="old-price">$199</span> $149</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1605408499391-6368c3ef10c7?w=400&q=80" alt="Reebok Energen">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Energen Lux</h3>
+          <span class="card-cat">Running</span>
+          <p class="card-desc">Plush cushioning and a breathable knit upper for daily comfort runs.</p>
+          <div class="card-foot">
+            <span class="card-price">$119</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&q=80" alt="Reebok Royal Glide">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Royal Glide</h3>
+          <span class="card-cat">Lifestyle</span>
+          <p class="card-desc">Sock-like knit upper with a cushioned midsole for all-day wear.</p>
+          <div class="card-foot">
+            <span class="card-price">$89</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reeb-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&q=80" alt="Reebok Shaq">
+        </div>
+        <div class="card-body">
+          <h3>Reebok Shaq Attaq</h3>
+          <span class="card-cat">Basketball</span>
+          <p class="card-desc">Shaquille O'Neal's signature shoe with a dynamic sleeve and Hexalite cushioning.</p>
+          <div class="card-foot">
+            <span class="card-price">$269</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
+{% endblock %}
