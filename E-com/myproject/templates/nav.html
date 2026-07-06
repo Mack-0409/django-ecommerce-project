@@ -11,14 +11,14 @@
     <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="header-inner">
-      <a href="#" class="logo">NO<span>IR</span></a>
+      <a href="{% url 'home' %}" class="logo">NO<span>IR</span></a>
       <nav class="nav" id="nav">
-        <a href="#">Home</a>
-        <a href="#featured">New Drops</a>
-        <a href="#signup">Signup</a>
-        <a href="#signin">Signin</a>
-        <a href="#profile">Profile</a>
-        <a href="#logout">Logout</a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="#">New Drops</a>
+        <a href="{% url 'register' %}">Signup</a>
+        <a href="{% url 'login_' %}">Signin</a>
+        <a href="#">Profile</a>
+        <a href="#">Logout</a>
       </nav>
       <div class="header-actions">
         <!-- From Uiverse.io by xbeat_5120 --> 

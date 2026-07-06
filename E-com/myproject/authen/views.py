@@ -30,10 +30,12 @@ def register(request):
         email = request.POST['email']
         password = request.POST['pasw']
         confirm_password = request.POST['confirm_pasw']
+        if password != confirm_password:
+            return render(request, 'register.html', {'error':'Passwords do not match...!'})
         try:
             user = User.objects.get(username = username)
             return render(request, 'register.html', {'error':'UserName is already taken...!'})
-        except:
+        except User.DoesNotExist:
             User.objects.create_user(
                 first_name = first_name,
                 last_name = last_name,
@@ -62,11 +64,12 @@ def forgot_pasw(request):
             new_pasw = request.POST['pasw']
             user.set_password(new_pasw)
             user.save()
-        return redirect(login_)
+        return redirect('login_')
 
     return render(request, 'forgot_pasw.html' )
 
 
+@login_required(login_url='login_')
 def update(request):
     user = User.objects.get(username = request.user)
     if request.method == 'POST':

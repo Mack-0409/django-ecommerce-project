@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+<main class="auth-page">
+  <div class="auth-card">
+    <div class="auth-header">
+      <a href="{% url 'home' %}" class="logo">NO<span>IR</span></a>
+      <h1 class="auth-title">{{ profile.user.username }}</h1>
+      <p class="auth-subtitle">{{ profile.user.email }}</p>
+    </div>
+
+    <div class="form-group" style="align-items:center">
+      <div class="profile-img-wrap">
+        {% if profile.profile_image %}
+          <img src="{{ profile.profile_image.url }}" alt="Profile">
+        {% else %}
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80" alt="Profile">
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="form-row-2" style="margin-top:1.5rem">
+      <div class="form-group">
+        <label>First Name</label>
+        <p style="color:var(--text);font-size:1rem">{{ profile.user.first_name }}</p>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <p style="color:var(--text);font-size:1rem">{{ profile.user.last_name }}</p>
+      </div>
+    </div>
+
+    <p class="auth-footer" style="margin-top:2rem">
+      <a href="{% url 'update' %}">Edit Profile</a> &middot;
+      <a href="{% url 'home' %}">Home</a>
+    </p>
+  </div>
+</main>
+{% endblock %}
