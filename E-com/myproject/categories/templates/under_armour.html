@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Armour — The Only Way Is Through</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ua-bg: #0A0A0F;
+            --ua-card: #15151E;
+            --ua-card2: #1F1F2A;
+            --ua-text: #EAEAEA;
+            --ua-muted: rgba(234,234,234,0.55);
+            --ua-accent: #A5A6A5;
+            --ua-gold: #C8A951;
+            --ua-border: rgba(255,255,255,0.07);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--ua-bg);
+            color: var(--ua-text);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--ua-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--ua-card2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--ua-accent);
+        }
+
+        ::selection {
+            background: var(--ua-accent);
+            color: var(--ua-bg);
+        }
+
+        .ua-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .ua-head {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .ua-head h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .ua-head h1 span {
+            color: var(--ua-accent);
+        }
+
+        .ua-head p {
+            color: var(--ua-muted);
+            margin-top: 0.75rem;
+            font-size: 1rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ua-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .ua-card {
+            background: var(--ua-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--ua-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .ua-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+        }
+
+        .ua-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .ua-badge-new {
+            background: var(--ua-accent);
+            color: var(--ua-bg);
+        }
+
+        .ua-badge-limited {
+            background: #7C3AED;
+            color: #fff;
+        }
+
+        .ua-badge-sale {
+            background: var(--ua-gold);
+            color: #111;
+        }
+
+        .ua-badge-bestseller {
+            background: var(--ua-gold);
+            color: #111;
+        }
+
+        .ua-card-img {
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            background: var(--ua-card2);
+        }
+
+        .ua-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .ua-card:hover .ua-card-img img {
+            transform: scale(1.08);
+        }
+
+        .ua-card-body {
+            padding: 1.2rem;
+        }
+
+        .ua-card-body h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.35rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.2rem;
+        }
+
+        .ua-card-cat {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ua-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .ua-card-desc {
+            font-size: 0.85rem;
+            color: var(--ua-muted);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .ua-card-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.85rem;
+            border-top: 1px solid var(--ua-border);
+        }
+
+        .ua-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            color: var(--ua-gold);
+        }
+
+        .ua-price .ua-old {
+            font-size: 0.85rem;
+            color: var(--ua-muted);
+            text-decoration: line-through;
+            margin-left: 6px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .ua-btn {
+            background: var(--ua-card2);
+            color: var(--ua-text);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .ua-btn:hover {
+            background: var(--ua-accent);
+            color: var(--ua-bg);
+        }
+
+        @media (max-width: 768px) {
+            .ua-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ua-head h1 {
+                font-size: 2.5rem;
+            }
+
+            .ua-section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="ua-section">
+        <div class="ua-head">
+            <h1>Under Armour <span>Collection</span></h1>
+            <p>Engineered for athletes who demand more from every workout</p>
+        </div>
+
+        <div class="ua-grid">
+            <div class="ua-card">
+                <span class="ua-badge ua-badge-bestseller">Best Seller</span>
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="UA HOVR Phantom 3">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA HOVR Phantom 3</h3>
+                    <div class="ua-card-cat">Running</div>
+                    <div class="ua-card-desc">Zero-gravity feel with UA HOVR technology that cushions and returns energy with every stride.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$160</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <span class="ua-badge ua-badge-new">New</span>
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="UA Curry 10">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA Curry 10</h3>
+                    <div class="ua-card-cat">Basketball</div>
+                    <div class="ua-card-desc">Steph Curry's signature shoe built for explosive cuts, quick stops, and all-game comfort.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$170</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="UA Project Rock 6">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA Project Rock 6</h3>
+                    <div class="ua-card-cat">Training</div>
+                    <div class="ua-card-desc">Dwayne Johnson's training shoe with TriBase sole for grip and flexibility during heavy lifts.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$140</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="UA HOVR Infinite 5">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA HOVR Infinite 5</h3>
+                    <div class="ua-card-cat">Running</div>
+                    <div class="ua-card-desc">Built for long-distance runners who need responsive cushioning that lasts mile after mile.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$150</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <span class="ua-badge ua-badge-bestseller">Best Seller</span>
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400" alt="UA Charged Assert 10">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA Charged Assert 10</h3>
+                    <div class="ua-card-cat">Running</div>
+                    <div class="ua-card-desc">Lightweight mesh upper with Charged Cushioning midsole for impact absorption on hard surfaces.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$85</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400" alt="UA SlideLite">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA SlideLite</h3>
+                    <div class="ua-card-cat">Lifestyle</div>
+                    <div class="ua-card-desc">Slip-on comfort with a cushioned footbed and adjustable strap for a personalized post-workout fit.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$50</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <span class="ua-badge ua-badge-limited">Limited</span>
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400" alt="UA Fathom 3">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA Fathom 3</h3>
+                    <div class="ua-card-cat">Trail Running</div>
+                    <div class="ua-card-desc">Aggressive outsole lugs and reinforced toe cap designed for technical trails and rugged terrain.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$130</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="UA Micro G Pursuit">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA Micro G Pursuit</h3>
+                    <div class="ua-card-cat">Training</div>
+                    <div class="ua-card-desc">Affordable training essential with Micro G foam and a durable rubber outsole for gym and beyond.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$75</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <span class="ua-badge ua-badge-new">New</span>
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400" alt="UA SlipSpeed Mega">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA SlipSpeed Mega</h3>
+                    <div class="ua-card-cat">Lifestyle</div>
+                    <div class="ua-card-desc">Convertible heel design lets you wear it cuffed or uncuffed with UA Flow outsole for all-day grip.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$120</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="UA Tribase Reign 5">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA Tribase Reign 5</h3>
+                    <div class="ua-card-cat">Training</div>
+                    <div class="ua-card-desc">TriBase sole maximizes surface contact for heavy lifting while flexing naturally for dynamic movements.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$140</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <span class="ua-badge ua-badge-bestseller">Best Seller</span>
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="UA HOVR Rise 5">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA HOVR Rise 5</h3>
+                    <div class="ua-card-cat">Running</div>
+                    <div class="ua-card-desc">Versatile trainer with breathable mesh and UA HOVR cushioning for responsive comfort on daily runs.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$110</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <span class="ua-badge ua-badge-new">New</span>
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400" alt="UA Speedform Gemini 6">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA Speedform Gemini 6</h3>
+                    <div class="ua-card-cat">Running</div>
+                    <div class="ua-card-desc">Precision-molded heel cup and seamless upper deliver a glove-like fit for distraction-free running.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$130</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <span class="ua-badge ua-badge-sale">-30%</span>
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400" alt="UA Assert 9">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA Assert 9</h3>
+                    <div class="ua-card-cat">Running</div>
+                    <div class="ua-card-desc">Dependable everyday runner with lightweight mesh and a solid rubber outsole for lasting durability.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$52 <span class="ua-old">$75</span></div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ua-card">
+                <span class="ua-badge ua-badge-limited">Limited</span>
+                <div class="ua-card-img">
+                    <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400" alt="UA Infinite Elite">
+                </div>
+                <div class="ua-card-body">
+                    <h3>UA Infinite Elite</h3>
+                    <div class="ua-card-cat">Running</div>
+                    <div class="ua-card-desc">Top-tier performance runner with premium HOVR cushioning and a carbon-infused plate for race-day speed.</div>
+                    <div class="ua-card-foot">
+                        <div class="ua-price">$170</div>
+                        <button class="ua-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

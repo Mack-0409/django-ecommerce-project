@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-White — Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ow-bg: #111111;
+            --ow-card: #1C1C1C;
+            --ow-card2: #272727;
+            --ow-text: #F0F0F0;
+            --ow-muted: rgba(240,240,240,0.55);
+            --ow-accent: #FF6B35;
+            --ow-gold: #FF6B35;
+            --ow-border: rgba(255,255,255,0.07);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--ow-bg);
+            color: var(--ow-text);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--ow-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--ow-card2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--ow-accent);
+        }
+
+        ::selection {
+            background: var(--ow-accent);
+            color: #111;
+        }
+
+        .ow-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .ow-head {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .ow-head h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            color: var(--ow-text);
+        }
+
+        .ow-head h1 span {
+            color: var(--ow-accent);
+        }
+
+        .ow-head p {
+            font-size: 1.05rem;
+            color: var(--ow-muted);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .ow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .ow-card {
+            background: var(--ow-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--ow-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .ow-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(255, 107, 53, 0.1);
+        }
+
+        .ow-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .ow-badge-new {
+            background: var(--ow-accent);
+            color: #111;
+        }
+
+        .ow-badge-limited {
+            background: #7C3AED;
+            color: #fff;
+        }
+
+        .ow-badge-sale {
+            background: var(--ow-gold);
+            color: #111;
+        }
+
+        .ow-card-img {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ow-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .ow-card:hover .ow-card-img img {
+            transform: scale(1.08);
+        }
+
+        .ow-card-body {
+            padding: 1.2rem;
+        }
+
+        .ow-card-body h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.35rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.15rem;
+        }
+
+        .ow-card-cat {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--ow-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .ow-card-desc {
+            font-size: 0.85rem;
+            color: var(--ow-muted);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .ow-card-foot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid var(--ow-border);
+        }
+
+        .ow-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            color: var(--ow-gold);
+            letter-spacing: 0.03em;
+        }
+
+        .ow-price .ow-old {
+            text-decoration: line-through;
+            color: var(--ow-muted);
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+
+        .ow-btn {
+            background: var(--ow-card2);
+            color: var(--ow-text);
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .ow-btn:hover {
+            background: var(--ow-accent);
+            color: #111;
+        }
+
+        @media (max-width: 768px) {
+            .ow-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="ow-section">
+        <div class="ow-head">
+            <h1>Off-White <span>Collection</span></h1>
+            <p>The grey area between black and white — high fashion meets street culture</p>
+        </div>
+
+        <div class="ow-grid">
+
+            <div class="ow-card">
+                <div class="ow-badge ow-badge-new">Best Seller</div>
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop" alt="Off-White OOO Sneaker">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White OOO Sneaker</h3>
+                    <div class="ow-card-cat">Luxury Sneakers</div>
+                    <div class="ow-card-desc">Virgil Abloh's signature OOO sneaker featuring industrial zip tie and signature arrow branding.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$850</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-badge ow-badge-new">New</div>
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop" alt="Off-White Out Of Office Sneaker">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White Out Of Office Sneaker</h3>
+                    <div class="ow-card-cat">Luxury Sneakers</div>
+                    <div class="ow-card-desc">Low-profile leather sneaker with exposed foam tongue and printed quotation marks. A modern icon.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$920</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop" alt="Off-White Abstract Arrows Tee">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White Abstract Arrows Tee</h3>
+                    <div class="ow-card-cat">Streetwear</div>
+                    <div class="ow-card-desc">Oversized cotton tee with signature abstract arrows print. Clean construction meets graphic boldness.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$335</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-badge ow-badge-limited">Limited</div>
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop" alt="Off-White Diagonal Hoodie">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White Diagonal Hoodie</h3>
+                    <div class="ow-card-cat">Streetwear</div>
+                    <div class="ow-card-desc">Heavyweight French terry hoodie with diagonal stripe graphic and industrial logo patch on chest.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$650</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop" alt="Off-White Industrial Belt">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White Industrial Belt</h3>
+                    <div class="ow-card-cat">Accessories</div>
+                    <div class="ow-card-desc">The iconic yellow industrial belt with signature Off-White branding. A defining accessory of modern streetwear.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$215</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-badge ow-badge-new">Best Seller</div>
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=400&fit=crop" alt="Off-White Low Top Sneaker">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White Low Top Sneaker</h3>
+                    <div class="ow-card-cat">Luxury Sneakers</div>
+                    <div class="ow-card-desc">Minimalist leather low-top with signature zip tie and Helvetica typography branding on the side.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$790</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&h=400&fit=crop" alt="Off-Text Logo T-Shirt">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-Text Logo T-Shirt</h3>
+                    <div class="ow-card-cat">Streetwear</div>
+                    <div class="ow-card-desc">Premium cotton tee with deconstructed logo print. The intersection of high fashion and everyday wear.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$310</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-badge ow-badge-new">New</div>
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400&h=400&fit=crop" alt="Off-White Zip Tie Sneaker">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White Zip Tie Sneaker</h3>
+                    <div class="ow-card-cat">Luxury Sneakers</div>
+                    <div class="ow-card-desc">Signature sneaker with removable zip tie and printed technical text. Designed to disrupt.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$880</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400&h=400&fit=crop" alt="Off-White Bindings Sneaker">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White Bindings Sneaker</h3>
+                    <div class="ow-card-cat">Luxury Sneakers</div>
+                    <div class="ow-card-desc">Mixed-material sneaker with exposed bindings and reflective detailing. Avant-garde footwear redefined.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$750</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-badge ow-badge-limited">Limited</div>
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&h=400&fit=crop" alt="Off-White Arrow Print Hoodie">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White Arrow Print Hoodie</h3>
+                    <div class="ow-card-cat">Streetwear</div>
+                    <div class="ow-card-desc">Premium fleece hoodie featuring all-over arrow print. Bold expression of Virgil's design language.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$695</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-badge ow-badge-new">Best Seller</div>
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop" alt="Off-White Over-Shirt">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White Over-Shirt</h3>
+                    <div class="ow-card-cat">Outerwear</div>
+                    <div class="ow-card-desc">Structured cotton over-shirt with printed branding and chest pocket. Bridges the gap between tailored and street.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$550</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-badge ow-badge-new">New</div>
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400&h=400&fit=crop" alt="Off-White Tractor Sneaker">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White Tractor Sneaker</h3>
+                    <div class="ow-card-cat">Luxury Sneakers</div>
+                    <div class="ow-card-desc">Chunky sole sneaker with industrial aesthetics and bold color blocking. The future of luxury footwear.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$950</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-badge ow-badge-sale">-20%</div>
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400&h=400&fit=crop" alt="Off-White Backpack">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White Backpack</h3>
+                    <div class="ow-card-cat">Accessories</div>
+                    <div class="ow-card-desc">Nylon backpack with signature strap branding and multiple compartments. Form follows function meets Off-White.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$380 <span class="ow-old">$475</span></div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ow-card">
+                <div class="ow-card-img">
+                    <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400&h=400&fit=crop" alt="Off-White Cargo Pants">
+                </div>
+                <div class="ow-card-body">
+                    <h3>Off-White Cargo Pants</h3>
+                    <div class="ow-card-cat">Bottoms</div>
+                    <div class="ow-card-desc">Relaxed-fit cargo pants with utility pockets and printed branding. Military influence meets high fashion.</div>
+                    <div class="ow-card-foot">
+                        <div class="ow-price">$620</div>
+                        <button class="ow-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vans — Off The Wall</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --vans-bg: #141218;
+      --vans-card: #1E1B24;
+      --vans-card2: #28242F;
+      --vans-text: #F2EDE4;
+      --vans-muted: rgba(242, 237, 228, 0.55);
+      --vans-accent: #CF1020;
+      --vans-gold: #CF1020;
+      --vans-border: rgba(255, 255, 255, 0.07);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--vans-bg);
+      color: var(--vans-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--vans-bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--vans-card2);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--vans-accent);
+    }
+
+    ::selection {
+      background: var(--vans-accent);
+      color: #fff;
+    }
+
+    .vans-products {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .vans-head {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .vans-head h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .vans-head h2 span {
+      color: var(--vans-accent);
+    }
+
+    .vans-head p {
+      color: var(--vans-muted);
+      margin-top: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .vans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .vans-card {
+      background: var(--vans-card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--vans-border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .vans-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .vans-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+
+    .vans-badge-new {
+      background: var(--vans-accent);
+      color: #fff;
+    }
+
+    .vans-badge-limited {
+      background: #7C3AED;
+      color: #fff;
+    }
+
+    .vans-badge-sale {
+      background: var(--vans-gold);
+      color: #141218;
+    }
+
+    .vans-badge-best {
+      background: var(--vans-accent);
+      color: #fff;
+    }
+
+    .vans-card-img {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--vans-card2);
+    }
+
+    .vans-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .vans-card:hover .vans-card-img img {
+      transform: scale(1.08);
+    }
+
+    .vans-card-body {
+      padding: 1.2rem;
+    }
+
+    .vans-card-body h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .vans-card-cat {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--vans-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .vans-card-desc {
+      font-size: 0.85rem;
+      color: var(--vans-muted);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .vans-card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--vans-border);
+    }
+
+    .vans-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: var(--vans-accent);
+      letter-spacing: 1px;
+    }
+
+    .vans-price .vans-old {
+      text-decoration: line-through;
+      color: var(--vans-muted);
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+    }
+
+    .vans-card-btn {
+      background: var(--vans-card2);
+      color: var(--vans-text);
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .vans-card-btn:hover {
+      background: var(--vans-accent);
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .vans-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .vans-head h2 {
+        font-size: 2.5rem;
+      }
+
+      .vans-products {
+        padding: 3rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="vans-products">
+    <div class="vans-head">
+      <h2>Vans <span>Collection</span></h2>
+      <p>Authentic skate culture meets timeless street style</p>
+    </div>
+
+    <div class="vans-grid">
+
+      <!-- 1. Old Skool -->
+      <div class="vans-card">
+        <span class="vans-badge vans-badge-best">Best Seller</span>
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400" alt="Old Skool">
+        </div>
+        <div class="vans-card-body">
+          <h3>Old Skool</h3>
+          <div class="vans-card-cat">Skateboarding</div>
+          <div class="vans-card-desc">The original Vans side-stripe shoe. Canvas and suede upper with signature waffle outsole for unrivaled grip and board feel.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$70</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Authentic -->
+      <div class="vans-card">
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400" alt="Authentic">
+        </div>
+        <div class="vans-card-body">
+          <h3>Authentic</h3>
+          <div class="vans-card-cat">Lifestyle</div>
+          <div class="vans-card-desc">Where it all started. The stripped-back original with canvas upper, metal eyelets, and the iconic waffle sole underneath.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$55</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Sk8-Hi -->
+      <div class="vans-card">
+        <span class="vans-badge vans-badge-new">New</span>
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="Sk8-Hi">
+        </div>
+        <div class="vans-card-body">
+          <h3>Sk8-Hi</h3>
+          <div class="vans-card-cat">Skateboarding</div>
+          <div class="vans-card-desc">The high-top that defines Vans heritage. Padded ankle collar, suede and canvas build, and vulcanized construction for durability.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$75</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Era -->
+      <div class="vans-card">
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="Era">
+        </div>
+        <div class="vans-card-body">
+          <h3>Era</h3>
+          <div class="vans-card-cat">Lifestyle</div>
+          <div class="vans-card-desc">Designed by skaters in 1976. The Era adds a padded collar for extra comfort while keeping that clean low-profile silhouette.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$55</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Classic Slip-On -->
+      <div class="vans-card">
+        <span class="vans-badge vans-badge-best">Best Seller</span>
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400" alt="Classic Slip-On">
+        </div>
+        <div class="vans-card-body">
+          <h3>Classic Slip-On</h3>
+          <div class="vans-card-cat">Lifestyle</div>
+          <div class="vans-card-desc">Laceless convenience meets signature Vans style. Elastic side accents for an easy on-off fit with padded collars all around.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$60</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Pro Skate Old Skool -->
+      <div class="vans-card">
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Pro Skate Old Skool">
+        </div>
+        <div class="vans-card-body">
+          <h3>Pro Skate Old Skool</h3>
+          <div class="vans-card-cat">Skateboarding</div>
+          <div class="vans-card-desc">Upgraded for serious skating. UltraCush HD insole, DuraCap reinforcement, and suede upper built to withstand constant wear.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$85</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Ultrarange EXO -->
+      <div class="vans-card">
+        <span class="vans-badge vans-badge-new">New</span>
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="Ultrarange EXO">
+        </div>
+        <div class="vans-card-body">
+          <h3>Ultrarange EXO</h3>
+          <div class="vans-card-cat">Lifestyle</div>
+          <div class="vans-card-desc">Adventure-ready with RapidWeld construction and a two-piece UV-bonded upper. Lightweight cushioning for all-terrain exploration.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$110</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. ComfyCush Old Skool -->
+      <div class="vans-card">
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400" alt="ComfyCush Old Skool">
+        </div>
+        <div class="vans-card-body">
+          <h3>ComfyCush Old Skool</h3>
+          <div class="vans-card-cat">Lifestyle</div>
+          <div class="vans-card-desc">The classic Old Skool redesigned with ComfyCush technology. A one-piece foam-rubber construction that feels like a slipper.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$80</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Checkerboard Slip-On -->
+      <div class="vans-card">
+        <span class="vans-badge vans-badge-limited">Limited</span>
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400" alt="Checkerboard Slip-On">
+        </div>
+        <div class="vans-card-body">
+          <h3>Checkerboard Slip-On</h3>
+          <div class="vans-card-cat">Lifestyle</div>
+          <div class="vans-card-desc">The iconic checkerboard pattern in a limited colorway. Elastic side accents and padded collar with bold graphic impact.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$65</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Half Cab Pro -->
+      <div class="vans-card">
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Half Cab Pro">
+        </div>
+        <div class="vans-card-body">
+          <h3>Half Cab Pro</h3>
+          <div class="vans-card-cat">Skateboarding</div>
+          <div class="vans-card-desc">Steve Caballero's signature mid-top, downsized and reinforced. Suede and canvas with UltraCush cushioning for impact protection.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$90</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Chunk 76 -->
+      <div class="vans-card">
+        <span class="vans-badge vans-badge-new">New</span>
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Chunk 76">
+        </div>
+        <div class="vans-card-body">
+          <h3>Chunk 76</h3>
+          <div class="vans-card-cat">Lifestyle</div>
+          <div class="vans-card-desc">A chunky platform silhouette with retro skate DNA. Bold midsole proportions and premium leather detailing for statement style.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$95</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. Skate Sk8-Hi Reissue -->
+      <div class="vans-card">
+        <span class="vans-badge vans-badge-best">Best Seller</span>
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400" alt="Skate Sk8-Hi Reissue">
+        </div>
+        <div class="vans-card-body">
+          <h3>Skate Sk8-Hi Reissue</h3>
+          <div class="vans-card-cat">Skateboarding</div>
+          <div class="vans-card-desc">The legendary Sk8-Hi rebuilt with Skate-class performance. Popcush insole, DuraCap toe, and SickStick rubber outsole.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$85</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13. Authentic Lite -->
+      <div class="vans-card">
+        <span class="vans-badge vans-badge-sale">-25% Sale</span>
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400" alt="Authentic Lite">
+        </div>
+        <div class="vans-card-body">
+          <h3>Authentic Lite</h3>
+          <div class="vans-card-cat">Lifestyle</div>
+          <div class="vans-card-desc">The featherweight Authentic with an UltraLite outsole. Minimal construction, maximum comfort for effortless daily wear.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$37 <span class="vans-old">$50</span></div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14. MTE Sk8-Hi -->
+      <div class="vans-card">
+        <span class="vans-badge vans-badge-limited">Limited</span>
+        <div class="vans-card-img">
+          <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400" alt="MTE Sk8-Hi">
+        </div>
+        <div class="vans-card-body">
+          <h3>MTE Sk8-Hi</h3>
+          <div class="vans-card-cat">Lifestyle</div>
+          <div class="vans-card-desc">Mountain edition weatherproofing meets the Sk8-Hi silhouette. Heat-retention layer, water-resistant leather, and aggressive lug sole.</div>
+          <div class="vans-card-foot">
+            <div class="vans-price">$120</div>
+            <button class="vans-card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

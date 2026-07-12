@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supreme — World Famous</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sp-bg: #1A0A0A;
+            --sp-card: #241212;
+            --sp-card2: #2E1A1A;
+            --sp-text: #F5F0F0;
+            --sp-muted: rgba(245,240,240,0.55);
+            --sp-accent: #E32636;
+            --sp-gold: #E32636;
+            --sp-border: rgba(255,255,255,0.07);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--sp-bg);
+            color: var(--sp-text);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--sp-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--sp-card2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--sp-accent);
+        }
+
+        ::selection {
+            background: var(--sp-accent);
+            color: #fff;
+        }
+
+        .sp-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .sp-head {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .sp-head h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            color: var(--sp-text);
+        }
+
+        .sp-head h1 span {
+            color: var(--sp-accent);
+        }
+
+        .sp-head p {
+            font-size: 1.05rem;
+            color: var(--sp-muted);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .sp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .sp-card {
+            background: var(--sp-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--sp-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .sp-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(227, 38, 54, 0.12);
+        }
+
+        .sp-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .sp-badge-new {
+            background: var(--sp-accent);
+            color: #fff;
+        }
+
+        .sp-badge-limited {
+            background: #7C3AED;
+            color: #fff;
+        }
+
+        .sp-badge-sale {
+            background: var(--sp-gold);
+            color: #1A0A0A;
+        }
+
+        .sp-card-img {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .sp-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .sp-card:hover .sp-card-img img {
+            transform: scale(1.08);
+        }
+
+        .sp-card-body {
+            padding: 1.2rem;
+        }
+
+        .sp-card-body h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.35rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.15rem;
+        }
+
+        .sp-card-cat {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--sp-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .sp-card-desc {
+            font-size: 0.85rem;
+            color: var(--sp-muted);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .sp-card-foot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid var(--sp-border);
+        }
+
+        .sp-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            color: var(--sp-gold);
+            letter-spacing: 0.03em;
+        }
+
+        .sp-price .sp-old {
+            text-decoration: line-through;
+            color: var(--sp-muted);
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+
+        .sp-btn {
+            background: var(--sp-card2);
+            color: var(--sp-text);
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .sp-btn:hover {
+            background: var(--sp-accent);
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .sp-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="sp-section">
+        <div class="sp-head">
+            <h1>Supreme <span>Collection</span></h1>
+            <p>The world's most coveted streetwear since 1994</p>
+        </div>
+
+        <div class="sp-grid">
+
+            <div class="sp-card">
+                <div class="sp-badge sp-badge-new">Best Seller</div>
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop" alt="Supreme Box Logo Hoodie">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Box Logo Hoodie</h3>
+                    <div class="sp-card-cat">Streetwear</div>
+                    <div class="sp-card-desc">The iconic Box Logo Hoodie — a cultural staple and the crown jewel of any streetwear collection.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$168</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-badge sp-badge-new">New</div>
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop" alt="Supreme Camp Cap">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Camp Cap</h3>
+                    <div class="sp-card-cat">Accessories</div>
+                    <div class="sp-card-desc">Classic six-panel camp cap with embroidered logo. The finishing touch on any fit.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$54</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-badge sp-badge-limited">Limited</div>
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop" alt="Supreme Air Force 1 Low">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Air Force 1 Low</h3>
+                    <div class="sp-card-cat">Footwear</div>
+                    <div class="sp-card-desc">Nike x Supreme collaboration featuring premium leather construction and co-branded detailing throughout.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$138</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop" alt="Supreme Crewneck Sweatshirt">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Crewneck Sweatshirt</h3>
+                    <div class="sp-card-cat">Streetwear</div>
+                    <div class="sp-card-desc">Heavyweight fleece crewneck with bold graphic print. Essential layering piece for any season.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$148</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop" alt="Supreme Cargo Pants">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Cargo Pants</h3>
+                    <div class="sp-card-cat">Bottoms</div>
+                    <div class="sp-card-desc">Ripstop cargo pants with utility pockets and adjustable cuffs. Built for the streets.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$158</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-badge sp-badge-new">Best Seller</div>
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=400&fit=crop" alt="Supreme Zip-Up Hoodie">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Zip-Up Hoodie</h3>
+                    <div class="sp-card-cat">Streetwear</div>
+                    <div class="sp-card-desc">Full-zip hoodie with signature Supreme branding. Premium cotton-blend fleece for all-day comfort.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$178</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&h=400&fit=crop" alt="Supreme Pocket Tee">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Pocket Tee</h3>
+                    <div class="sp-card-cat">Tops</div>
+                    <div class="sp-card-desc">Clean pocket tee with subtle embroidered logo. Versatile enough for everyday rotation.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$52</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-badge sp-badge-new">New</div>
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400&h=400&fit=crop" alt="Supreme Vans Sk8-Hi">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Vans Sk8-Hi</h3>
+                    <div class="sp-card-cat">Footwear</div>
+                    <div class="sp-card-desc">High-top Vans collaboration with premium suede and canvas upper. Co-branded tongue label.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$110</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-badge sp-badge-limited">Limited</div>
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400&h=400&fit=crop" alt="Supreme Fanny Pack">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Fanny Pack</h3>
+                    <div class="sp-card-cat">Accessories</div>
+                    <div class="sp-card-desc">Compact waist bag with adjustable strap and multiple zip compartments. Quick-sell classic.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$78</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&h=400&fit=crop" alt="Supreme Long Sleeve Tee">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Long Sleeve Tee</h3>
+                    <div class="sp-card-cat">Tops</div>
+                    <div class="sp-card-desc">Heavyweight long sleeve tee with box logo chest print. Ideal for layering in cooler months.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$58</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-badge sp-badge-new">Best Seller</div>
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop" alt="Supreme Work Jacket">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Work Jacket</h3>
+                    <div class="sp-card-cat">Outerwear</div>
+                    <div class="sp-card-desc">Chore coat-inspired work jacket with corduroy collar and brass snap buttons. Rugged meets luxury.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$248</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-badge sp-badge-new">New</div>
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400&h=400&fit=crop" alt="Supreme Striped Hoodie">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Striped Hoodie</h3>
+                    <div class="sp-card-cat">Streetwear</div>
+                    <div class="sp-card-desc">Bold striped color-block hoodie with kangaroo pocket. A statement piece for the bold dresser.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$168</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-badge sp-badge-sale">-30%</div>
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400&h=400&fit=crop" alt="Supreme Logo Beanie">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Logo Beanie</h3>
+                    <div class="sp-card-cat">Accessories</div>
+                    <div class="sp-card-desc">Ribbed knit beanie with embroidered box logo. Keeps you warm while keeping it loud.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$33 <span class="sp-old">$48</span></div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-card">
+                <div class="sp-card-img">
+                    <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400&h=400&fit=crop" alt="Supreme Denim Jacket">
+                </div>
+                <div class="sp-card-body">
+                    <h3>Supreme Denim Jacket</h3>
+                    <div class="sp-card-cat">Outerwear</div>
+                    <div class="sp-card-desc">Washed black denim trucker jacket with embroidered back patch. Timeless silhouette, premium build.</div>
+                    <div class="sp-card-foot">
+                        <div class="sp-price">$228</div>
+                        <button class="sp-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>

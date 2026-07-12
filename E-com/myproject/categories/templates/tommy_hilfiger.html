@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tommy Hilfiger — Classic American Cool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --th-bg: #0E0A14;
+      --th-card: #181220;
+      --th-card2: #221A2E;
+      --th-text: #F0ECE8;
+      --th-muted: rgba(240, 236, 232, 0.55);
+      --th-accent: #CB0C24;
+      --th-gold: #FFFFFF;
+      --th-border: rgba(255, 255, 255, 0.07);
+      --ff-display: 'Bebas Neue', sans-serif;
+      --ff-body: 'DM Sans', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--th-bg);
+      color: var(--th-text);
+      font-family: var(--ff-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--th-bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--th-card2);
+      border-radius: 3px;
+    }
+
+    ::selection {
+      background: var(--th-accent);
+      color: #fff;
+    }
+
+    .th-products {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-head h2 {
+      font-family: var(--ff-display);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      letter-spacing: 0.04em;
+    }
+
+    .section-head h2 span {
+      color: var(--th-accent);
+    }
+
+    .section-head p {
+      color: var(--th-muted);
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .th-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .th-card {
+      background: var(--th-card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--th-border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .th-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 2;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      background: var(--th-accent);
+      color: #fff;
+    }
+
+    .badge-new {
+      background: var(--th-accent);
+    }
+
+    .badge-limited {
+      background: #7C3AED;
+    }
+
+    .badge-sale {
+      background: var(--th-gold);
+      color: #0E0A14;
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--th-card2);
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .th-card:hover .card-img img {
+      transform: scale(1.08);
+    }
+
+    .card-body {
+      padding: 1.2rem;
+    }
+
+    .card-body h3 {
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-cat {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--th-muted);
+      font-weight: 500;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--th-muted);
+      line-height: 1.6;
+      margin: 0.6rem 0 1rem;
+    }
+
+    .card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--th-border);
+    }
+
+    .card-price {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--th-gold);
+    }
+
+    .old-price {
+      font-size: 0.85rem;
+      color: var(--th-muted);
+      text-decoration: line-through;
+      margin-right: 6px;
+      font-weight: 400;
+    }
+
+    .card-btn {
+      padding: 0.6rem 1.5rem;
+      background: var(--th-card2);
+      color: var(--th-text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--th-border);
+      border-radius: 6px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .card-btn:hover {
+      background: var(--th-accent);
+      border-color: var(--th-accent);
+    }
+
+    @media (max-width: 768px) {
+      .th-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="th-products" id="th-products">
+    <div class="section-head">
+      <h2>Tommy Hilfiger <span>Collection</span></h2>
+      <p>Classic American cool redefined with preppy sophistication</p>
+    </div>
+
+    <div class="th-grid">
+      <div class="th-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400&q=80" alt="Tommy Hoodie">
+        </div>
+        <div class="card-body">
+          <h3>Classic Logo Hoodie</h3>
+          <span class="card-cat">Tops</span>
+          <p class="card-desc">Iconic Tommy logo hoodie with a brushed fleece interior and adjustable drawstring hood.</p>
+          <div class="card-foot">
+            <span class="card-price">$119</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&q=80" alt="Tommy Oxford">
+        </div>
+        <div class="card-body">
+          <h3>Slim Fit Oxford Shirt</h3>
+          <span class="card-cat">Tops</span>
+          <p class="card-desc">Crisp cotton oxford with a tailored slim fit and signature Tommy flag logo on the chest.</p>
+          <div class="card-foot">
+            <span class="card-price">$89</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400&q=80" alt="Tommy Cap">
+        </div>
+        <div class="card-body">
+          <h3>Tommy Jeans Dad Cap</h3>
+          <span class="card-cat">Accessories</span>
+          <p class="card-desc">Relaxed-fit dad cap with embroidered Tommy Jeans logo and adjustable strap closure.</p>
+          <div class="card-foot">
+            <span class="card-price">$45</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1544923408-75c5cef46f14?w=400&q=80" alt="Tommy Puffer">
+        </div>
+        <div class="card-body">
+          <h3>Classic Puffer Jacket</h3>
+          <span class="card-cat">Outerwear</span>
+          <p class="card-desc">Insulated puffer jacket with a water-resistant shell and signature red-white-blue lining.</p>
+          <div class="card-foot">
+            <span class="card-price">$199</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&q=80" alt="Tommy Chinos">
+        </div>
+        <div class="card-body">
+          <h3>Slim Fit Chino Pants</h3>
+          <span class="card-cat">Bottoms</span>
+          <p class="card-desc">Tailored chino pants with stretch cotton for all-day comfort and a polished look.</p>
+          <div class="card-foot">
+            <span class="card-price">$99</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="Tommy Sneaker">
+        </div>
+        <div class="card-body">
+          <h3>Tommy Sport Sneaker</h3>
+          <span class="card-cat">Footwear</span>
+          <p class="card-desc">Athletic-inspired sneaker with cushioned insole and bold red-white-blue colorblocking.</p>
+          <div class="card-foot">
+            <span class="card-price">$130</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&q=80" alt="Tommy Knit">
+        </div>
+        <div class="card-body">
+          <h3>Cable Knit Sweater</h3>
+          <span class="card-cat">Tops</span>
+          <p class="card-desc">Heritage cable knit sweater with a relaxed fit and embroidered Tommy flag at the hem.</p>
+          <div class="card-foot">
+            <span class="card-price">$129</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80" alt="Tommy Track">
+        </div>
+        <div class="card-body">
+          <h3>Logo Patch Track Jacket</h3>
+          <span class="card-cat">Outerwear</span>
+          <p class="card-desc">Retro-inspired track jacket with contrast stripe detailing and zip-through closure.</p>
+          <div class="card-foot">
+            <span class="card-price">$159</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&q=80" alt="Tommy Jean">
+        </div>
+        <div class="card-body">
+          <h3>Relaxed Fit Jean</h3>
+          <span class="card-cat">Denim</span>
+          <p class="card-desc">Classic relaxed-fit denim with a vintage wash and signature Tommy back patch.</p>
+          <div class="card-foot">
+            <span class="card-price">$109</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="Tommy Tee">
+        </div>
+        <div class="card-body">
+          <h3>Tommy Cotton T-Shirt</h3>
+          <span class="card-cat">Tops</span>
+          <p class="card-desc">Premium cotton crew neck t-shirt with the iconic Tommy Hilfiger logo across the chest.</p>
+          <div class="card-foot">
+            <span class="card-price">$49</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-badge">Best Seller</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1544923408-75c5cef46f14?w=400&q=80" alt="Tommy Windbreaker">
+        </div>
+        <div class="card-body">
+          <h3>Classic Windbreaker</h3>
+          <span class="card-cat">Outerwear</span>
+          <p class="card-desc">Lightweight windbreaker with packable design and bold nautical-inspired color palette.</p>
+          <div class="card-foot">
+            <span class="card-price">$149</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-badge badge-new">New</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=400&q=80" alt="Tommy Polo">
+        </div>
+        <div class="card-body">
+          <h3>Polo Shirt</h3>
+          <span class="card-cat">Tops</span>
+          <p class="card-desc">Classic pique polo shirt with embroidered flag logo and a comfortable regular fit.</p>
+          <div class="card-foot">
+            <span class="card-price">$89</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-badge badge-sale">-25%</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="Tommy Sport Shoe">
+        </div>
+        <div class="card-body">
+          <h3>Tommy Sport Running Shoe</h3>
+          <span class="card-cat">Footwear</span>
+          <p class="card-desc">Lightweight running shoe with responsive foam cushioning and breathable mesh upper.</p>
+          <div class="card-foot">
+            <span class="card-price"><span class="old-price">$120</span> $90</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="th-card">
+        <div class="card-badge badge-limited">Limited</div>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80" alt="Tommy Vest">
+        </div>
+        <div class="card-body">
+          <h3>Quilted Vest</h3>
+          <span class="card-cat">Outerwear</span>
+          <p class="card-desc">Insulated quilted vest with a stand collar and snap-button closure for layered styling.</p>
+          <div class="card-foot">
+            <span class="card-price">$139</span>
+            <button class="card-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

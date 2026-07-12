@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zara — Instant Fashion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --zr-bg: #111111;
+      --zr-card: #1A1A1A;
+      --zr-card2: #242424;
+      --zr-text: #E8E4DC;
+      --zr-muted: rgba(232,228,220,0.55);
+      --zr-accent: #C4A882;
+      --zr-gold: #C4A882;
+      --zr-border: rgba(255,255,255,0.07);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--zr-bg);
+      color: var(--zr-text);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--zr-bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--zr-card2);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--zr-accent);
+    }
+
+    ::selection {
+      background: var(--zr-accent);
+      color: var(--zr-bg);
+    }
+
+    .zr-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .zr-head {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .zr-head h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4.5rem;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .zr-head h1 span {
+      color: var(--zr-accent);
+    }
+
+    .zr-head p {
+      color: var(--zr-muted);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .zr-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .zr-card {
+      background: var(--zr-card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--zr-border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .zr-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(196,168,130,0.12);
+    }
+
+    .zr-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      z-index: 2;
+      color: var(--zr-bg);
+      background: var(--zr-accent);
+    }
+
+    .zr-badge-new {
+      background: var(--zr-accent);
+      color: var(--zr-bg);
+    }
+
+    .zr-badge-limited {
+      background: #7C3AED;
+      color: #fff;
+    }
+
+    .zr-badge-sale {
+      background: var(--zr-gold);
+      color: #111;
+    }
+
+    .zr-card-img {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: var(--zr-card2);
+    }
+
+    .zr-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .zr-card:hover .zr-card-img img {
+      transform: scale(1.08);
+    }
+
+    .zr-card-body {
+      padding: 1.2rem;
+    }
+
+    .zr-card-body h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.25rem;
+    }
+
+    .zr-card-cat {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--zr-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .zr-card-desc {
+      font-size: 0.85rem;
+      color: var(--zr-muted);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .zr-card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--zr-border);
+    }
+
+    .zr-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--zr-gold);
+      letter-spacing: 0.03em;
+    }
+
+    .zr-price-old {
+      font-size: 0.8rem;
+      color: var(--zr-muted);
+      text-decoration: line-through;
+      margin-left: 0.4rem;
+    }
+
+    .zr-btn {
+      padding: 0.5rem 1.1rem;
+      background: var(--zr-card2);
+      color: var(--zr-text);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: background 0.25s ease;
+    }
+
+    .zr-btn:hover {
+      background: var(--zr-accent);
+      color: var(--zr-bg);
+    }
+
+    @media (max-width: 768px) {
+      .zr-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .zr-head h1 {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="zr-section">
+    <div class="zr-head">
+      <h1>Zara <span>Collection</span></h1>
+      <p>Curated fashion-forward pieces for the modern wardrobe</p>
+    </div>
+    <div class="zr-grid">
+
+      <div class="zr-card">
+        <span class="zr-badge zr-badge-sale">Best Seller</span>
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop" alt="Oversized Blazer">
+        </div>
+        <div class="zr-card-body">
+          <h3>Oversized Blazer</h3>
+          <div class="zr-card-cat">Outerwear</div>
+          <p class="zr-card-desc">Relaxed-fit double-breasted blazer in structured wool-blend fabric with padded shoulders.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$189</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <span class="zr-badge zr-badge-new">New</span>
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop" alt="Wide Leg Trousers">
+        </div>
+        <div class="zr-card-body">
+          <h3>Wide Leg Trousers</h3>
+          <div class="zr-card-cat">Bottoms</div>
+          <p class="zr-card-desc">High-waisted wide leg trousers in fluid crepe fabric with pressed front crease and side pockets.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$89</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop" alt="Satin Effect Shirt">
+        </div>
+        <div class="zr-card-body">
+          <h3>Satin Effect Shirt</h3>
+          <div class="zr-card-cat">Tops</div>
+          <p class="zr-card-desc">Lustrous satin-finish shirt with pointed collar, buttoned cuffs and a relaxed drape silhouette.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$69</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <span class="zr-badge zr-badge-limited">Limited</span>
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop" alt="Leather Biker Jacket">
+        </div>
+        <div class="zr-card-body">
+          <h3>Leather Biker Jacket</h3>
+          <div class="zr-card-cat">Outerwear</div>
+          <p class="zr-card-desc">Asymmetric zip biker jacket in washed lambskin leather with quilted lining and silver-tone hardware.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$249</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop" alt="Linen Blend Suit">
+        </div>
+        <div class="zr-card-body">
+          <h3>Linen Blend Suit</h3>
+          <div class="zr-card-cat">Formal</div>
+          <p class="zr-card-desc">Two-piece relaxed suit in breathable linen-cotton blend with notch lapel jacket and straight-leg trousers.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$299</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <span class="zr-badge zr-badge-sale">Best Seller</span>
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=400&fit=crop" alt="Knit Polo Shirt">
+        </div>
+        <div class="zr-card-body">
+          <h3>Knit Polo Shirt</h3>
+          <div class="zr-card-cat">Tops</div>
+          <p class="zr-card-desc">Fine-gauge knit polo in mercerized cotton with ribbed collar, two-button placket and regular fit.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$59</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&h=400&fit=crop" alt="High Rise Mom Jeans">
+        </div>
+        <div class="zr-card-body">
+          <h3>High Rise Mom Jeans</h3>
+          <div class="zr-card-cat">Bottoms</div>
+          <p class="zr-card-desc">Vintage-wash mom jeans in rigid cotton denim with high waist, tapered leg and five-pocket styling.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$79</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <span class="zr-badge zr-badge-new">New</span>
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400&h=400&fit=crop" alt="Flowing Midi Dress">
+        </div>
+        <div class="zr-card-body">
+          <h3>Flowing Midi Dress</h3>
+          <div class="zr-card-cat">Dresses</div>
+          <p class="zr-card-desc">Ethereal midi dress in lightweight viscose with tiered skirt, V-neckline and adjustable waist tie.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$119</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400&h=400&fit=crop" alt="Cropped Trench Coat">
+        </div>
+        <div class="zr-card-body">
+          <h3>Cropped Trench Coat</h3>
+          <div class="zr-card-cat">Outerwear</div>
+          <p class="zr-card-desc">Modern cropped trench in water-resistant cotton twill with storm flap, belt loops and snap buttons.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$199</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&h=400&fit=crop" alt="Structured Shoulder Bag">
+        </div>
+        <div class="zr-card-body">
+          <h3>Structured Shoulder Bag</h3>
+          <div class="zr-card-cat">Accessories</div>
+          <p class="zr-card-desc">Architectural shoulder bag in vegan leather with geometric shape, magnetic flap and adjustable chain strap.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$149</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <span class="zr-badge zr-badge-sale">Best Seller</span>
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop" alt="Draped Midi Skirt">
+        </div>
+        <div class="zr-card-body">
+          <h3>Draped Midi Skirt</h3>
+          <div class="zr-card-cat">Bottoms</div>
+          <p class="zr-card-desc">Asymmetric draped midi skirt in satiny polyester with side slit and elasticized waistband for easy wear.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$89</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <span class="zr-badge zr-badge-new">New</span>
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400&h=400&fit=crop" alt="Cotton Oversized T-Shirt">
+        </div>
+        <div class="zr-card-body">
+          <h3>Cotton Oversized T-Shirt</h3>
+          <div class="zr-card-cat">Tops</div>
+          <p class="zr-card-desc">Heavyweight cotton jersey t-shirt with dropped shoulders, extended length and raw-edge hem detail.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$39</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <span class="zr-badge zr-badge-sale">-30%</span>
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400&h=400&fit=crop" alt="Faux Leather Trousers">
+        </div>
+        <div class="zr-card-body">
+          <h3>Faux Leather Trousers</h3>
+          <div class="zr-card-cat">Bottoms</div>
+          <p class="zr-card-desc">Skinny-fit faux leather trousers with high waist, ankle zip and coated stretch finish for a sleek look.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$69<span class="zr-price-old">$99</span></span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="zr-card">
+        <span class="zr-badge zr-badge-limited">Limited</span>
+        <div class="zr-card-img">
+          <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400&h=400&fit=crop" alt="Wool Blend Coat">
+        </div>
+        <div class="zr-card-body">
+          <h3>Wool Blend Coat</h3>
+          <div class="zr-card-cat">Outerwear</div>
+          <p class="zr-card-desc">Tailored overcoat in premium wool-blend fabric with notched lapels, concealed button placket and side pockets.</p>
+          <div class="zr-card-foot">
+            <span class="zr-price">$279</span>
+            <button class="zr-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</body>
+</html>
