@@ -1,482 +1,231 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timberland — Nature Needs Heroes</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --tb-bg: #141008;
-            --tb-card: #1E1A10;
-            --tb-card2: #2A2518;
-            --tb-text: #F0E8D8;
-            --tb-muted: rgba(240, 232, 216, 0.55);
-            --tb-accent: #D2A86E;
-            --tb-gold: #D2A86E;
-            --tb-border: rgba(255, 255, 255, 0.07);
-        }
+{% extends 'brand_page.html' %}
 
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+{% block brand_css %}
+<style>
+  :root { --brand-accent: #D2A86E; }
+</style>
+{% endblock %}
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: var(--tb-bg);
-            color: var(--tb-text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+{% block brand_title %}Timberland{% endblock %}
+{% block brand_subtitle %}Premium boots and outdoor gear built to explore the world{% endblock %}
 
-        img {
-            max-width: 100%;
-            display: block;
-        }
+{% block brand_products %}
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-bestseller">Best Seller</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="6-Inch Premium Boot">
+    </div>
+    <div class="brand-card-body">
+      <h3>6-Inch Premium Boot</h3>
+      <div class="brand-card-cat">Boots</div>
+      <div class="brand-card-desc">The iconic waterproof boot with premium leather, seam-sealed construction, and Timberland's classic wheat colorway.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$198</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-new">New</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="Classic Chelsea Boot">
+    </div>
+    <div class="brand-card-body">
+      <h3>Classic Chelsea Boot</h3>
+      <div class="brand-card-cat">Boots</div>
+      <div class="brand-card-desc">Pull-on suede Chelsea boot with Goodyear welt construction, antimicrobial treatment, and reliable rubber lug outsole.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$180</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        button {
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="Euro Sprint Hiker">
+    </div>
+    <div class="brand-card-body">
+      <h3>Euro Sprint Hiker</h3>
+      <div class="brand-card-cat">Hiking</div>
+      <div class="brand-card-desc">Lightweight hiking boot with anti-fatigue technology, waterproof leather upper, and aggressive rubber lug outsole for trail grip.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$130</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="Premium 6-Inch Waterproof">
+    </div>
+    <div class="brand-card-body">
+      <h3>Premium 6-Inch Waterproof</h3>
+      <div class="brand-card-cat">Boots</div>
+      <div class="brand-card-desc">Full-grain waterproof leather with ReBOTL fabric lining made from recycled plastics and 40% recycled rubber outsole.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$210</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::-webkit-scrollbar-track {
-            background: var(--tb-bg);
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-bestseller">Best Seller</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400" alt="GreenStride Motion 6">
+    </div>
+    <div class="brand-card-body">
+      <h3>GreenStride Motion 6</h3>
+      <div class="brand-card-cat">Hiking</div>
+      <div class="brand-card-desc">Eco-conscious hiking shoe made with 75% bio-based materials, TimberCush comfort system, and reliable all-terrain traction.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$130</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--tb-card2);
-            border-radius: 4px;
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-limited">Limited</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400" alt="Field Boot 6in">
+    </div>
+    <div class="brand-card-body">
+      <h3>Field Boot 6in</h3>
+      <div class="brand-card-cat">Boots</div>
+      <div class="brand-card-desc">Heritage-inspired field boot with waterproof leather, padded collar for ankle support, and durable lug rubber outsole.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$160</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--tb-accent);
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400" alt="Motion System Oxford">
+    </div>
+    <div class="brand-card-body">
+      <h3>Motion System Oxford</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Casual oxford with anti-fatigue comfort technology, premium leather, and a rubber outsole for urban exploring.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$120</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::selection {
-            background: var(--tb-accent);
-            color: #141008;
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-new">New</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="Premium 6-Inch Boot">
+    </div>
+    <div class="brand-card-body">
+      <h3>Premium 6-Inch Boot</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Updated classic with premium waterproof leather, rustproof hardware, and TimberDry waterproof membrane made from recycled materials.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$198</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .tb-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400" alt="Lizzemd Mid Lace Up">
+    </div>
+    <div class="brand-card-body">
+      <h3>Lizzemd Mid Lace Up</h3>
+      <div class="brand-card-cat">Hiking</div>
+      <div class="brand-card-desc">Mid-cut hiking boot with waterproof leather, EVA midsole for cushioning, and durable rubber lug outsole for any terrain.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$140</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .tb-head {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Premium Slip-On">
+    </div>
+    <div class="brand-card-body">
+      <h3>Premium Slip-On</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Effortless pull-on style with premium suede, elastic side panels, Ortholite footbed, and rubber outsole for daily comfort.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$150</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .tb-head h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4rem;
-            letter-spacing: 2px;
-            line-height: 1;
-            margin-bottom: 0.75rem;
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-bestseller">Best Seller</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Euro Sprint Hiker Mid">
+    </div>
+    <div class="brand-card-body">
+      <h3>Euro Sprint Hiker Mid</h3>
+      <div class="brand-card-cat">Hiking</div>
+      <div class="brand-card-desc">Mid-height hiker with waterproof membrane, anti-fatigue footbed, and cemented rubber lug outsole for all-day trail adventures.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$145</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .tb-head h1 span {
-            color: var(--tb-accent);
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-new">New</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400" alt="Premium 6-Inch Boot">
+    </div>
+    <div class="brand-card-body">
+      <h3>® Premium 6-Inch Boot</h3>
+      <div class="brand-card-cat">Boots</div>
+      <div class="brand-card-desc">Limited edition colorway of the legendary waterproof boot with ReBOTL fabric lining and anti-fatigue comfort footbed.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$200</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .tb-head p {
-            color: var(--tb-muted);
-            font-size: 1.05rem;
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-sale">-15%</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400" alt="Stormbuck Lite Chukka">
+    </div>
+    <div class="brand-card-body">
+      <h3>Stormbuck Lite Chukka</h3>
+      <div class="brand-card-cat">Boots</div>
+      <div class="brand-card-desc">Lightweight chukka with waterproof leather, breathable textile lining, and Timberland's reliable rubber outsole for everyday wear.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price"><span class="brand-price-old">$130</span> $110</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .tb-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .tb-card {
-            background: var(--tb-card);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--tb-border);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-
-        .tb-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .tb-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 2;
-        }
-
-        .tb-badge-new {
-            background: var(--tb-accent);
-            color: #141008;
-        }
-
-        .tb-badge-limited {
-            background: #7C3AED;
-            color: #fff;
-        }
-
-        .tb-badge-sale {
-            background: var(--tb-gold);
-            color: #141008;
-        }
-
-        .tb-badge-best {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(6px);
-            color: var(--tb-text);
-            border: 1px solid var(--tb-border);
-        }
-
-        .tb-card-img {
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-            background: var(--tb-card2);
-        }
-
-        .tb-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .tb-card:hover .tb-card-img img {
-            transform: scale(1.08);
-        }
-
-        .tb-card-body {
-            padding: 1.2rem;
-        }
-
-        .tb-card-body h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-            margin-bottom: 0.25rem;
-        }
-
-        .tb-card-cat {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--tb-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .tb-card-desc {
-            font-size: 0.85rem;
-            color: var(--tb-muted);
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .tb-card-foot {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid var(--tb-border);
-        }
-
-        .tb-price {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            color: var(--tb-gold);
-        }
-
-        .tb-price .tb-old {
-            font-size: 0.85rem;
-            color: var(--tb-muted);
-            text-decoration: line-through;
-            margin-right: 6px;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .tb-btn {
-            background: var(--tb-card2);
-            color: var(--tb-text);
-            padding: 0.55rem 1.3rem;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .tb-btn:hover {
-            background: var(--tb-accent);
-            color: #141008;
-        }
-
-        @media (max-width: 768px) {
-            .tb-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .tb-head h1 {
-                font-size: 2.8rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <section class="tb-section">
-        <div class="tb-head">
-            <h1>Timberland <span>Collection</span></h1>
-            <p>Premium boots and outdoor gear built to explore the world</p>
-        </div>
-        <div class="tb-grid">
-
-            <div class="tb-card">
-                <span class="tb-badge tb-badge-best">Best Seller</span>
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="6-Inch Premium Boot">
-                </div>
-                <div class="tb-card-body">
-                    <h3>6-Inch Premium Boot</h3>
-                    <div class="tb-card-cat">Boots</div>
-                    <p class="tb-card-desc">The iconic waterproof boot with premium leather, seam-sealed construction, and Timberland's classic wheat colorway.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$198</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <span class="tb-badge tb-badge-new">New</span>
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="Classic Chelsea Boot">
-                </div>
-                <div class="tb-card-body">
-                    <h3>Classic Chelsea Boot</h3>
-                    <div class="tb-card-cat">Boots</div>
-                    <p class="tb-card-desc">Pull-on suede Chelsea boot with Goodyear welt construction, antimicrobial treatment, and reliable rubber lug outsole.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$180</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="Euro Sprint Hiker">
-                </div>
-                <div class="tb-card-body">
-                    <h3>Euro Sprint Hiker</h3>
-                    <div class="tb-card-cat">Hiking</div>
-                    <p class="tb-card-desc">Lightweight hiking boot with anti-fatigue technology, waterproof leather upper, and aggressive rubber lug outsole for trail grip.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$130</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="Premium 6-Inch Waterproof">
-                </div>
-                <div class="tb-card-body">
-                    <h3>Premium 6-Inch Waterproof</h3>
-                    <div class="tb-card-cat">Boots</div>
-                    <p class="tb-card-desc">Full-grain waterproof leather with ReBOTL fabric lining made from recycled plastics and 40% recycled rubber outsole.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$210</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <span class="tb-badge tb-badge-best">Best Seller</span>
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400" alt="GreenStride Motion 6">
-                </div>
-                <div class="tb-card-body">
-                    <h3>GreenStride Motion 6</h3>
-                    <div class="tb-card-cat">Hiking</div>
-                    <p class="tb-card-desc">Eco-conscious hiking shoe made with 75% bio-based materials, TimberCush comfort system, and reliable all-terrain traction.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$130</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <span class="tb-badge tb-badge-limited">Limited</span>
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400" alt="Field Boot 6in">
-                </div>
-                <div class="tb-card-body">
-                    <h3>Field Boot 6in</h3>
-                    <div class="tb-card-cat">Boots</div>
-                    <p class="tb-card-desc">Heritage-inspired field boot with waterproof leather, padded collar for ankle support, and durable lug rubber outsole.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$160</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400" alt="Motion System Oxford">
-                </div>
-                <div class="tb-card-body">
-                    <h3>Motion System Oxford</h3>
-                    <div class="tb-card-cat">Lifestyle</div>
-                    <p class="tb-card-desc">Casual oxford with anti-fatigue comfort technology, premium leather, and a rubber outsole for urban exploring.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$120</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <span class="tb-badge tb-badge-new">New</span>
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="Premium 6-Inch Boot">
-                </div>
-                <div class="tb-card-body">
-                    <h3>Premium 6-Inch Boot</h3>
-                    <div class="tb-card-cat">Lifestyle</div>
-                    <p class="tb-card-desc">Updated classic with premium waterproof leather, rustproof hardware, and TimberDry waterproof membrane made from recycled materials.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$198</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400" alt="Lizzemd Mid Lace Up">
-                </div>
-                <div class="tb-card-body">
-                    <h3>Lizzemd Mid Lace Up</h3>
-                    <div class="tb-card-cat">Hiking</div>
-                    <p class="tb-card-desc">Mid-cut hiking boot with waterproof leather, EVA midsole for cushioning, and durable rubber lug outsole for any terrain.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$140</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Premium Slip-On">
-                </div>
-                <div class="tb-card-body">
-                    <h3>Premium Slip-On</h3>
-                    <div class="tb-card-cat">Lifestyle</div>
-                    <p class="tb-card-desc">Effortless pull-on style with premium suede, elastic side panels, Ortholite footbed, and rubber outsole for daily comfort.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$150</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <span class="tb-badge tb-badge-best">Best Seller</span>
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Euro Sprint Hiker Mid">
-                </div>
-                <div class="tb-card-body">
-                    <h3>Euro Sprint Hiker Mid</h3>
-                    <div class="tb-card-cat">Hiking</div>
-                    <p class="tb-card-desc">Mid-height hiker with waterproof membrane, anti-fatigue footbed, and cemented rubber lug outsole for all-day trail adventures.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$145</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <span class="tb-badge tb-badge-new">New</span>
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400" alt="Premium 6-Inch Boot">
-                </div>
-                <div class="tb-card-body">
-                    <h3>® Premium 6-Inch Boot</h3>
-                    <div class="tb-card-cat">Boots</div>
-                    <p class="tb-card-desc">Limited edition colorway of the legendary waterproof boot with ReBOTL fabric lining and anti-fatigue comfort footbed.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$200</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <span class="tb-badge tb-badge-sale">-15%</span>
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400" alt="Stormbuck Lite Chukka">
-                </div>
-                <div class="tb-card-body">
-                    <h3>Stormbuck Lite Chukka</h3>
-                    <div class="tb-card-cat">Boots</div>
-                    <p class="tb-card-desc">Lightweight chukka with waterproof leather, breathable textile lining, and Timberland's reliable rubber outsole for everyday wear.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price"><span class="tb-old">$130</span> $110</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tb-card">
-                <span class="tb-badge tb-badge-limited">Limited</span>
-                <div class="tb-card-img">
-                    <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400" alt="Timberland PRO Radius">
-                </div>
-                <div class="tb-card-body">
-                    <h3>Timberland PRO Radius</h3>
-                    <div class="tb-card-cat">Work</div>
-                    <p class="tb-card-desc">Premium work boot with composite safety toe, anti-fatigue technology, electrical hazard protection, and slip-resistant outsole.</p>
-                    <div class="tb-card-foot">
-                        <span class="tb-price">$140</span>
-                        <button class="tb-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-</body>
-</html>
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-limited">Limited</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400" alt="Timberland PRO Radius">
+    </div>
+    <div class="brand-card-body">
+      <h3>Timberland PRO Radius</h3>
+      <div class="brand-card-cat">Work</div>
+      <div class="brand-card-desc">Premium work boot with composite safety toe, anti-fatigue technology, electrical hazard protection, and slip-resistant outsole.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$140</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+{% endblock %}

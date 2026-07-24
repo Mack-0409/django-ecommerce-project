@@ -1,148 +1,4 @@
-:root {
-  --bg:         #0D0F1A;
-  --card:       #161928;
-  --card2:      #1E2135;
-  --text:       #F5F0E8;
-  --muted:      rgba(245, 240, 232, 0.55);
-  --accent:     #FF4D4D;
-  --gold:       #C9A96E;
-  --border:     rgba(255, 255, 255, 0.07);
-  --ff-display: 'Bebas Neue', sans-serif;
-  --ff-body:    'DM Sans', sans-serif;
-  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--ff-body);
-  font-weight: 300;
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: inherit;
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--card2);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--muted);
-}
-
-::selection {
-  background: var(--accent);
-  color: #fff;
-}
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: 1.2rem 2rem;
-  background: rgba(13, 15, 26, 0.88);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.header-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-family: var(--ff-display);
-  font-size: 2rem;
-  letter-spacing: 0.15em;
-  color: var(--text);
-  transition: color 0.3s;
-}
-
-.logo:hover {
-  color: var(--accent);
-}
-
-.logo span {
-  color: var(--accent);
-}
-
-.header-actions {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.icon-btn {
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  transition: background 0.3s, color 0.3s;
-  color: var(--muted);
-  position: relative;
-}
-
-.icon-btn:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text);
-}
-
-.cart-count {
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  background: var(--accent);
-  color: #fff;
-  font-size: 0.55rem;
-  font-weight: 600;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* Cart page styles — variables, resets, and header are provided by main.html + nav.css */
 
 .cart-page {
   max-width: 1200px;
@@ -194,46 +50,6 @@ button {
   margin-bottom: 2rem;
 }
 
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.9rem 2.2rem;
-  background: var(--accent);
-  color: #fff;
-  font-family: var(--ff-display);
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
-  border-radius: 4px;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
-  text-decoration: none;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(255, 77, 77, 0.3);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.9rem 2.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--text);
-  font-family: var(--ff-display);
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
-  border-radius: 4px;
-  transition: border-color 0.3s, background 0.3s;
-  background: transparent;
-}
-
-.btn-secondary:hover {
-  border-color: var(--text);
-  background: rgba(255, 255, 255, 0.04);
-}
-
 .cart-layout {
   display: grid;
   grid-template-columns: 1fr 380px;
@@ -268,7 +84,7 @@ button {
   height: 100px;
   border-radius: 8px;
   overflow: hidden;
-  background: var(--card2);
+  background: var(--card2, var(--card));
 }
 
 .cart-item-img img {
@@ -292,7 +108,7 @@ button {
 }
 
 .cart-item-info .item-price {
-  color: var(--gold);
+  color: var(--gold, var(--accent));
   font-weight: 600;
   font-size: 1.05rem;
   margin-top: 0.4rem;
@@ -309,7 +125,7 @@ button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--card2);
+  background: var(--card2, var(--card));
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.3rem;
@@ -394,7 +210,7 @@ button {
 }
 
 .summary-row.total .summary-value {
-  color: var(--gold);
+  color: var(--gold, var(--accent));
 }
 
 .checkout-btn {
@@ -444,7 +260,7 @@ button {
 
 .promo-btn {
   padding: 0.7rem 1.2rem;
-  background: var(--card2);
+  background: var(--card2, var(--card));
   border: 1px solid var(--border);
   color: var(--text);
   font-size: 0.8rem;
@@ -471,10 +287,6 @@ button {
 }
 
 @media (max-width: 768px) {
-  .header {
-    padding: 1rem 1.2rem;
-  }
-
   .cart-page {
     padding: 6rem 1.2rem 3rem;
   }

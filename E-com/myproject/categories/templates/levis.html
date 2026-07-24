@@ -1,493 +1,236 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Levi's — Quality Never Goes Out of Style</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --lvi-bg: #0A0E1A;
-      --lvi-card: #121828;
-      --lvi-card2: #1A2238;
-      --lvi-text: #EDE8DC;
-      --lvi-muted: rgba(237,232,220,0.55);
-      --lvi-accent: #1B3A5C;
-      --lvi-gold: #C0392B;
-      --lvi-border: rgba(255,255,255,0.07);
-    }
+{% extends 'brand_page.html' %}
 
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+{% block brand_css %}
+<style>
+  :root { --brand-accent: #1B3A5C; }
+</style>
+{% endblock %}
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background-color: var(--lvi-bg);
-      color: var(--lvi-text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+{% block brand_title %}Levi's{% endblock %}
+{% block brand_subtitle %}Original denim and American heritage style since 1853{% endblock %}
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+{% block brand_products %}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      border: none;
-      outline: none;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--lvi-bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--lvi-card2);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--lvi-accent);
-    }
-
-    ::selection {
-      background: var(--lvi-gold);
-      color: #fff;
-    }
-
-    .lvi-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-    }
-
-    .lvi-head {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .lvi-head h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
-      letter-spacing: 3px;
-      line-height: 1.1;
-      margin-bottom: 0.8rem;
-    }
-
-    .lvi-head h1 span {
-      color: var(--lvi-gold);
-    }
-
-    .lvi-head p {
-      color: var(--lvi-muted);
-      font-size: 1.05rem;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .lvi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .lvi-card {
-      background: var(--lvi-card);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--lvi-border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-
-    .lvi-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
-    }
-
-    .lvi-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      z-index: 2;
-    }
-
-    .lvi-badge-new {
-      background: var(--lvi-accent);
-      color: #fff;
-    }
-
-    .lvi-badge-limited {
-      background: #7C3AED;
-      color: #fff;
-    }
-
-    .lvi-badge-sale {
-      background: var(--lvi-gold);
-      color: #fff;
-    }
-
-    .lvi-badge-best {
-      background: var(--lvi-gold);
-      color: #fff;
-    }
-
-    .lvi-card-img {
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .lvi-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .lvi-card:hover .lvi-card-img img {
-      transform: scale(1.08);
-    }
-
-    .lvi-card-body {
-      padding: 1.2rem;
-    }
-
-    .lvi-card-body h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.35rem;
-      letter-spacing: 1px;
-      margin-bottom: 0.3rem;
-    }
-
-    .lvi-card-cat {
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      color: var(--lvi-muted);
-      letter-spacing: 1.2px;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-
-    .lvi-card-desc {
-      color: var(--lvi-muted);
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-
-    .lvi-card-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 0.9rem;
-      border-top: 1px solid var(--lvi-border);
-    }
-
-    .lvi-price {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      color: var(--lvi-gold);
-      letter-spacing: 1px;
-    }
-
-    .lvi-price-original {
-      font-size: 0.85rem;
-      color: var(--lvi-muted);
-      text-decoration: line-through;
-      margin-left: 6px;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    .lvi-btn {
-      background: var(--lvi-card2);
-      color: var(--lvi-text);
-      padding: 0.55rem 1.3rem;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .lvi-btn:hover {
-      background: var(--lvi-accent);
-      color: #fff;
-    }
-
-    @media (max-width: 768px) {
-      .lvi-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .lvi-section {
-        padding: 3rem 1rem;
-      }
-
-      .lvi-head h1 {
-        font-size: 2.5rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <section class="lvi-section">
-    <div class="lvi-head">
-      <h1>Levi's <span>Collection</span></h1>
-      <p>Original denim and American heritage style since 1853</p>
-    </div>
-
-    <div class="lvi-grid">
-
-      <div class="lvi-card">
-        <span class="lvi-badge lvi-badge-best">Best Seller</span>
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-limited">Best Seller</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="501 Original Fit Jeans">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>501 Original Fit Jeans</h3>
-          <div class="lvi-card-cat">Denim</div>
-          <p class="lvi-card-desc">The iconic straight-leg jeans that started it all. Button fly, signature arcuate stitching, and authentic selvedge denim.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$98</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Denim</div>
+          <p class="brand-card-desc">The iconic straight-leg jeans that started it all. Button fly, signature arcuate stitching, and authentic selvedge denim.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$98</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <span class="lvi-badge lvi-badge-new">New</span>
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">New</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="511 Slim Fit Jeans">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>511 Slim Fit Jeans</h3>
-          <div class="lvi-card-cat">Denim</div>
-          <p class="lvi-card-desc">Modern slim fit with a narrow leg from hip to ankle. Crafted from stretch denim for a comfortable, tailored feel.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$89</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Denim</div>
+          <p class="brand-card-desc">Modern slim fit with a narrow leg from hip to ankle. Crafted from stretch denim for a comfortable, tailored feel.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$89</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="Trucker Jacket">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>Trucker Jacket</h3>
-          <div class="lvi-card-cat">Outerwear</div>
-          <p class="lvi-card-desc">The original trucker jacket in sturdy denim with button-flap chest pockets, adjustable waist tabs, and a classic fit.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$128</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Outerwear</div>
+          <p class="brand-card-desc">The original trucker jacket in sturdy denim with button-flap chest pockets, adjustable waist tabs, and a classic fit.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$128</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="505 Regular Fit Jeans">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>505 Regular Fit Jeans</h3>
-          <div class="lvi-card-cat">Denim</div>
-          <p class="lvi-card-desc">A roomier regular fit through the seat and thigh with a straight leg. A versatile everyday denim with button fly.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$89</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Denim</div>
+          <p class="brand-card-desc">A roomier regular fit through the seat and thigh with a straight leg. A versatile everyday denim with button fly.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$89</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <span class="lvi-badge lvi-badge-best">Best Seller</span>
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-limited">Best Seller</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400" alt="721 High Rise Skinny Jeans">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>721 High Rise Skinny Jeans</h3>
-          <div class="lvi-card-cat">Denim</div>
-          <p class="lvi-card-desc">Flattering high-rise skinny jeans with a body-hugging fit, super-stretch fabric, and a sleek finished hem.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$98</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Denim</div>
+          <p class="brand-card-desc">Flattering high-rise skinny jeans with a body-hugging fit, super-stretch fabric, and a sleek finished hem.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$98</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400" alt="Ribcage Wide Leg Jeans">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>Ribcage Wide Leg Jeans</h3>
-          <div class="lvi-card-cat">Denim</div>
-          <p class="lvi-card-desc">Extra high-rise wide leg jeans with a dramatic silhouette, vintage-inspired wash, and signature Levi's hardware.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$108</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Denim</div>
+          <p class="brand-card-desc">Extra high-rise wide leg jeans with a dramatic silhouette, vintage-inspired wash, and signature Levi's hardware.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$108</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <span class="lvi-badge lvi-badge-limited">Limited</span>
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-limited">Limited</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400" alt="Sherpa Trucker Jacket">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>Sherpa Trucker Jacket</h3>
-          <div class="lvi-card-cat">Outerwear</div>
-          <p class="lvi-card-desc">Denim trucker jacket lined with cozy sherpa fleece at the collar and body. Warm, rugged, and unmistakably Levi's.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$148</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Outerwear</div>
+          <p class="brand-card-desc">Denim trucker jacket lined with cozy sherpa fleece at the collar and body. Warm, rugged, and unmistakably Levi's.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$148</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="512 Slim Taper Jeans">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>512 Slim Taper Jeans</h3>
-          <div class="lvi-card-cat">Denim</div>
-          <p class="lvi-card-desc">Slim through the thigh with a tapered leg opening. Stretch denim delivers comfort while maintaining a sharp profile.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$98</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Denim</div>
+          <p class="brand-card-desc">Slim through the thigh with a tapered leg opening. Stretch denim delivers comfort while maintaining a sharp profile.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$98</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <span class="lvi-badge lvi-badge-new">New</span>
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">New</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400" alt="Western Shirt">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>Western Shirt</h3>
-          <div class="lvi-card-cat">Tops</div>
-          <p class="lvi-card-desc">Authentic Western-style shirt with snap buttons, yoke detailing, and a curved hem. Made from soft cotton chambray.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$69</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Tops</div>
+          <p class="brand-card-desc">Authentic Western-style shirt with snap buttons, yoke detailing, and a curved hem. Made from soft cotton chambray.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$69</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Premium Flannel Shirt">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>Premium Flannel Shirt</h3>
-          <div class="lvi-card-cat">Tops</div>
-          <p class="lvi-card-desc">Soft brushed flannel shirt in a classic plaid pattern. Button-front closure with a relaxed fit for layering over tees.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$79</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Tops</div>
+          <p class="brand-card-desc">Soft brushed flannel shirt in a classic plaid pattern. Button-front closure with a relaxed fit for layering over tees.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$79</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <span class="lvi-badge lvi-badge-best">Best Seller</span>
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-limited">Best Seller</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="501 Original Shrink-To-Fit">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>501 Original Shrink-To-Fit</h3>
-          <div class="lvi-card-cat">Denim</div>
-          <p class="lvi-card-desc">Unsanforized denim that shrinks to your body for a custom fit. The original jean, tailored by you through wear and wash.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$108</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Denim</div>
+          <p class="brand-card-desc">Unsanforized denim that shrinks to your body for a custom fit. The original jean, tailored by you through wear and wash.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$108</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <span class="lvi-badge lvi-badge-new">New</span>
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">New</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400" alt="Denim Skirt">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>Denim Skirt</h3>
-          <div class="lvi-card-cat">Denim</div>
-          <p class="lvi-card-desc">A-line denim skirt with a button-front closure, raw hem, and classic five-pocket styling in a versatile mid-length cut.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$69</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Denim</div>
+          <p class="brand-card-desc">A-line denim skirt with a button-front closure, raw hem, and classic five-pocket styling in a versatile mid-length cut.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$69</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <span class="lvi-badge lvi-badge-sale">-20%</span>
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-sale">-20%</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400" alt="550 Relaxed Fit Jeans">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>550 Relaxed Fit Jeans</h3>
-          <div class="lvi-card-cat">Denim</div>
-          <p class="lvi-card-desc">Relaxed through the seat and thigh with a tapered leg. A '90s-inspired fit with authentic washes and a comfortable rise.</p>
-          <div class="lvi-card-foot">
+          <div class="brand-card-cat">Denim</div>
+          <p class="brand-card-desc">Relaxed through the seat and thigh with a tapered leg. A '90s-inspired fit with authentic washes and a comfortable rise.</p>
+          <div class="brand-card-foot">
             <div>
-              <span class="lvi-price">$71</span>
-              <span class="lvi-price-original">$89</span>
+              <span class="brand-price">$71</span>
+              <span class="brand-price-old">$89</span>
             </div>
-            <button class="lvi-btn">Add to Cart</button>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="lvi-card">
-        <span class="lvi-badge lvi-badge-limited">Limited</span>
-        <div class="lvi-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-limited">Limited</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400" alt="Big & Tall Trucker Jacket">
         </div>
-        <div class="lvi-card-body">
+        <div class="brand-card-body">
           <h3>Big & Tall Trucker Jacket</h3>
-          <div class="lvi-card-cat">Outerwear</div>
-          <p class="lvi-card-desc">The iconic trucker jacket redesigned for big and tall builds. Durable denim, adjustable tabs, and a comfortable extended fit.</p>
-          <div class="lvi-card-foot">
-            <div class="lvi-price">$138</div>
-            <button class="lvi-btn">Add to Cart</button>
+          <div class="brand-card-cat">Outerwear</div>
+          <p class="brand-card-desc">The iconic trucker jacket redesigned for big and tall builds. Durable denim, adjustable tabs, and a comfortable extended fit.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$138</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-    </div>
-  </section>
-
-</body>
-</html>
+{% endblock %}

@@ -1,31 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Cart — NOIR</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="cart.css">
-</head>
-<body>
+{% extends 'main.html' %}
 
-  <!-- ===== HEADER ===== -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">NO<span>IR</span></a>
-      <div class="header-actions">
-        <a href="index.html" class="icon-btn" aria-label="Home">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </a>
-        <button class="icon-btn" aria-label="Cart">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-          <span class="cart-count">3</span>
-        </button>
-      </div>
-    </div>
-  </header>
+{% block extra_css %}
+{% load static %}
+  <link rel="stylesheet" href="{% static 'CSS/cart.css' %}">
+{% endblock %}
+
+{% block content %}
 
   <!-- ===== CART PAGE ===== -->
   <section class="cart-page">
@@ -39,7 +19,7 @@
       <div class="cart-empty-icon">🛒</div>
       <h2>Your cart is empty</h2>
       <p>Looks like you haven't added anything yet.</p>
-      <a href="index.html" class="btn-primary">Continue Shopping</a>
+      <a href="{% url 'home' %}" class="btn-primary">Continue Shopping</a>
     </div>
 
     <!-- Cart Content -->
@@ -135,5 +115,4 @@
     </div>
   </section>
 
-</body>
-</html>
+{% endblock %}

@@ -1,501 +1,233 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Converse — Shoes Are Boring</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --cv-bg: #1A1A1A;
-      --cv-card: #242424;
-      --cv-card2: #2E2E2E;
-      --cv-text: #F5F5F5;
-      --cv-muted: rgba(245, 245, 245, 0.55);
-      --cv-accent: #E32636;
-      --cv-gold: #E32636;
-      --cv-border: rgba(255, 255, 255, 0.07);
-    }
+{% extends 'brand_page.html' %}
 
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+{% block brand_css %}
+<style>
+  :root { --brand-accent: #E32636; }
+</style>
+{% endblock %}
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cv-bg);
-      color: var(--cv-text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+{% block brand_title %}Converse{% endblock %}
+{% block brand_subtitle %}Iconic canvas sneakers crafted for self-expression since 1908{% endblock %}
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+{% block brand_products %}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      border: none;
-      outline: none;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--cv-bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--cv-card2);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--cv-accent);
-    }
-
-    ::selection {
-      background: var(--cv-accent);
-      color: #fff;
-    }
-
-    .cv-products {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-    }
-
-    .cv-head {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .cv-head h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3.5rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .cv-head h2 span {
-      color: var(--cv-accent);
-    }
-
-    .cv-head p {
-      color: var(--cv-muted);
-      margin-top: 0.75rem;
-      font-size: 1rem;
-    }
-
-    .cv-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .cv-card {
-      background: var(--cv-card);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--cv-border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-
-    .cv-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-    }
-
-    .cv-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 0.25rem 0.75rem;
-      border-radius: 50px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      z-index: 2;
-    }
-
-    .cv-badge-new {
-      background: var(--cv-accent);
-      color: #fff;
-    }
-
-    .cv-badge-limited {
-      background: #7C3AED;
-      color: #fff;
-    }
-
-    .cv-badge-sale {
-      background: var(--cv-gold);
-      color: #1a1a1a;
-    }
-
-    .cv-badge-best {
-      background: var(--cv-accent);
-      color: #fff;
-    }
-
-    .cv-card-img {
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      background: var(--cv-card2);
-    }
-
-    .cv-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .cv-card:hover .cv-card-img img {
-      transform: scale(1.08);
-    }
-
-    .cv-card-body {
-      padding: 1.2rem;
-    }
-
-    .cv-card-body h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.35rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 0.25rem;
-    }
-
-    .cv-card-cat {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--cv-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .cv-card-desc {
-      font-size: 0.85rem;
-      color: var(--cv-muted);
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-
-    .cv-card-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 1rem;
-      border-top: 1px solid var(--cv-border);
-    }
-
-    .cv-price {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      color: var(--cv-accent);
-      letter-spacing: 1px;
-    }
-
-    .cv-price .cv-old {
-      text-decoration: line-through;
-      color: var(--cv-muted);
-      font-size: 0.9rem;
-      margin-left: 0.5rem;
-    }
-
-    .cv-card-btn {
-      background: var(--cv-card2);
-      color: var(--cv-text);
-      padding: 0.5rem 1.1rem;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .cv-card-btn:hover {
-      background: var(--cv-accent);
-      color: #fff;
-    }
-
-    @media (max-width: 768px) {
-      .cv-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cv-head h2 {
-        font-size: 2.5rem;
-      }
-
-      .cv-products {
-        padding: 3rem 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <section class="cv-products">
-    <div class="cv-head">
-      <h2>Converse <span>Collection</span></h2>
-      <p>Iconic canvas sneakers crafted for self-expression since 1908</p>
-    </div>
-
-    <div class="cv-grid">
-
-      <!-- 1. Chuck Taylor All Star High Top -->
-      <div class="cv-card">
-        <span class="cv-badge cv-badge-best">Best Seller</span>
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">Best Seller</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Chuck Taylor All Star High Top">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>Chuck Taylor All Star High Top</h3>
-          <div class="cv-card-cat">Classic</div>
-          <div class="cv-card-desc">The original basketball sneaker turned cultural icon. Premium canvas upper with signature ankle patch and rubber toe cap.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$65</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Classic</div>
+          <div class="brand-card-desc">The original basketball sneaker turned cultural icon. Premium canvas upper with signature ankle patch and rubber toe cap.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$65</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 2. Chuck Taylor All Star Low Top -->
-      <div class="cv-card">
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="Chuck Taylor All Star Low Top">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>Chuck Taylor All Star Low Top</h3>
-          <div class="cv-card-cat">Lifestyle</div>
-          <div class="cv-card-desc">Low-profile versatility meets timeless canvas design. Padded collar and OrthoLite insole for all-day comfort.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$60</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Lifestyle</div>
+          <div class="brand-card-desc">Low-profile versatility meets timeless canvas design. Padded collar and OrthoLite insole for all-day comfort.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$60</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 3. Jack Purcell Leather -->
-      <div class="cv-card">
-        <span class="cv-badge cv-badge-new">New</span>
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">New</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="Jack Purcell Leather">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>Jack Purcell Leather</h3>
-          <div class="cv-card-cat">Lifestyle</div>
-          <div class="cv-card-desc">Refined full-grain leather with the signature smile detail on the toe. A polished take on court heritage.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$85</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Lifestyle</div>
+          <div class="brand-card-desc">Refined full-grain leather with the signature smile detail on the toe. A polished take on court heritage.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$85</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 4. Converse Cons One Star Pro -->
-      <div class="cv-card">
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="Converse Cons One Star Pro">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>Converse Cons One Star Pro</h3>
-          <div class="cv-card-cat">Skateboarding</div>
-          <div class="cv-card-desc">Built for the skate park with suede reinforcement, CX foam cushioning, and a vulcanized rubber outsole for board feel.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$90</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Skateboarding</div>
+          <div class="brand-card-desc">Built for the skate park with suede reinforcement, CX foam cushioning, and a vulcanized rubber outsole for board feel.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$90</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 5. Run Star Hike -->
-      <div class="cv-card">
-        <span class="cv-badge cv-badge-new">New</span>
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">New</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400" alt="Run Star Hike">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>Run Star Hike</h3>
-          <div class="cv-card-cat">Lifestyle</div>
-          <div class="cv-card-desc">A platform silhouette with jagged sole teeth. The chunky update to the classic Chuck Taylor that turns heads everywhere.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$110</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Lifestyle</div>
+          <div class="brand-card-desc">A platform silhouette with jagged sole teeth. The chunky update to the classic Chuck Taylor that turns heads everywhere.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$110</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 6. Chuck 70 High Top -->
-      <div class="cv-card">
-        <span class="cv-badge cv-badge-best">Best Seller</span>
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">Best Seller</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400" alt="Chuck 70 High Top">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>Chuck 70 High Top</h3>
-          <div class="cv-card-cat">Lifestyle</div>
-          <div class="cv-card-desc">1970s-inspired craftsmanship with heavier canvas, enhanced cushioning, and vintage styling for elevated everyday wear.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$90</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Lifestyle</div>
+          <div class="brand-card-desc">1970s-inspired craftsmanship with heavier canvas, enhanced cushioning, and vintage styling for elevated everyday wear.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$90</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 7. Chuck 70 Low Top -->
-      <div class="cv-card">
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400" alt="Chuck 70 Low Top">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>Chuck 70 Low Top</h3>
-          <div class="cv-card-cat">Lifestyle</div>
-          <div class="cv-card-desc">The low-cut Chuck 70 brings retro premium details to a sleeker profile. Triple-stitched canvas with antique brass eyelets.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$85</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Lifestyle</div>
+          <div class="brand-card-desc">The low-cut Chuck 70 brings retro premium details to a sleeker profile. Triple-stitched canvas with antique brass eyelets.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$85</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 8. Converse Cons CX Chunk -->
-      <div class="cv-card">
-        <span class="cv-badge cv-badge-limited">Limited</span>
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-limited">Limited</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400" alt="Converse Cons CX Chunk">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>Converse Cons CX Chunk</h3>
-          <div class="cv-card-cat">Skateboarding</div>
-          <div class="cv-card-desc">Bold oversized proportions meet CX foam technology. A fearless deconstructed design for skaters who push boundaries.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$95</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Skateboarding</div>
+          <div class="brand-card-desc">Bold oversized proportions meet CX foam technology. A fearless deconstructed design for skaters who push boundaries.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$95</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 9. All Star Pro BB -->
-      <div class="cv-card">
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="All Star Pro BB">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>All Star Pro BB</h3>
-          <div class="cv-card-cat">Basketball</div>
-          <div class="cv-card-desc">Performance meets heritage on the hardwood. React foam cushioning and a lightweight woven upper for explosive movement.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$140</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Basketball</div>
+          <div class="brand-card-desc">Performance meets heritage on the hardwood. React foam cushioning and a lightweight woven upper for explosive movement.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$140</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 10. Chuck Taylor All Star Move -->
-      <div class="cv-card">
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400" alt="Chuck Taylor All Star Move">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>Chuck Taylor All Star Move</h3>
-          <div class="cv-card-cat">Running</div>
-          <div class="cv-card-desc">The Chuck reimagined for forward motion. Lightweight Lunarlon midsole and breathable knit upper for stride comfort.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$75</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Running</div>
+          <div class="brand-card-desc">The Chuck reimagined for forward motion. Lightweight Lunarlon midsole and breathable knit upper for stride comfort.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$75</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 11. Weapon CX -->
-      <div class="cv-card">
-        <span class="cv-badge cv-badge-new">New</span>
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">New</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Weapon CX">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>Weapon CX</h3>
-          <div class="cv-card-cat">Lifestyle</div>
-          <div class="cv-card-desc">The 80s basketball legend reborn with CX foam comfort. A padded collar and premium suede overlays deliver retro luxury.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$100</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Lifestyle</div>
+          <div class="brand-card-desc">The 80s basketball legend reborn with CX foam comfort. A padded collar and premium suede overlays deliver retro luxury.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$100</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 12. Chuck 70 Platform -->
-      <div class="cv-card">
-        <span class="cv-badge cv-badge-best">Best Seller</span>
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">Best Seller</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Chuck 70 Platform">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>Chuck 70 Platform</h3>
-          <div class="cv-card-cat">Lifestyle</div>
-          <div class="cv-card-desc">Add inches and attitude with a platform sole built on the classic Chuck 70 upper. Vintage charm, modern elevation.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$105</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Lifestyle</div>
+          <div class="brand-card-desc">Add inches and attitude with a platform sole built on the classic Chuck 70 upper. Vintage charm, modern elevation.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$105</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 13. One Star Ox Suede -->
-      <div class="cv-card">
-        <span class="cv-badge cv-badge-sale">-20% Sale</span>
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-sale">-20% Sale</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400" alt="One Star Ox Suede">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>One Star Ox Suede</h3>
-          <div class="cv-card-cat">Lifestyle</div>
-          <div class="cv-card-desc">Minimal suede sophistication with the iconic One Star branding. Clean lines and a low-profile silhouette for everyday wear.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$64 <span class="cv-old">$80</span></div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Lifestyle</div>
+          <div class="brand-card-desc">Minimal suede sophistication with the iconic One Star branding. Clean lines and a low-profile silhouette for everyday wear.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$64 <span class="brand-price-old">$80</span></div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 14. Converse G4 -->
-      <div class="cv-card">
-        <span class="cv-badge cv-badge-limited">Limited</span>
-        <div class="cv-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-limited">Limited</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400" alt="Converse G4">
         </div>
-        <div class="cv-card-body">
+        <div class="brand-card-body">
           <h3>Converse G4</h3>
-          <div class="cv-card-cat">Basketball</div>
-          <div class="cv-card-desc">A hybrid mid-top that merges Chuck heritage with modern performance. Zoom Air cushioning and a reinforced heel counter.</div>
-          <div class="cv-card-foot">
-            <div class="cv-price">$120</div>
-            <button class="cv-card-btn">Add to Cart</button>
+          <div class="brand-card-cat">Basketball</div>
+          <div class="brand-card-desc">A hybrid mid-top that merges Chuck heritage with modern performance. Zoom Air cushioning and a reinforced heel counter.</div>
+          <div class="brand-card-foot">
+            <div class="brand-price">$120</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-    </div>
-  </section>
-
-</body>
-</html>
+{% endblock %}

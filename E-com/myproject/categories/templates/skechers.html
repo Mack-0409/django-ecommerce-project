@@ -1,482 +1,231 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skechers — Comfort That Matters</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --sk-bg: #0D1117;
-            --sk-card: #161B22;
-            --sk-card2: #21262D;
-            --sk-text: #E6EDF3;
-            --sk-muted: rgba(230, 237, 243, 0.55);
-            --sk-accent: #1B5E9E;
-            --sk-gold: #3FB950;
-            --sk-border: rgba(255, 255, 255, 0.07);
-        }
+{% extends 'brand_page.html' %}
 
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+{% block brand_css %}
+<style>
+  :root { --brand-accent: #1B5E9E; }
+</style>
+{% endblock %}
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: var(--sk-bg);
-            color: var(--sk-text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+{% block brand_title %}Skechers{% endblock %}
+{% block brand_subtitle %}All-day comfort technology for every step of your journey{% endblock %}
 
-        img {
-            max-width: 100%;
-            display: block;
-        }
+{% block brand_products %}
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-bestseller">Best Seller</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Skechers Go Run Ride 11">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers Go Run Ride 11</h3>
+      <div class="brand-card-cat">Running</div>
+      <div class="brand-card-desc">Ultra-lightweight performance runner with Hyper Burst cushioning and breathable mesh upper for maximum comfort on long runs.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$130</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-new">New</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="Skechers Arch Fit 2.0">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers Arch Fit 2.0</h3>
+      <div class="brand-card-cat">Walking</div>
+      <div class="brand-card-desc">Podiatrist-designed arch support with patented Arch Fit insole system for all-day walking comfort and stability.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$85</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        button {
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="Skechers D'Lites">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers D'Lites</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">The iconic chunky sneaker with memory foam cushioning and a retro-inspired silhouette that never goes out of style.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$75</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="Skechers Max Cushioning Elite">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers Max Cushioning Elite</h3>
+      <div class="brand-card-cat">Running</div>
+      <div class="brand-card-desc">Maximum plush cushioning with Ultra Go technology and Skechers Air Cooled Goga Mat insole for responsive feel.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$120</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::-webkit-scrollbar-track {
-            background: var(--sk-bg);
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-bestseller">Best Seller</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400" alt="Skechers Street Uno">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers Street Uno</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Sleek slip-on street style with air-cooled memory foam and a laid-back design perfect for everyday wear.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$80</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--sk-card2);
-            border-radius: 4px;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400" alt="Skechers Slip-ins Summits">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers Slip-ins: Summits</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Hands-free slip-in convenience with Memory Foam heel pillow and structured mesh upper for effortless comfort.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$85</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--sk-accent);
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-limited">Limited</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400" alt="Skechers Gorun 600">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers Gorun 600</h3>
+      <div class="brand-card-cat">Running</div>
+      <div class="brand-card-desc">Competition-ready racer with carbon fiber plate and Hyper Burst Pro midsole for explosive speed and energy return.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$110</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::selection {
-            background: var(--sk-accent);
-            color: #fff;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="Skechers FOAMALICIOUS">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers FOAMALICIOUS</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Ultra-plush foam platform sneaker with a bold fashion-forward design and Skechers Air Cooled memory foam insole.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$70</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .sk-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-new">New</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400" alt="Skechers Arch Fit Enfocus">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers Arch Fit Enfocus</h3>
+      <div class="brand-card-cat">Walking</div>
+      <div class="brand-card-desc">Sustainable walking shoe with plant-based materials, arch-fit insole, and a relaxed fit for natural comfort.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$90</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .sk-head {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Skechers Hyper Burst Surge">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers Hyper Burst Surge</h3>
+      <div class="brand-card-cat">Running</div>
+      <div class="brand-card-desc">Responsive super-critical foam cushioning with a lightweight engineered knit upper for elite marathon performance.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$140</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .sk-head h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4rem;
-            letter-spacing: 2px;
-            line-height: 1;
-            margin-bottom: 0.75rem;
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-bestseller">Best Seller</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Skechers Summits">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers Summits</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Versatile lace-up sneaker with lightweight mesh, shock-absorbing midsole, and a clean sporty silhouette.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$65</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .sk-head h1 span {
-            color: var(--sk-accent);
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-new">New</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400" alt="Skechers GOrun Fast">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers GOrun Fast</h3>
+      <div class="brand-card-cat">Running</div>
+      <div class="brand-card-desc">Speed-focused trainer with Aero Burst cushioning and aerodynamic design for tempo runs and race day performance.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$120</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .sk-head p {
-            color: var(--sk-muted);
-            font-size: 1.05rem;
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-sale">-25%</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400" alt="Skechers Classic Fit">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers Classic Fit</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Retro-inspired comfort with relaxed fit, air-cooled memory foam, and a timeless low-profile design.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price"><span class="brand-price-old">$75</span> $56</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .sk-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .sk-card {
-            background: var(--sk-card);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--sk-border);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-
-        .sk-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .sk-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 2;
-        }
-
-        .sk-badge-new {
-            background: var(--sk-accent);
-            color: #fff;
-        }
-
-        .sk-badge-limited {
-            background: #7C3AED;
-            color: #fff;
-        }
-
-        .sk-badge-sale {
-            background: var(--sk-gold);
-            color: #0D1117;
-        }
-
-        .sk-badge-best {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(6px);
-            color: var(--sk-text);
-            border: 1px solid var(--sk-border);
-        }
-
-        .sk-card-img {
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-            background: var(--sk-card2);
-        }
-
-        .sk-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .sk-card:hover .sk-card-img img {
-            transform: scale(1.08);
-        }
-
-        .sk-card-body {
-            padding: 1.2rem;
-        }
-
-        .sk-card-body h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-            margin-bottom: 0.25rem;
-        }
-
-        .sk-card-cat {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--sk-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .sk-card-desc {
-            font-size: 0.85rem;
-            color: var(--sk-muted);
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .sk-card-foot {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid var(--sk-border);
-        }
-
-        .sk-price {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            color: var(--sk-gold);
-        }
-
-        .sk-price .sk-old {
-            font-size: 0.85rem;
-            color: var(--sk-muted);
-            text-decoration: line-through;
-            margin-right: 6px;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .sk-btn {
-            background: var(--sk-card2);
-            color: var(--sk-text);
-            padding: 0.55rem 1.3rem;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .sk-btn:hover {
-            background: var(--sk-accent);
-            color: #fff;
-        }
-
-        @media (max-width: 768px) {
-            .sk-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .sk-head h1 {
-                font-size: 2.8rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <section class="sk-section">
-        <div class="sk-head">
-            <h1>Skechers <span>Collection</span></h1>
-            <p>All-day comfort technology for every step of your journey</p>
-        </div>
-        <div class="sk-grid">
-
-            <div class="sk-card">
-                <span class="sk-badge sk-badge-best">Best Seller</span>
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Skechers Go Run Ride 11">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers Go Run Ride 11</h3>
-                    <div class="sk-card-cat">Running</div>
-                    <p class="sk-card-desc">Ultra-lightweight performance runner with Hyper Burst cushioning and breathable mesh upper for maximum comfort on long runs.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$130</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <span class="sk-badge sk-badge-new">New</span>
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="Skechers Arch Fit 2.0">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers Arch Fit 2.0</h3>
-                    <div class="sk-card-cat">Walking</div>
-                    <p class="sk-card-desc">Podiatrist-designed arch support with patented Arch Fit insole system for all-day walking comfort and stability.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$85</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="Skechers D'Lites">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers D'Lites</h3>
-                    <div class="sk-card-cat">Lifestyle</div>
-                    <p class="sk-card-desc">The iconic chunky sneaker with memory foam cushioning and a retro-inspired silhouette that never goes out of style.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$75</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="Skechers Max Cushioning Elite">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers Max Cushioning Elite</h3>
-                    <div class="sk-card-cat">Running</div>
-                    <p class="sk-card-desc">Maximum plush cushioning with Ultra Go technology and Skechers Air Cooled Goga Mat insole for responsive feel.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$120</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <span class="sk-badge sk-badge-best">Best Seller</span>
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400" alt="Skechers Street Uno">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers Street Uno</h3>
-                    <div class="sk-card-cat">Lifestyle</div>
-                    <p class="sk-card-desc">Sleek slip-on street style with air-cooled memory foam and a laid-back design perfect for everyday wear.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$80</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400" alt="Skechers Slip-ins Summits">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers Slip-ins: Summits</h3>
-                    <div class="sk-card-cat">Lifestyle</div>
-                    <p class="sk-card-desc">Hands-free slip-in convenience with Memory Foam heel pillow and structured mesh upper for effortless comfort.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$85</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <span class="sk-badge sk-badge-limited">Limited</span>
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400" alt="Skechers Gorun 600">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers Gorun 600</h3>
-                    <div class="sk-card-cat">Running</div>
-                    <p class="sk-card-desc">Competition-ready racer with carbon fiber plate and Hyper Burst Pro midsole for explosive speed and energy return.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$110</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="Skechers FOAMALICIOUS">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers FOAMALICIOUS</h3>
-                    <div class="sk-card-cat">Lifestyle</div>
-                    <p class="sk-card-desc">Ultra-plush foam platform sneaker with a bold fashion-forward design and Skechers Air Cooled memory foam insole.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$70</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <span class="sk-badge sk-badge-new">New</span>
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400" alt="Skechers Arch Fit Enfocus">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers Arch Fit Enfocus</h3>
-                    <div class="sk-card-cat">Walking</div>
-                    <p class="sk-card-desc">Sustainable walking shoe with plant-based materials, arch-fit insole, and a relaxed fit for natural comfort.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$90</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Skechers Hyper Burst Surge">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers Hyper Burst Surge</h3>
-                    <div class="sk-card-cat">Running</div>
-                    <p class="sk-card-desc">Responsive super-critical foam cushioning with a lightweight engineered knit upper for elite marathon performance.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$140</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <span class="sk-badge sk-badge-best">Best Seller</span>
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Skechers Summits">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers Summits</h3>
-                    <div class="sk-card-cat">Lifestyle</div>
-                    <p class="sk-card-desc">Versatile lace-up sneaker with lightweight mesh, shock-absorbing midsole, and a clean sporty silhouette.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$65</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <span class="sk-badge sk-badge-new">New</span>
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400" alt="Skechers GOrun Fast">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers GOrun Fast</h3>
-                    <div class="sk-card-cat">Running</div>
-                    <p class="sk-card-desc">Speed-focused trainer with Aero Burst cushioning and aerodynamic design for tempo runs and race day performance.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$120</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <span class="sk-badge sk-badge-sale">-25%</span>
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400" alt="Skechers Classic Fit">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers Classic Fit</h3>
-                    <div class="sk-card-cat">Lifestyle</div>
-                    <p class="sk-card-desc">Retro-inspired comfort with relaxed fit, air-cooled memory foam, and a timeless low-profile design.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price"><span class="sk-old">$75</span> $56</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sk-card">
-                <span class="sk-badge sk-badge-limited">Limited</span>
-                <div class="sk-card-img">
-                    <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400" alt="Skechers Afterburn">
-                </div>
-                <div class="sk-card-body">
-                    <h3>Skechers Afterburn</h3>
-                    <div class="sk-card-cat">Training</div>
-                    <p class="sk-card-desc">Versatile training shoe with shock-absorbing midsole, reinforced overlay, and rubber traction outsole for gym workouts.</p>
-                    <div class="sk-card-foot">
-                        <span class="sk-price">$85</span>
-                        <button class="sk-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-</body>
-</html>
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-limited">Limited</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400" alt="Skechers Afterburn">
+    </div>
+    <div class="brand-card-body">
+      <h3>Skechers Afterburn</h3>
+      <div class="brand-card-cat">Training</div>
+      <div class="brand-card-desc">Versatile training shoe with shock-absorbing midsole, reinforced overlay, and rubber traction outsole for gym workouts.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$85</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+{% endblock %}

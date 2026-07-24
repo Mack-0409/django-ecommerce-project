@@ -1,483 +1,231 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fila — Just Be You</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --fila-bg: #0E1020;
-            --fila-card: #171A2E;
-            --fila-card2: #212540;
-            --fila-text: #F0EDE4;
-            --fila-muted: rgba(240,237,228,0.55);
-            --fila-accent: #002D72;
-            --fila-gold: #E32636;
-            --fila-border: rgba(255,255,255,0.07);
-        }
+{% extends 'brand_page.html' %}
 
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+{% block brand_css %}
+<style>
+  :root { --brand-accent: #002D72; }
+</style>
+{% endblock %}
 
-        body {
-            background: var(--fila-bg);
-            color: var(--fila-text);
-            font-family: 'DM Sans', sans-serif;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+{% block brand_title %}Fila{% endblock %}
+{% block brand_subtitle %}Italian heritage meets modern sportswear with timeless appeal{% endblock %}
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
+{% block brand_products %}
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-bestseller">Best Seller</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Fila Disruptor II">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Disruptor II</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">The chunky silhouette that defined a generation with its bold serrated sole and retro branding.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$95</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-new">New</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="Fila Ray">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Ray</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Streamlined court-inspired sneaker with a clean profile and cushioned insole for everyday wear.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$80</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        button {
-            border: none;
-            outline: none;
-            cursor: pointer;
-            font-family: inherit;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="Fila Chunky Runner">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Chunky Runner</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Retro running aesthetics with a layered leather and mesh upper sitting atop a platform sole.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$100</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="Fila Mindblower">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Mindblower</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Archival '90s design revived with oversized logos and a chunky EVA midsole for bold comfort.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$110</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::-webkit-scrollbar-track {
-            background: var(--fila-bg);
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-limited">Limited</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400" alt="Fila Grant Hill 2">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Grant Hill 2</h3>
+      <div class="brand-card-cat">Basketball</div>
+      <div class="brand-card-desc">Grant Hill's iconic basketball silhouette with premium leather and a padded collar for court performance.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$120</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--fila-card2);
-            border-radius: 4px;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400" alt="Fila Venice">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Venice</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Low-profile canvas sneaker inspired by laid-back California style with a vulcanized rubber sole.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$75</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--fila-gold);
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-bestseller">Best Seller</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400" alt="Fila Fuel Cell 2">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Fuel Cell 2</h3>
+      <div class="brand-card-cat">Running</div>
+      <div class="brand-card-desc">Responsive FuelCell foam midsole paired with a breathable knit upper for lightweight miles.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$90</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        ::selection {
-            background: var(--fila-gold);
-            color: var(--fila-bg);
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-new">New</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="Fila Skele-Toes EZ Surge">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Skele-Toes EZ Surge</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Split-toe design with a flexible sole for a barefoot feel and quick on-off convenience.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$85</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .fila-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400" alt="Fila Strada">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Strada</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Italian-inspired design with suede overlays and a padded tongue for casual sophistication.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$70</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .fila-head {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
+  <div class="brand-card">
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Fila Fusion Renno">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Fusion Renno</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Street-ready runner with mixed-material upper and chunky outsole for urban edge.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$105</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .fila-head h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3.5rem;
-            letter-spacing: 2px;
-            line-height: 1.1;
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-bestseller">Best Seller</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Fila Memory Sendrant">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Memory Sendrant</h3>
+      <div class="brand-card-cat">Running</div>
+      <div class="brand-card-desc">Memory foam insole conforms to your foot with a lightweight mesh build for plush daily runs.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$80</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .fila-head h1 span {
-            color: var(--fila-gold);
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-limited">Limited</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400" alt="Fila FX-100">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila FX-100</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Heritage court shoe reissued with original tooling, premium leather, and vintage Fila branding.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$130</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .fila-head p {
-            color: var(--fila-muted);
-            margin-top: 0.75rem;
-            font-size: 1rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-sale">-20%</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400" alt="Fila Disruptor 2 Premium">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Disruptor 2 Premium</h3>
+      <div class="brand-card-cat">Lifestyle</div>
+      <div class="brand-card-desc">Elevated take on the Disruptor with nubuck leather and metallic accents for a luxe street look.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$84 <span class="brand-price-old">$105</span></div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
 
-        .fila-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .fila-card {
-            background: var(--fila-card);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--fila-border);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-
-        .fila-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.4);
-        }
-
-        .fila-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            padding: 4px 12px;
-            border-radius: 999px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 2;
-        }
-
-        .fila-badge-new {
-            background: var(--fila-gold);
-            color: #fff;
-        }
-
-        .fila-badge-limited {
-            background: #7C3AED;
-            color: #fff;
-        }
-
-        .fila-badge-sale {
-            background: var(--fila-gold);
-            color: #fff;
-        }
-
-        .fila-badge-bestseller {
-            background: var(--fila-accent);
-            color: #fff;
-        }
-
-        .fila-card-img {
-            aspect-ratio: 1/1;
-            overflow: hidden;
-            background: var(--fila-card2);
-        }
-
-        .fila-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .fila-card:hover .fila-card-img img {
-            transform: scale(1.08);
-        }
-
-        .fila-card-body {
-            padding: 1.2rem;
-        }
-
-        .fila-card-body h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.35rem;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.2rem;
-        }
-
-        .fila-card-cat {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--fila-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .fila-card-desc {
-            font-size: 0.85rem;
-            color: var(--fila-muted);
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .fila-card-foot {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 0.85rem;
-            border-top: 1px solid var(--fila-border);
-        }
-
-        .fila-price {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.4rem;
-            color: var(--fila-gold);
-        }
-
-        .fila-price .fila-old {
-            font-size: 0.85rem;
-            color: var(--fila-muted);
-            text-decoration: line-through;
-            margin-left: 6px;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .fila-btn {
-            background: var(--fila-card2);
-            color: var(--fila-text);
-            padding: 0.5rem 1.2rem;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        .fila-btn:hover {
-            background: var(--fila-gold);
-            color: #fff;
-        }
-
-        @media (max-width: 768px) {
-            .fila-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .fila-head h1 {
-                font-size: 2.5rem;
-            }
-
-            .fila-section {
-                padding: 3rem 1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <section class="fila-section">
-        <div class="fila-head">
-            <h1>Fila <span>Collection</span></h1>
-            <p>Italian heritage meets modern sportswear with timeless appeal</p>
-        </div>
-
-        <div class="fila-grid">
-            <div class="fila-card">
-                <span class="fila-badge fila-badge-bestseller">Best Seller</span>
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Fila Disruptor II">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Disruptor II</h3>
-                    <div class="fila-card-cat">Lifestyle</div>
-                    <div class="fila-card-desc">The chunky silhouette that defined a generation with its bold serrated sole and retro branding.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$95</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <span class="fila-badge fila-badge-new">New</span>
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="Fila Ray">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Ray</h3>
-                    <div class="fila-card-cat">Lifestyle</div>
-                    <div class="fila-card-desc">Streamlined court-inspired sneaker with a clean profile and cushioned insole for everyday wear.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$80</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="Fila Chunky Runner">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Chunky Runner</h3>
-                    <div class="fila-card-cat">Lifestyle</div>
-                    <div class="fila-card-desc">Retro running aesthetics with a layered leather and mesh upper sitting atop a platform sole.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$100</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="Fila Mindblower">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Mindblower</h3>
-                    <div class="fila-card-cat">Lifestyle</div>
-                    <div class="fila-card-desc">Archival '90s design revived with oversized logos and a chunky EVA midsole for bold comfort.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$110</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <span class="fila-badge fila-badge-limited">Limited</span>
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400" alt="Fila Grant Hill 2">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Grant Hill 2</h3>
-                    <div class="fila-card-cat">Basketball</div>
-                    <div class="fila-card-desc">Grant Hill's iconic basketball silhouette with premium leather and a padded collar for court performance.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$120</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400" alt="Fila Venice">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Venice</h3>
-                    <div class="fila-card-cat">Lifestyle</div>
-                    <div class="fila-card-desc">Low-profile canvas sneaker inspired by laid-back California style with a vulcanized rubber sole.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$75</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <span class="fila-badge fila-badge-bestseller">Best Seller</span>
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400" alt="Fila Fuel Cell 2">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Fuel Cell 2</h3>
-                    <div class="fila-card-cat">Running</div>
-                    <div class="fila-card-desc">Responsive FuelCell foam midsole paired with a breathable knit upper for lightweight miles.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$90</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <span class="fila-badge fila-badge-new">New</span>
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="Fila Skele-Toes EZ Surge">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Skele-Toes EZ Surge</h3>
-                    <div class="fila-card-cat">Lifestyle</div>
-                    <div class="fila-card-desc">Split-toe design with a flexible sole for a barefoot feel and quick on-off convenience.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$85</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400" alt="Fila Strada">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Strada</h3>
-                    <div class="fila-card-cat">Lifestyle</div>
-                    <div class="fila-card-desc">Italian-inspired design with suede overlays and a padded tongue for casual sophistication.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$70</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Fila Fusion Renno">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Fusion Renno</h3>
-                    <div class="fila-card-cat">Lifestyle</div>
-                    <div class="fila-card-desc">Street-ready runner with mixed-material upper and chunky outsole for urban edge.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$105</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <span class="fila-badge fila-badge-bestseller">Best Seller</span>
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Fila Memory Sendrant">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Memory Sendrant</h3>
-                    <div class="fila-card-cat">Running</div>
-                    <div class="fila-card-desc">Memory foam insole conforms to your foot with a lightweight mesh build for plush daily runs.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$80</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <span class="fila-badge fila-badge-limited">Limited</span>
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400" alt="Fila FX-100">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila FX-100</h3>
-                    <div class="fila-card-cat">Lifestyle</div>
-                    <div class="fila-card-desc">Heritage court shoe reissued with original tooling, premium leather, and vintage Fila branding.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$130</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <span class="fila-badge fila-badge-sale">-20%</span>
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400" alt="Fila Disruptor 2 Premium">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Disruptor 2 Premium</h3>
-                    <div class="fila-card-cat">Lifestyle</div>
-                    <div class="fila-card-desc">Elevated take on the Disruptor with nubuck leather and metallic accents for a luxe street look.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$84 <span class="fila-old">$105</span></div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fila-card">
-                <span class="fila-badge fila-badge-new">New</span>
-                <div class="fila-card-img">
-                    <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400" alt="Fila Flow">
-                </div>
-                <div class="fila-card-body">
-                    <h3>Fila Flow</h3>
-                    <div class="fila-card-cat">Running</div>
-                    <div class="fila-card-desc">Seamless knit upper and a smooth-transition outsole designed for effortless strides from start to finish.</div>
-                    <div class="fila-card-foot">
-                        <div class="fila-price">$85</div>
-                        <button class="fila-btn">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</body>
-</html>
+  <div class="brand-card">
+    <span class="brand-badge brand-badge-new">New</span>
+    <div class="brand-card-img">
+      <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400" alt="Fila Flow">
+    </div>
+    <div class="brand-card-body">
+      <h3>Fila Flow</h3>
+      <div class="brand-card-cat">Running</div>
+      <div class="brand-card-desc">Seamless knit upper and a smooth-transition outsole designed for effortless strides from start to finish.</div>
+      <div class="brand-card-foot">
+        <div class="brand-price">$85</div>
+        <button class="brand-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+{% endblock %}

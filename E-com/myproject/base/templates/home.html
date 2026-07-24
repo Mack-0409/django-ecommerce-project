@@ -1,19 +1,11 @@
 {% extends 'main.html' %}
 
-{% block content %}
+{% block extra_css %}
   {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOIR — Premium Footwear</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'CSS/home.css' %}">
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
   <!-- ===== BRANDS NAV ===== -->
   <nav class="brands-nav" id="brandsNav">
     <a href="{% url 'nike' %}">Nike</a>
@@ -446,7 +438,9 @@
 
   <!-- ===== BACK TO TOP ===== -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">⬆</button>
+{% endblock %}
 
+{% block extra_js %}
   <script>
       /* ============================================
     1.  TOAST NOTIFICATION
@@ -637,7 +631,4 @@
     'background:#0D0F1A;color:#F5F0E8;font-size:1.2rem;padding:4px 8px 4px 0;border-radius:0 4px 4px 0;font-weight:300;'
   );
   </script>
-</body>
-</html>
-
 {% endblock %}

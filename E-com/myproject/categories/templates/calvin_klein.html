@@ -1,470 +1,233 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calvin Klein — Minimalism Defined</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ck-bg: #0F0F0F;
-      --ck-card: #1A1A1A;
-      --ck-card2: #252525;
-      --ck-text: #F5F5F5;
-      --ck-muted: rgba(245, 245, 245, 0.55);
-      --ck-accent: #FFFFFF;
-      --ck-gold: #E0E0E0;
-      --ck-border: rgba(255, 255, 255, 0.07);
-      --ff-display: 'Bebas Neue', sans-serif;
-      --ff-body: 'DM Sans', sans-serif;
-    }
+{% extends 'brand_page.html' %}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+{% block brand_css %}
+<style>
+  :root { --brand-accent: #FFFFFF; }
+</style>
+{% endblock %}
 
-    body {
-      background: var(--ck-bg);
-      color: var(--ck-text);
-      font-family: var(--ff-body);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+{% block brand_title %}Calvin Klein{% endblock %}
+{% block brand_subtitle %}Bold minimalism with clean lines and modern sophistication{% endblock %}
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+{% block brand_products %}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--ck-bg);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--ck-card2);
-      border-radius: 3px;
-    }
-
-    ::selection {
-      background: var(--ck-accent);
-      color: #0F0F0F;
-    }
-
-    .ck-products {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-    }
-
-    .section-head {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-head h2 {
-      font-family: var(--ff-display);
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      letter-spacing: 0.04em;
-    }
-
-    .section-head h2 span {
-      color: var(--ck-accent);
-    }
-
-    .section-head p {
-      color: var(--ck-muted);
-      margin-top: 0.5rem;
-      font-size: 1rem;
-    }
-
-    .ck-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .ck-card {
-      background: var(--ck-card);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--ck-border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-
-    .ck-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
-    }
-
-    .card-badge {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      z-index: 2;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0.3rem 0.8rem;
-      border-radius: 100px;
-      background: var(--ck-accent);
-      color: #0F0F0F;
-    }
-
-    .badge-new {
-      background: var(--ck-accent);
-      color: #0F0F0F;
-    }
-
-    .badge-limited {
-      background: #7C3AED;
-      color: #fff;
-    }
-
-    .badge-sale {
-      background: #E0E0E0;
-      color: #0F0F0F;
-    }
-
-    .card-img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      background: var(--ck-card2);
-    }
-
-    .card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .ck-card:hover .card-img img {
-      transform: scale(1.08);
-    }
-
-    .card-body {
-      padding: 1.2rem;
-    }
-
-    .card-body h3 {
-      font-family: var(--ff-display);
-      font-size: 1.4rem;
-      letter-spacing: 0.04em;
-      line-height: 1.2;
-      margin-bottom: 0.2rem;
-    }
-
-    .card-cat {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--ck-muted);
-      font-weight: 500;
-    }
-
-    .card-desc {
-      font-size: 0.85rem;
-      color: var(--ck-muted);
-      line-height: 1.6;
-      margin: 0.6rem 0 1rem;
-    }
-
-    .card-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 0.8rem;
-      border-top: 1px solid var(--ck-border);
-    }
-
-    .card-price {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--ck-gold);
-    }
-
-    .old-price {
-      font-size: 0.85rem;
-      color: var(--ck-muted);
-      text-decoration: line-through;
-      margin-right: 6px;
-      font-weight: 400;
-    }
-
-    .card-btn {
-      padding: 0.6rem 1.5rem;
-      background: var(--ck-card2);
-      color: var(--ck-text);
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      border: 1px solid var(--ck-border);
-      border-radius: 6px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .card-btn:hover {
-      background: var(--ck-accent);
-      color: #0F0F0F;
-      border-color: var(--ck-accent);
-    }
-
-    @media (max-width: 768px) {
-      .ck-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <section class="ck-products" id="ck-products">
-    <div class="section-head">
-      <h2>Calvin Klein <span>Collection</span></h2>
-      <p>Bold minimalism with clean lines and modern sophistication</p>
-    </div>
-
-    <div class="ck-grid">
-      <div class="ck-card">
-        <div class="card-badge">Best Seller</div>
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-badge">Best Seller</div>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="CK Logo Tee">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>CK Essentials Logo T-Shirt</h3>
-          <span class="card-cat">Tops</span>
-          <p class="card-desc">Signature logo t-shirt crafted from premium cotton with a modern regular fit.</p>
-          <div class="card-foot">
-            <span class="card-price">$45</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Tops</span>
+          <p class="brand-card-desc">Signature logo t-shirt crafted from premium cotton with a modern regular fit.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$45</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-badge badge-new">New</div>
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-badge brand-badge-new">New</div>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&q=80" alt="CK Slim Jeans">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Slim Fit Stretch Jeans</h3>
-          <span class="card-cat">Denim</span>
-          <p class="card-desc">Tailored slim-fit jeans with Comfort Stretch technology for effortless movement.</p>
-          <div class="card-foot">
-            <span class="card-price">$99</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Denim</span>
+          <p class="brand-card-desc">Tailored slim-fit jeans with Comfort Stretch technology for effortless movement.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$99</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400&q=80" alt="CK Hoodie">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Classic Logo Hoodie</h3>
-          <span class="card-cat">Tops</span>
-          <p class="card-desc">Premium fleece hoodie with bold logo print and a relaxed, everyday silhouette.</p>
-          <div class="card-foot">
-            <span class="card-price">$120</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Tops</span>
+          <p class="brand-card-desc">Premium fleece hoodie with bold logo print and a relaxed, everyday silhouette.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$120</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="CK Runner">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Performance Running Shoe</h3>
-          <span class="card-cat">Footwear</span>
-          <p class="card-desc">Streamlined running shoe with responsive foam midsole and minimalist CK branding.</p>
-          <div class="card-foot">
-            <span class="card-price">$130</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Footwear</span>
+          <p class="brand-card-desc">Streamlined running shoe with responsive foam midsole and minimalist CK branding.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$130</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-badge">Best Seller</div>
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-badge">Best Seller</div>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1571455786673-94909d0a32a0?w=400&q=80" alt="CK Underwear">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Underwear Multipack</h3>
-          <span class="card-cat">Essentials</span>
-          <p class="card-desc">Iconic waistband underwear set with stretch cotton and a supportive contoured pouch.</p>
-          <div class="card-foot">
-            <span class="card-price">$55</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Essentials</span>
+          <p class="brand-card-desc">Iconic waistband underwear set with stretch cotton and a supportive contoured pouch.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$55</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-badge badge-limited">Limited</div>
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-badge brand-badge-limited">Limited</div>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80" alt="CK Bomber">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Faux Leather Bomber Jacket</h3>
-          <span class="card-cat">Outerwear</span>
-          <p class="card-desc">Sleek faux leather bomber with ribbed cuffs and a minimalist CK logo zip pull.</p>
-          <div class="card-foot">
-            <span class="card-price">$250</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Outerwear</span>
+          <p class="brand-card-desc">Sleek faux leather bomber with ribbed cuffs and a minimalist CK logo zip pull.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$250</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400&q=80" alt="CK Swim">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Monogram Swim Trunks</h3>
-          <span class="card-cat">Swimwear</span>
-          <p class="card-desc">Quick-dry swim trunks with all-over monogram print and mesh lining for comfort.</p>
-          <div class="card-foot">
-            <span class="card-price">$79</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Swimwear</span>
+          <p class="brand-card-desc">Quick-dry swim trunks with all-over monogram print and mesh lining for comfort.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$79</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-badge badge-new">New</div>
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-badge brand-badge-new">New</div>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=400&q=80" alt="CK Jogger">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Logo Jogger Pants</h3>
-          <span class="card-cat">Bottoms</span>
-          <p class="card-desc">Tapered jogger pants with elastic cuffs and signature CK logo across the thigh.</p>
-          <div class="card-foot">
-            <span class="card-price">$89</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Bottoms</span>
+          <p class="brand-card-desc">Tapered jogger pants with elastic cuffs and signature CK logo across the thigh.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$89</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="CK Sneaker">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Minimalist Sneaker</h3>
-          <span class="card-cat">Footwear</span>
-          <p class="card-desc">Clean leather sneaker with subtle CK branding and a cushioned rubber sole.</p>
-          <div class="card-foot">
-            <span class="card-price">$100</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Footwear</span>
+          <p class="brand-card-desc">Clean leather sneaker with subtle CK branding and a cushioned rubber sole.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$100</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400&q=80" alt="CK Crew">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Cotton Crew T-Shirt 3-Pack</h3>
-          <span class="card-cat">Essentials</span>
-          <p class="card-desc">Everyday crew neck essentials in premium Pima cotton with a tag-free comfort design.</p>
-          <div class="card-foot">
-            <span class="card-price">$50</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Essentials</span>
+          <p class="brand-card-desc">Everyday crew neck essentials in premium Pima cotton with a tag-free comfort design.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$50</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-badge">Best Seller</div>
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-badge">Best Seller</div>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="CK Sport Coat">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Slim Fit Sport Coat</h3>
-          <span class="card-cat">Formal</span>
-          <p class="card-desc">Modern sport coat with a slim silhouette, notch lapel, and half-canvas construction.</p>
-          <div class="card-foot">
-            <span class="card-price">$299</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Formal</span>
+          <p class="brand-card-desc">Modern sport coat with a slim silhouette, notch lapel, and half-canvas construction.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$299</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-badge badge-new">New</div>
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-badge brand-badge-new">New</div>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80" alt="CK Jeans">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Calvin Klein Jeans Classic</h3>
-          <span class="card-cat">Denim</span>
-          <p class="card-desc">Heritage denim with an authentic straight fit and iconic CK waistband detail.</p>
-          <div class="card-foot">
-            <span class="card-price">$109</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Denim</span>
+          <p class="brand-card-desc">Heritage denim with an authentic straight fit and iconic CK waistband detail.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$109</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-badge badge-sale">-20%</div>
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-badge brand-badge-sale">-20%</div>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80" alt="CK Belt Bag">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Logo Belt Bag</h3>
-          <span class="card-cat">Accessories</span>
-          <p class="card-desc">Compact belt bag in durable nylon with an adjustable strap and embossed CK logo.</p>
-          <div class="card-foot">
-            <span class="card-price"><span class="old-price">$79</span> $63</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Accessories</span>
+          <p class="brand-card-desc">Compact belt bag in durable nylon with an adjustable strap and embossed CK logo.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price"><span class="brand-price-old">$79</span> $63</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="ck-card">
-        <div class="card-badge badge-limited">Limited</div>
-        <div class="card-img">
+      <div class="brand-card">
+        <div class="brand-badge brand-badge-limited">Limited</div>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&q=80" alt="CK Oxford">
         </div>
-        <div class="card-body">
+        <div class="brand-card-body">
           <h3>Stretch Oxford Shirt</h3>
-          <span class="card-cat">Tops</span>
-          <p class="card-desc">Modern stretch oxford with a tailored fit, mother-of-pearl buttons, and CK monogram.</p>
-          <div class="card-foot">
-            <span class="card-price">$89</span>
-            <button class="card-btn">Add to Cart</button>
+          <span class="brand-card-cat">Tops</span>
+          <p class="brand-card-desc">Modern stretch oxford with a tailored fit, mother-of-pearl buttons, and CK monogram.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$89</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-</body>
-</html>
+{% endblock %}

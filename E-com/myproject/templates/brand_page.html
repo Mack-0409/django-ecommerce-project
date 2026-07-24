@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block extra_css %}
+{% load static %}
+  <link rel="stylesheet" href="{% static 'CSS/brand_page.css' %}">
+  {% block brand_css %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+  <section class="brand-page">
+    <div class="brand-head">
+      <h1>{% block brand_title %}Brand{% endblock %} <span>Collection</span></h1>
+      <p>{% block brand_subtitle %}Premium footwear{% endblock %}</p>
+    </div>
+    <div class="brand-grid">
+      {% block brand_products %}{% endblock %}
+    </div>
+  </section>
+{% endblock %}

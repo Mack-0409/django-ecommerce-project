@@ -1,476 +1,233 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gucci — Luxury Redefined</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --gc-bg: #0B0F08;
-      --gc-card: #151A10;
-      --gc-card2: #1F2618;
-      --gc-text: #F0EDE4;
-      --gc-muted: rgba(240,237,228,0.55);
-      --gc-accent: #006B3F;
-      --gc-gold: #C5A55A;
-      --gc-border: rgba(255,255,255,0.07);
-    }
+{% extends 'brand_page.html' %}
 
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+{% block brand_css %}
+<style>
+  :root { --brand-accent: #006B3F; }
+</style>
+{% endblock %}
 
-    body {
-      background-color: var(--gc-bg);
-      color: var(--gc-text);
-      font-family: 'DM Sans', sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+{% block brand_title %}Gucci{% endblock %}
+{% block brand_subtitle %}Italian luxury craftsmanship with bold, contemporary elegance{% endblock %}
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
+{% block brand_products %}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      cursor: pointer;
-      border: none;
-      background: none;
-      font-family: inherit;
-    }
-
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--gc-bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--gc-card2);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--gc-accent);
-    }
-
-    ::selection {
-      background: var(--gc-accent);
-      color: var(--gc-text);
-    }
-
-    .gc-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-    }
-
-    .gc-head {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .gc-head h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 4.5rem;
-      letter-spacing: 0.05em;
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
-    }
-
-    .gc-head h1 span {
-      color: var(--gc-accent);
-    }
-
-    .gc-head p {
-      color: var(--gc-muted);
-      font-size: 1.05rem;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    .gc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .gc-card {
-      background: var(--gc-card);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--gc-border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-
-    .gc-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,107,63,0.15);
-    }
-
-    .gc-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      z-index: 2;
-      color: var(--gc-bg);
-      background: var(--gc-accent);
-    }
-
-    .gc-badge-new {
-      background: var(--gc-accent);
-      color: var(--gc-text);
-    }
-
-    .gc-badge-limited {
-      background: #7C3AED;
-      color: #fff;
-    }
-
-    .gc-badge-sale {
-      background: var(--gc-gold);
-      color: #111;
-    }
-
-    .gc-card-img {
-      aspect-ratio: 1/1;
-      overflow: hidden;
-      background: var(--gc-card2);
-    }
-
-    .gc-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .gc-card:hover .gc-card-img img {
-      transform: scale(1.08);
-    }
-
-    .gc-card-body {
-      padding: 1.2rem;
-    }
-
-    .gc-card-body h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.35rem;
-      letter-spacing: 0.03em;
-      margin-bottom: 0.25rem;
-    }
-
-    .gc-card-cat {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--gc-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .gc-card-desc {
-      font-size: 0.85rem;
-      color: var(--gc-muted);
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-
-    .gc-card-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 1rem;
-      border-top: 1px solid var(--gc-border);
-    }
-
-    .gc-price {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem;
-      color: var(--gc-gold);
-      letter-spacing: 0.03em;
-    }
-
-    .gc-price-old {
-      font-size: 0.8rem;
-      color: var(--gc-muted);
-      text-decoration: line-through;
-      margin-left: 0.4rem;
-    }
-
-    .gc-btn {
-      padding: 0.5rem 1.1rem;
-      background: var(--gc-card2);
-      color: var(--gc-text);
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      transition: background 0.25s ease;
-    }
-
-    .gc-btn:hover {
-      background: var(--gc-accent);
-    }
-
-    @media (max-width: 768px) {
-      .gc-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gc-head h1 {
-        font-size: 3rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <section class="gc-section">
-    <div class="gc-head">
-      <h1>Gucci <span>Collection</span></h1>
-      <p>Italian luxury craftsmanship with bold, contemporary elegance</p>
-    </div>
-    <div class="gc-grid">
-
-      <div class="gc-card">
-        <span class="gc-badge gc-badge-sale">Best Seller</span>
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-sale">Best Seller</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop" alt="Gucci Ace Sneaker">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Ace Sneaker</h3>
-          <div class="gc-card-cat">Luxury Sneakers</div>
-          <p class="gc-card-desc">Iconic low-top sneaker with signature green-red web stripe and interlocking G embroidery.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$850</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Luxury Sneakers</div>
+          <p class="brand-card-desc">Iconic low-top sneaker with signature green-red web stripe and interlocking G embroidery.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$850</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <span class="gc-badge gc-badge-new">New</span>
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">New</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop" alt="Gucci Rhyton Sneaker">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Rhyton Sneaker</h3>
-          <div class="gc-card-cat">Luxury Sneakers</div>
-          <p class="gc-card-desc">Chunky leather sneaker with vintage logo print and distressed detailing for effortless street style.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$920</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Luxury Sneakers</div>
+          <p class="brand-card-desc">Chunky leather sneaker with vintage logo print and distressed detailing for effortless street style.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$920</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop" alt="Gucci Screener Sneaker">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Screener Sneaker</h3>
-          <div class="gc-card-cat">Luxury Sneakers</div>
-          <p class="gc-card-desc">Retro-inspired sneaker with vintage wash canvas and triple G logo patch on the side.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$890</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Luxury Sneakers</div>
+          <p class="brand-card-desc">Retro-inspired sneaker with vintage wash canvas and triple G logo patch on the side.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$890</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <span class="gc-badge gc-badge-limited">Limited</span>
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-limited">Limited</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop" alt="Gucci Flashtrek Sneaker">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Flashtrek Sneaker</h3>
-          <div class="gc-card-cat">Luxury Sneakers</div>
-          <p class="gc-card-desc">Bold trail-inspired sneaker with removable crystal embellishment and chunky rubber sole.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$1,100</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Luxury Sneakers</div>
+          <p class="brand-card-desc">Bold trail-inspired sneaker with removable crystal embellishment and chunky rubber sole.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$1,100</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop" alt="Gucci Princetown Slipper">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Princetown Slipper</h3>
-          <div class="gc-card-cat">Luxury Loafers</div>
-          <p class="gc-card-desc">Signature backless loafer in smooth leather with the iconic horsebit hardware detail.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$780</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Luxury Loafers</div>
+          <p class="brand-card-desc">Signature backless loafer in smooth leather with the iconic horsebit hardware detail.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$780</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <span class="gc-badge gc-badge-sale">Best Seller</span>
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-sale">Best Seller</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=400&fit=crop" alt="Gucci Jordaan Loafer">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Jordaan Loafer</h3>
-          <div class="gc-card-cat">Luxury Loafers</div>
-          <p class="gc-card-desc">Timeless bit loafer crafted in polished leather with hand-stitched detailing and slim silhouette.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$920</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Luxury Loafers</div>
+          <p class="brand-card-desc">Timeless bit loafer crafted in polished leather with hand-stitched detailing and slim silhouette.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$920</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&h=400&fit=crop" alt="Gucci New Ace">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci New Ace</h3>
-          <div class="gc-card-cat">Luxury Sneakers</div>
-          <p class="gc-card-desc">Reimagined classic Ace sneaker with embroidered butterfly motif and metallic leather heel tab.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$690</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Luxury Sneakers</div>
+          <p class="brand-card-desc">Reimagined classic Ace sneaker with embroidered butterfly motif and metallic leather heel tab.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$690</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <span class="gc-badge gc-badge-new">New</span>
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">New</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400&h=400&fit=crop" alt="Gucci Ultrapace R">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Ultrapace R</h3>
-          <div class="gc-card-cat">Luxury Sneakers</div>
-          <p class="gc-card-desc">Running-inspired silhouette with technical mesh upper and bold GG Supreme print panel.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$950</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Luxury Sneakers</div>
+          <p class="brand-card-desc">Running-inspired silhouette with technical mesh upper and bold GG Supreme print panel.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$950</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <span class="gc-badge gc-badge-limited">Limited</span>
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-limited">Limited</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400&h=400&fit=crop" alt="Gucci Dive Watch">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Dive Watch</h3>
-          <div class="gc-card-cat">Accessories</div>
-          <p class="gc-card-desc">Stainless steel dive watch with interlocking G bezel and automatic movement, 200m water resistance.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$1,350</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Accessories</div>
+          <p class="brand-card-desc">Stainless steel dive watch with interlocking G bezel and automatic movement, 200m water resistance.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$1,350</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&h=400&fit=crop" alt="Gucci Belt Bag">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Belt Bag</h3>
-          <div class="gc-card-cat">Accessories</div>
-          <p class="gc-card-desc">GG Supreme canvas belt bag with adjustable web strap and gold-tone double G hardware.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$1,250</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Accessories</div>
+          <p class="brand-card-desc">GG Supreme canvas belt bag with adjustable web strap and gold-tone double G hardware.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$1,250</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <span class="gc-badge gc-badge-sale">Best Seller</span>
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-sale">Best Seller</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop" alt="Gucci Granato Loafer">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Granato Loafer</h3>
-          <div class="gc-card-cat">Luxury Loafers</div>
-          <p class="gc-card-desc">Penny loafer in rich grain leather with hand-burnished finish and artisanal Goodyear construction.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$870</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Luxury Loafers</div>
+          <p class="brand-card-desc">Penny loafer in rich grain leather with hand-burnished finish and artisanal Goodyear construction.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$870</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <span class="gc-badge gc-badge-new">New</span>
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">New</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400&h=400&fit=crop" alt="Gucci Tennis 1977">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Tennis 1977</h3>
-          <div class="gc-card-cat">Luxury Sneakers</div>
-          <p class="gc-card-desc">Heritage tennis sneaker in GG Supreme canvas with rubber toe cap and vintage-inspired vulcanized sole.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$750</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Luxury Sneakers</div>
+          <p class="brand-card-desc">Heritage tennis sneaker in GG Supreme canvas with rubber toe cap and vintage-inspired vulcanized sole.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$750</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <span class="gc-badge gc-badge-sale">-15%</span>
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-sale">-15%</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400&h=400&fit=crop" alt="Gucci Crossbody Bag">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Crossbody Bag</h3>
-          <div class="gc-card-cat">Accessories</div>
-          <p class="gc-card-desc">Compact leather crossbody with quilted chevron pattern, chain-link strap, and magnetic snap closure.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$1,232<span class="gc-price-old">$1,450</span></span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Accessories</div>
+          <p class="brand-card-desc">Compact leather crossbody with quilted chevron pattern, chain-link strap, and magnetic snap closure.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$1,232<span class="brand-price-old">$1,450</span></span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="gc-card">
-        <div class="gc-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400&h=400&fit=crop" alt="Gucci Horsebit Boot">
         </div>
-        <div class="gc-card-body">
+        <div class="brand-card-body">
           <h3>Gucci Horsebit Boot</h3>
-          <div class="gc-card-cat">Boots</div>
-          <p class="gc-card-desc">Chelsea boot in supple suede with signature horsebit detail and chunky commando sole for all-terrain wear.</p>
-          <div class="gc-card-foot">
-            <span class="gc-price">$1,050</span>
-            <button class="gc-btn">Add to Cart</button>
+          <div class="brand-card-cat">Boots</div>
+          <p class="brand-card-desc">Chelsea boot in supple suede with signature horsebit detail and chunky commando sole for all-terrain wear.</p>
+          <div class="brand-card-foot">
+            <span class="brand-price">$1,050</span>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-    </div>
-  </section>
-</body>
-</html>
+{% endblock %}

@@ -1,493 +1,236 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>H&M — Fashion & Quality at the Best Price</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --hm-bg: #140A0A;
-      --hm-card: #1E1212;
-      --hm-card2: #2A1A1A;
-      --hm-text: #F0EAE8;
-      --hm-muted: rgba(240,234,232,0.55);
-      --hm-accent: #E50010;
-      --hm-gold: #E50010;
-      --hm-border: rgba(255,255,255,0.07);
-    }
+{% extends 'brand_page.html' %}
 
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+{% block brand_css %}
+<style>
+  :root { --brand-accent: #E50010; }
+</style>
+{% endblock %}
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background-color: var(--hm-bg);
-      color: var(--hm-text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+{% block brand_title %}H&M{% endblock %}
+{% block brand_subtitle %}Fashion and quality at the best price for everyone{% endblock %}
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+{% block brand_products %}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      border: none;
-      outline: none;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--hm-bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--hm-card2);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--hm-accent);
-    }
-
-    ::selection {
-      background: var(--hm-accent);
-      color: #fff;
-    }
-
-    .hm-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-    }
-
-    .hm-head {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .hm-head h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
-      letter-spacing: 3px;
-      line-height: 1.1;
-      margin-bottom: 0.8rem;
-    }
-
-    .hm-head h1 span {
-      color: var(--hm-accent);
-    }
-
-    .hm-head p {
-      color: var(--hm-muted);
-      font-size: 1.05rem;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .hm-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .hm-card {
-      background: var(--hm-card);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--hm-border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-
-    .hm-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
-    }
-
-    .hm-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      z-index: 2;
-    }
-
-    .hm-badge-new {
-      background: var(--hm-accent);
-      color: #fff;
-    }
-
-    .hm-badge-limited {
-      background: #7C3AED;
-      color: #fff;
-    }
-
-    .hm-badge-sale {
-      background: var(--hm-gold);
-      color: #140A0A;
-    }
-
-    .hm-badge-best {
-      background: var(--hm-accent);
-      color: #fff;
-    }
-
-    .hm-card-img {
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hm-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .hm-card:hover .hm-card-img img {
-      transform: scale(1.08);
-    }
-
-    .hm-card-body {
-      padding: 1.2rem;
-    }
-
-    .hm-card-body h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.35rem;
-      letter-spacing: 1px;
-      margin-bottom: 0.3rem;
-    }
-
-    .hm-card-cat {
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      color: var(--hm-muted);
-      letter-spacing: 1.2px;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-
-    .hm-card-desc {
-      color: var(--hm-muted);
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-
-    .hm-card-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 0.9rem;
-      border-top: 1px solid var(--hm-border);
-    }
-
-    .hm-price {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      color: var(--hm-gold);
-      letter-spacing: 1px;
-    }
-
-    .hm-price-original {
-      font-size: 0.85rem;
-      color: var(--hm-muted);
-      text-decoration: line-through;
-      margin-left: 6px;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    .hm-btn {
-      background: var(--hm-card2);
-      color: var(--hm-text);
-      padding: 0.55rem 1.3rem;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .hm-btn:hover {
-      background: var(--hm-accent);
-      color: #fff;
-    }
-
-    @media (max-width: 768px) {
-      .hm-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hm-section {
-        padding: 3rem 1rem;
-      }
-
-      .hm-head h1 {
-        font-size: 2.5rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <section class="hm-section">
-    <div class="hm-head">
-      <h1>H&M <span>Collection</span></h1>
-      <p>Fashion and quality at the best price for everyone</p>
-    </div>
-
-    <div class="hm-grid">
-
-      <div class="hm-card">
-        <span class="hm-badge hm-badge-best">Best Seller</span>
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">Best Seller</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Relaxed Fit Hoodie">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Relaxed Fit Hoodie</h3>
-          <div class="hm-card-cat">Tops</div>
-          <p class="hm-card-desc">A soft cotton-blend hoodie with a relaxed fit, kangaroo pocket, and adjustable drawstring hood for everyday comfort.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$35</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Tops</div>
+          <p class="brand-card-desc">A soft cotton-blend hoodie with a relaxed fit, kangaroo pocket, and adjustable drawstring hood for everyday comfort.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$35</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <span class="hm-badge hm-badge-new">New</span>
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">New</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400" alt="Wide Leg Jeans">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Wide Leg Jeans</h3>
-          <div class="hm-card-cat">Bottoms</div>
-          <p class="hm-card-desc">High-waisted wide leg jeans in washed denim with a flattering silhouette and five-pocket styling.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$40</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Bottoms</div>
+          <p class="brand-card-desc">High-waisted wide leg jeans in washed denim with a flattering silhouette and five-pocket styling.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$40</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="Oversized Knit Sweater">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Oversized Knit Sweater</h3>
-          <div class="hm-card-cat">Tops</div>
-          <p class="hm-card-desc">Cozy oversized knit sweater with ribbed trunks and a dropped shoulder design for a laid-back aesthetic.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$50</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Tops</div>
+          <p class="brand-card-desc">Cozy oversized knit sweater with ribbed trunks and a dropped shoulder design for a laid-back aesthetic.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$50</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="Tailored Blazer">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Tailored Blazer</h3>
-          <div class="hm-card-cat">Outerwear</div>
-          <p class="hm-card-desc">Single-breasted blazer with a structured shoulder, notched lapels, and a slim tailored fit for polished looks.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$80</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Outerwear</div>
+          <p class="brand-card-desc">Single-breasted blazer with a structured shoulder, notched lapels, and a slim tailored fit for polished looks.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$80</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <span class="hm-badge hm-badge-best">Best Seller</span>
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">Best Seller</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400" alt="Linen Shirt">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Linen Shirt</h3>
-          <div class="hm-card-cat">Tops</div>
-          <p class="hm-card-desc">Lightweight linen-blend shirt with a relaxed fit, button-down collar, and chest pocket for warm-weather layering.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$30</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Tops</div>
+          <p class="brand-card-desc">Lightweight linen-blend shirt with a relaxed fit, button-down collar, and chest pocket for warm-weather layering.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$30</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400" alt="Cargo Trousers">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Cargo Trousers</h3>
-          <div class="hm-card-cat">Bottoms</div>
-          <p class="hm-card-desc">Utility-inspired cargo trousers with multiple flap pockets, an adjustable waist, and a tapered leg finish.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$45</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Bottoms</div>
+          <p class="brand-card-desc">Utility-inspired cargo trousers with multiple flap pockets, an adjustable waist, and a tapered leg finish.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$45</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <span class="hm-badge hm-badge-limited">Limited</span>
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-limited">Limited</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400" alt="Puffer Jacket">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Puffer Jacket</h3>
-          <div class="hm-card-cat">Outerwear</div>
-          <p class="hm-card-desc">Quilted puffer jacket with a water-repellent finish, snap-button closure, and a warm synthetic fill for winter days.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$90</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Outerwear</div>
+          <p class="brand-card-desc">Quilted puffer jacket with a water-repellent finish, snap-button closure, and a warm synthetic fill for winter days.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$90</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400" alt="Ribbed Tank Top">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Ribbed Tank Top</h3>
-          <div class="hm-card-cat">Tops</div>
-          <p class="hm-card-desc">Fitted ribbed tank top in stretch cotton with a scoop neckline, perfect as a standalone or layering piece.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$15</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Tops</div>
+          <p class="brand-card-desc">Fitted ribbed tank top in stretch cotton with a scoop neckline, perfect as a standalone or layering piece.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$15</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <span class="hm-badge hm-badge-new">New</span>
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">New</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400" alt="Slim Fit Chinos">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Slim Fit Chinos</h3>
-          <div class="hm-card-cat">Bottoms</div>
-          <p class="hm-card-desc">Classic slim fit chinos in twill fabric with a mid-rise waist, button and zip fly, and a clean tapered leg.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$40</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Bottoms</div>
+          <p class="brand-card-desc">Classic slim fit chinos in twill fabric with a mid-rise waist, button and zip fly, and a clean tapered leg.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$40</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400" alt="Long Cardigan">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Long Cardigan</h3>
-          <div class="hm-card-cat">Outerwear</div>
-          <p class="hm-card-desc">Longline open-front cardigan with a soft knit texture, side pockets, and a relaxed drape for effortless styling.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$60</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Outerwear</div>
+          <p class="brand-card-desc">Longline open-front cardigan with a soft knit texture, side pockets, and a relaxed drape for effortless styling.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$60</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <span class="hm-badge hm-badge-best">Best Seller</span>
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">Best Seller</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Regular Fit Oxford Shirt">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Regular Fit Oxford Shirt</h3>
-          <div class="hm-card-cat">Tops</div>
-          <p class="hm-card-desc">Timeless Oxford cotton shirt with a regular fit, button-down collar, and a curved hem for versatile wear.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$25</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Tops</div>
+          <p class="brand-card-desc">Timeless Oxford cotton shirt with a regular fit, button-down collar, and a curved hem for versatile wear.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$25</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <span class="hm-badge hm-badge-new">New</span>
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-new">New</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=400" alt="Cargo Shorts">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Cargo Shorts</h3>
-          <div class="hm-card-cat">Bottoms</div>
-          <p class="hm-card-desc">Relaxed-fit cargo shorts with utility side pockets, an elasticated waistband, and a knee-length cut for summer.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$30</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Bottoms</div>
+          <p class="brand-card-desc">Relaxed-fit cargo shorts with utility side pockets, an elasticated waistband, and a knee-length cut for summer.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$30</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <span class="hm-badge hm-badge-sale">-30%</span>
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-sale">-30%</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=400" alt="Denim Jacket">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Denim Jacket</h3>
-          <div class="hm-card-cat">Outerwear</div>
-          <p class="hm-card-desc">Classic trucker-style denim jacket with button-front closure, chest pockets, and a vintage washed finish.</p>
-          <div class="hm-card-foot">
+          <div class="brand-card-cat">Outerwear</div>
+          <p class="brand-card-desc">Classic trucker-style denim jacket with button-front closure, chest pockets, and a vintage washed finish.</p>
+          <div class="brand-card-foot">
             <div>
-              <span class="hm-price">$42</span>
-              <span class="hm-price-original">$60</span>
+              <span class="brand-price">$42</span>
+              <span class="brand-price-old">$60</span>
             </div>
-            <button class="hm-btn">Add to Cart</button>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <div class="hm-card">
-        <span class="hm-badge hm-badge-limited">Limited</span>
-        <div class="hm-card-img">
+      <div class="brand-card">
+        <span class="brand-badge brand-badge-limited">Limited</span>
+        <div class="brand-card-img">
           <img src="https://images.unsplash.com/photo-1563252722-6434563a985d?w=400" alt="Wool Blend Coat">
         </div>
-        <div class="hm-card-body">
+        <div class="brand-card-body">
           <h3>Wool Blend Coat</h3>
-          <div class="hm-card-cat">Outerwear</div>
-          <p class="hm-card-desc">Elegant wool-blend overcoat with a notch lapel, double-breasted button closure, and a knee-length silhouette.</p>
-          <div class="hm-card-foot">
-            <div class="hm-price">$100</div>
-            <button class="hm-btn">Add to Cart</button>
+          <div class="brand-card-cat">Outerwear</div>
+          <p class="brand-card-desc">Elegant wool-blend overcoat with a notch lapel, double-breasted button closure, and a knee-length silhouette.</p>
+          <div class="brand-card-foot">
+            <div class="brand-price">$100</div>
+            <button class="brand-btn">Add to Cart</button>
           </div>
         </div>
       </div>
 
-    </div>
-  </section>
-
-</body>
-</html>
+{% endblock %}
