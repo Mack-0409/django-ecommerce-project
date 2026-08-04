@@ -89,6 +89,6 @@ def update(request):
 def legal(request):
     return render(request, 'legal.html')
 '''
-profile data show user imcluding images
+profile data show user
 '''
 
