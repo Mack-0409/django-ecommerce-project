@@ -190,34 +190,4 @@ button {
   color: var(--bacca-gold);
 }
 
-.old-price {
-  font-size: 0.85rem;
-  color: var(--bacca-muted);
-  text-decoration: line-through;
-  margin-right: 6px;
-  font-weight: 400;
-}
 
-.card-btn {
-  padding: 0.6rem 1.5rem;
-  background: var(--bacca-card2);
-  color: var(--bacca-text);
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border: 1px solid var(--bacca-border);
-  border-radius: 6px;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.card-btn:hover {
-  background: var(--bacca-accent);
-  border-color: var(--bacca-accent);
-}
-
-@media (max-width: 768px) {
-  .bacca-grid {
-    grid-template-columns: 1fr;
-  }
-}
